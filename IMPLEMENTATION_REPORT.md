@@ -475,3 +475,349 @@ Successful. The full CDS model compiled and generated SQL without warnings or er
 ## Next Recommended Ticket
 
 Define CAP service exposure and authorization rules for the completed domain models before implementing any services.
+---
+
+# Ticket-008 – Identity Service Implementation Report
+
+## Files Created
+
+| File | Purpose |
+| --- | --- |
+| `srv/identity-service.cds` | Exposes the Identity domain through SAP CAP OData service using projections. |
+
+## Files Modified
+
+| File | Change |
+| --- | --- |
+| `IMPLEMENTATION_REPORT.md` | Updated with Ticket-008 implementation details, validation results, assumptions, and next recommended ticket. |
+
+Files intentionally not modified:
+
+- `db/`
+- `app/`
+- `mta.yaml`
+- `package.json`
+
+---
+
+## Service Name
+
+```text
+IdentityService
+```
+
+---
+
+## Service Exposed
+
+| Entity | Projection |
+| --- | --- |
+| `Users` | `smartprocurex.identity.User` |
+| `Roles` | `smartprocurex.identity.Role` |
+| `Departments` | `smartprocurex.identity.Department` |
+
+---
+
+## Implementation Details
+
+- Implemented using SAP CAP service projections.
+- No database entities were duplicated.
+- Existing CDS namespaces were reused.
+- Generic SAP CAP service provider is used.
+
+---
+
+## Service Handler
+
+Created: **No**
+
+Reason:
+
+No custom business logic is required during this implementation phase. SAP CAP generic providers automatically expose CRUD operations for projected entities.
+
+---
+
+## Validation Result
+
+Validation commands:
+
+```powershell
+cds build
+cds watch
+```
+
+Result:
+
+```text
+Successful.
+
+IdentityService started successfully.
+
+OData endpoint available.
+
+Metadata generated successfully.
+
+No compilation errors or runtime errors.
+```
+
+---
+
+## Service Endpoint
+
+```text
+/odata/v4/identity
+```
+
+---
+
+## Exposed OData Entities
+
+- Users
+- Roles
+- Departments
+
+---
+
+## Assumptions
+
+- Business logic will be implemented in a future ticket.
+- Authentication and authorization are intentionally deferred.
+- Generic CRUD operations provided by SAP CAP are sufficient.
+
+---
+
+## Next Recommended Ticket
+
+Implement the Supplier Service.
+
+---
+
+# Ticket-009 – Supplier Service Implementation Report
+
+## Files Created
+
+| File | Purpose |
+| --- | --- |
+| `srv/supplier-service.cds` | Exposes the Supplier domain through SAP CAP OData service using projections. |
+
+## Files Modified
+
+| File | Change |
+| --- | --- |
+| `IMPLEMENTATION_REPORT.md` | Updated with Ticket-009 implementation details, validation results, assumptions, and next recommended ticket. |
+
+Files intentionally not modified:
+
+- `db/`
+- `app/`
+- `mta.yaml`
+- `package.json`
+
+---
+
+## Service Name
+
+```text
+SupplierService
+```
+
+---
+
+## Service Exposed
+
+| Entity | Projection |
+| --- | --- |
+| `Suppliers` | `smartprocurex.supplier.Supplier` |
+| `SupplierContacts` | `smartprocurex.supplier.SupplierContact` |
+
+---
+
+## Implementation Details
+
+- Implemented using SAP CAP service projections.
+- Existing Supplier domain reused without modification.
+- Generic SAP CAP service provider used.
+
+---
+
+## Service Handler
+
+Created: **No**
+
+Reason:
+
+No business logic is required during this service exposure phase.
+
+---
+
+## Validation Result
+
+Validation commands:
+
+```powershell
+cds build
+cds watch
+```
+
+Result:
+
+```text
+Successful.
+
+SupplierService started successfully.
+
+OData endpoint available.
+
+Metadata generated successfully.
+
+No compilation errors or runtime errors.
+```
+
+---
+
+## Service Endpoint
+
+```text
+/odata/v4/supplier
+```
+
+---
+
+## Exposed OData Entities
+
+- Suppliers
+- SupplierContacts
+
+---
+
+## Assumptions
+
+- Validation rules will be implemented later.
+- Authorization is intentionally deferred.
+- Generic CRUD operations are sufficient.
+
+---
+
+## Next Recommended Ticket
+
+Implement the Procurement Service.
+
+---
+
+# Ticket-010 – Procurement Service Implementation Report
+
+## Files Created
+
+| File | Purpose |
+| --- | --- |
+| `srv/procurement-service.cds` | Exposes the Procurement domain through SAP CAP OData service using projections. |
+
+## Files Modified
+
+| File | Change |
+| --- | --- |
+| `IMPLEMENTATION_REPORT.md` | Updated with Ticket-010 implementation details, validation results, assumptions, and next recommended ticket. |
+
+Files intentionally not modified:
+
+- `db/`
+- `app/`
+- `mta.yaml`
+- `package.json`
+
+---
+
+## Service Name
+
+```text
+ProcurementService
+```
+
+---
+
+## Service Exposed
+
+| Entity | Projection |
+| --- | --- |
+| `PurchaseRequests` | `smartprocurex.procurement.PurchaseRequest` |
+| `PurchaseRequestItems` | `smartprocurex.procurement.PurchaseRequestItem` |
+| `Approvals` | `smartprocurex.procurement.Approval` |
+| `PurchaseOrders` | `smartprocurex.procurement.PurchaseOrder` |
+| `PurchaseOrderItems` | `smartprocurex.procurement.PurchaseOrderItem` |
+
+---
+
+## Implementation Details
+
+- Implemented using SAP CAP service projections.
+- Existing Procurement domain reused without modification.
+- Generic SAP CAP service provider used.
+- No event handlers or business logic added.
+
+---
+
+## Service Handler
+
+Created: **No**
+
+Reason:
+
+Business rules, approval workflow, automatic Purchase Order generation, validations, and custom actions are planned for later implementation phases.
+
+---
+
+## Validation Result
+
+Validation commands:
+
+```powershell
+cds build
+cds watch
+```
+
+Result:
+
+```text
+Successful.
+
+ProcurementService started successfully.
+
+OData endpoint available.
+
+Metadata generated successfully.
+
+No compilation errors or runtime errors.
+```
+
+---
+
+## Service Endpoint
+
+```text
+/odata/v4/procurement
+```
+
+---
+
+## Exposed OData Entities
+
+- PurchaseRequests
+- PurchaseRequestItems
+- Approvals
+- PurchaseOrders
+- PurchaseOrderItems
+
+---
+
+## Assumptions
+
+- Service currently exposes only CRUD endpoints.
+- Approval workflow will be implemented later.
+- Business validations are intentionally deferred.
+- Generic SAP CAP service provider is sufficient for this implementation.
+
+---
+
+## Next Recommended Ticket
+
+Implement the Warehouse Service.
