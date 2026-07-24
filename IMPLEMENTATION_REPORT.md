@@ -820,4 +820,349 @@ No compilation errors or runtime errors.
 
 ## Next Recommended Ticket
 
-Implement the Warehouse Service.
+Implement the Warehouse Service.---
+
+# Ticket-011 – Warehouse Service Implementation Report
+
+## Files Created
+
+| File | Purpose |
+| --- | --- |
+| `srv/warehouse-service.cds` | Exposes the Warehouse domain through SAP CAP OData service using projections. |
+
+## Files Modified
+
+| File | Change |
+| --- | --- |
+| `IMPLEMENTATION_REPORT.md` | Updated with Ticket-011 implementation details, validation results, assumptions, and next recommended ticket. |
+
+Files intentionally not modified:
+
+- `db/`
+- `app/`
+- `mta.yaml`
+- `package.json`
+
+---
+
+## Service Name
+
+```text
+WarehouseService
+```
+
+---
+
+## Service Exposed
+
+| Entity | Projection |
+| --- | --- |
+| `Warehouses` | `smartprocurex.warehouse.Warehouse` |
+| `GoodsReceipts` | `smartprocurex.warehouse.GoodsReceipt` |
+| `InventoryItems` | `smartprocurex.warehouse.InventoryItem` |
+
+---
+
+## Implementation Details
+
+- Implemented using SAP CAP service projections.
+- Existing Warehouse domain reused without modification.
+- Generic SAP CAP service provider used.
+- No custom event handlers or business logic implemented.
+
+---
+
+## Service Handler
+
+Created: **No**
+
+Reason:
+
+Business logic for warehouse operations, goods receipt processing, inventory updates, and stock validation will be implemented during the business logic phase.
+
+---
+
+## Validation Result
+
+Validation commands:
+
+```powershell
+cds build
+cds watch
+```
+
+Result:
+
+```text
+Successful.
+
+WarehouseService started successfully.
+
+OData endpoint available.
+
+Metadata generated successfully.
+
+No compilation errors or runtime errors.
+```
+
+---
+
+## Service Endpoint
+
+```text
+/odata/v4/warehouse
+```
+
+---
+
+## Exposed OData Entities
+
+- Warehouses
+- GoodsReceipts
+- InventoryItems
+
+---
+
+## Assumptions
+
+- Warehouse entities are exposed using SAP CAP projections.
+- Generic CRUD operations provided by SAP CAP are sufficient for this phase.
+- Inventory management logic will be implemented in a future ticket.
+- Authentication and authorization are intentionally deferred.
+
+---
+
+## Next Recommended Ticket
+
+Implement the Asset Service.
+---
+
+# Ticket-012 – Asset Service Implementation Report
+
+## Files Created
+
+| File | Purpose |
+| --- | --- |
+| `srv/asset-service.cds` | Exposes the Asset domain through SAP CAP OData service using projections. |
+
+## Files Modified
+
+| File | Change |
+| --- | --- |
+| `IMPLEMENTATION_REPORT.md` | Updated with Ticket-012 implementation details, validation results, assumptions, and next recommended ticket. |
+
+Files intentionally not modified:
+
+- `db/`
+- `app/`
+- `mta.yaml`
+- `package.json`
+
+---
+
+## Service Name
+
+```text
+AssetService
+```
+
+---
+
+## Service Exposed
+
+| Entity | Projection |
+| --- | --- |
+| `AssetCategories` | `smartprocurex.asset.AssetCategory` |
+| `Assets` | `smartprocurex.asset.Asset` |
+| `AssetAssignments` | `smartprocurex.asset.AssetAssignment` |
+
+---
+
+## Implementation Details
+
+- Implemented using SAP CAP service projections.
+- Existing Asset domain reused without modification.
+- Generic SAP CAP service provider used.
+- No custom event handlers or business logic implemented.
+
+---
+
+## Service Handler
+
+Created: **No**
+
+Reason:
+
+Business logic for asset lifecycle management, assignment tracking, maintenance, and disposal will be implemented during a later phase.
+
+---
+
+## Validation Result
+
+Validation commands:
+
+```powershell
+cds build
+cds watch
+```
+
+Result:
+
+```text
+Successful.
+
+AssetService started successfully.
+
+OData endpoint available.
+
+Metadata generated successfully.
+
+No compilation errors or runtime errors.
+```
+
+---
+
+## Service Endpoint
+
+```text
+/odata/v4/asset
+```
+
+---
+
+## Exposed OData Entities
+
+- AssetCategories
+- Assets
+- AssetAssignments
+
+---
+
+## Assumptions
+
+- Asset entities are exposed using SAP CAP projections.
+- Generic CRUD operations provided by SAP CAP are sufficient for this phase.
+- Asset lifecycle business rules will be implemented later.
+- Authentication and authorization are intentionally deferred.
+
+---
+
+## Next Recommended Ticket
+
+Implement the Platform Support Service.
+
+---
+
+# Ticket-013 – Platform Support Service Implementation Report
+
+## Files Created
+
+| File | Purpose |
+| --- | --- |
+| `srv/platform-service.cds` | Exposes the Platform Support domain through SAP CAP OData service using projections. |
+
+## Files Modified
+
+| File | Change |
+| --- | --- |
+| `IMPLEMENTATION_REPORT.md` | Updated with Ticket-013 implementation details, validation results, assumptions, and next recommended phase. |
+
+Files intentionally not modified:
+
+- `db/`
+- `app/`
+- `mta.yaml`
+- `package.json`
+
+---
+
+## Service Name
+
+```text
+PlatformService
+```
+
+---
+
+## Service Exposed
+
+| Entity | Projection |
+| --- | --- |
+| `Notifications` | `smartprocurex.platform.Notification` |
+| `AuditLogs` | `smartprocurex.platform.AuditLog` |
+| `Settings` | `smartprocurex.platform.Settings` |
+
+---
+
+## Implementation Details
+
+- Implemented using SAP CAP service projections.
+- Existing Platform Support domain reused without modification.
+- Generic SAP CAP service provider used.
+- No custom event handlers or business logic implemented.
+
+---
+
+## Service Handler
+
+Created: **No**
+
+Reason:
+
+Notification generation, audit logging, and application configuration management will be implemented during the business logic phase.
+
+---
+
+## Validation Result
+
+Validation commands:
+
+```powershell
+cds build
+cds watch
+```
+
+Result:
+
+```text
+Successful.
+
+PlatformService started successfully.
+
+OData endpoint available.
+
+Metadata generated successfully.
+
+No compilation errors or runtime errors.
+```
+
+---
+
+## Service Endpoint
+
+```text
+/odata/v4/platform
+```
+
+---
+
+## Exposed OData Entities
+
+- Notifications
+- AuditLogs
+- Settings
+
+---
+
+## Assumptions
+
+- Platform Support entities are exposed using SAP CAP projections.
+- Generic CRUD operations provided by SAP CAP are sufficient for this phase.
+- Notification delivery, audit event generation, and application configuration logic will be implemented later.
+- Authentication and authorization are intentionally deferred.
+
+---
+
+## Next Recommended Phase
+
+Begin implementing business logic, validations, custom actions, and approval workflows for SmartProcureX.
