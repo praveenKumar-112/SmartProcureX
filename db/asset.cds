@@ -27,16 +27,30 @@ entity AssetCategory : cuid, managed {
 }
 
 entity Asset : cuid, managed {
-  assetCode      : String(50)  not null;
-  assetName      : String(150) not null;
-  assetCategory  : Association to AssetCategory;
-  inventoryItem  : Association to InventoryItem;
-  serialNumber   : String(100);
-  purchaseDate   : Date;
-  warrantyExpiry : Date;
-  assetStatus    : AssetStatus not null default #Available;
-  assignments    : Composition of many AssetAssignment
-                     on assignments.asset = $self;
+  assetCode         : String(50)  not null;
+  assetName         : String(150) not null;
+  assetCategory     : Association to AssetCategory;
+  inventoryItem     : Association to InventoryItem;
+  serialNumber      : String(100);
+  purchaseDate      : Date;
+  warrantyExpiry    : Date;
+  assetStatus       : AssetStatus not null default #Available;
+  condition         : String(30) default 'Good';
+
+  // Lifecycle audit fields (AD-20 - asset audit columns).
+  assignedTo        : Association to User;
+  assignedAt        : DateTime;
+  currentAssignment : Association to AssetAssignment;
+  retiredAt         : DateTime;
+  retiredBy         : Association to User;
+  retirementReason  : String(1000);
+  disposedAt        : DateTime;
+  disposedBy        : Association to User;
+  disposalReason    : String(1000);
+  cancellationReason: String(1000);
+
+  assignments       : Composition of many AssetAssignment
+                        on assignments.asset = $self;
 }
 
 entity AssetAssignment : cuid, managed {
@@ -46,4 +60,7 @@ entity AssetAssignment : cuid, managed {
   expectedReturnDate : Date;
   returnedDate       : Date;
   assignmentStatus   : AssignmentStatus not null default #Assigned;
+  returnRemarks      : String(1000);
+  assignedBy         : Association to User;
+  returnedBy         : Association to User;
 }
