@@ -158,6 +158,15 @@ export default cds.service.impl(function () {
         req.data.role_ID = roleID ?? null;
         req.data.sender_ID = senderID ?? null;
 
+        // Internal control flags consumed by the hook above must never
+        // reach the database (they are not Notification columns).
+        if ('bypassRecipientValidation' in req.data) {
+            delete req.data.bypassRecipientValidation;
+        }
+        if ('bypassHooks' in req.data) {
+            delete req.data.bypassHooks;
+        }
+
         // Exactly one routing target must be present.
         const targets = [recipientID, departmentID, roleID].filter(Boolean);
         if (targets.length === 0) {
@@ -175,9 +184,17 @@ export default cds.service.impl(function () {
             if (!identity.Users) {
                 return req.reject(500, 'Identity service is not available.');
             }
-            const user = await resolveRecipient(tx, recipientID, identity);
-            if (!user) {
-                return req.reject(404, 'Recipient not found.', 'recipient_ID');
+            // Auto-emission from trusted internal handlers sets
+            // `bypassRecipientValidation` so that firing a notification for
+            // a business event whose actor is not a registered Identity
+            // Service user (e.g. a service-side integration identity) does
+            // not roll back the originating business write. The flag is
+            // stripped before the row is persisted.
+            if (req.data.bypassRecipientValidation !== true) {
+                const user = await resolveRecipient(tx, recipientID, identity);
+                if (!user) {
+                    return req.reject(404, 'Recipient not found.', 'recipient_ID');
+                }
             }
         }
         if (departmentID) {

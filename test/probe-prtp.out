@@ -1,0 +1,7 @@
+  > init from db\data\smartprocurex.common-NumberRanges.csv 
+/> successfully deployed to in-memory database. 
+
+Test 1: Procurement.tx + generateBusinessNumber...
+  err: undefined Target smartprocurex.common.NumberRanges cannot be resolved for service ProcurementService
+Test 2: Procurement.tx + tx.run(INSERT into PRs) (entity dispatch)...
+  err: 400 Requested By is mandatory.

@@ -1,6 +1,6 @@
 import cds from '@sap/cds';
 import { generateBusinessNumber } from '../common/number-range.js';
-import { DOCUMENT_PREFIX } from '../common/constants.js';
+import { DOCUMENT_PREFIX, NOTIFICATION_EVENT } from '../common/constants.js';
 import { todayIsoDate, nowIsoTimestamp, associationId } from '../common/utils.js';
 import {
     getAsset,
@@ -14,6 +14,7 @@ import {
     categoryCodeExists
 } from '../common/asset-service-helpers.js';
 import { normalizeUserId } from '../common/procurement-service-helpers.js';
+import { emitBusinessNotification } from '../common/notification-service-helpers.js';
 
 const { SELECT, UPDATE } = cds.ql;
 
@@ -30,6 +31,23 @@ function identityUsers() {
 
 function warehouseInventoryItems() {
     return cds.services.WarehouseService?.entities?.InventoryItems ?? null;
+}
+
+function platformNotifications() {
+    return cds.services.PlatformService?.entities?.Notifications ?? null;
+}
+
+// ---------------------------------------------------------------------------
+// Notification auto-emission wrapper for the asset domain. Joins the new
+// Notification row to the originating tx so emission is atomic with the
+// business action (AD-21). Silently skips when PlatformService is
+// unavailable so the asset flow stays robust when notifications are
+// quenched in a deployment that does not need them.
+// ---------------------------------------------------------------------------
+async function emitAssetNotification(tx, event, payload) {
+    const Notifications = platformNotifications();
+    if (!Notifications) return null;
+    return emitBusinessNotification(tx, event, payload, { Notifications });
 }
 
 // ---------------------------------------------------------------------------
@@ -316,6 +334,17 @@ export default cds.service.impl(function () {
             }
         );
 
+        // Auto-emit AssetAssigned notification to the employee who received
+        // the asset (the natural audience of the assignment event).
+        await emitAssetNotification(tx, NOTIFICATION_EVENT.ASSET_ASSIGNED, {
+            documentNumber: asset.assetCode,
+            actor: assignedByID ?? 'system',
+            recipientID: employeeID,
+            referenceEntity: 'Asset',
+            referenceID: assetID,
+            parentDocument: employee.employeeId
+        });
+
         return true;
 
     });
@@ -383,6 +412,15 @@ export default cds.service.impl(function () {
                 currentAssignment_ID: null
             }
         );
+
+        // Auto-emit AssetReturned notification to the original employee.
+        await emitAssetNotification(tx, NOTIFICATION_EVENT.ASSET_RETURNED, {
+            documentNumber: (await getAsset(tx, assignment.asset_ID, _helperEntities))?.assetCode ?? '',
+            actor: returnedByID ?? 'system',
+            recipientID: assignment.employee_ID,
+            referenceEntity: 'Asset',
+            referenceID: assignment.asset_ID
+        });
 
         return true;
 
@@ -503,6 +541,20 @@ export default cds.service.impl(function () {
             }
         );
 
+        // Auto-emit AssetRetired notification to the actor (the asset has
+        // no current assignee at this point since the retire guard
+        // required the active assignment to be returned first).
+        if (retiredByID) {
+            await emitAssetNotification(tx, NOTIFICATION_EVENT.ASSET_RETIRED, {
+                documentNumber: asset.assetCode,
+                actor: retiredByID,
+                recipientID: retiredByID,
+                referenceEntity: 'Asset',
+                referenceID: assetID,
+                reason: String(reason).slice(0, 500)
+            });
+        }
+
         return true;
 
     });
@@ -551,6 +603,20 @@ export default cds.service.impl(function () {
                 disposalReason: String(reason).slice(0, 1000)
             }
         );
+
+        // Auto-emit AssetDisposed notification to the actor. Disposal is a
+        // critical-priority event in the catalog because it represents the
+        // final physical removal of the asset from the books.
+        if (disposedByID) {
+            await emitAssetNotification(tx, NOTIFICATION_EVENT.ASSET_DISPOSED, {
+                documentNumber: asset.assetCode,
+                actor: disposedByID,
+                recipientID: disposedByID,
+                referenceEntity: 'Asset',
+                referenceID: assetID,
+                reason: String(reason).slice(0, 500)
+            });
+        }
 
         return true;
 

@@ -1,6 +1,6 @@
 import cds from '@sap/cds';
 import { generateBusinessNumber } from '../common/number-range.js';
-import { DOCUMENT_PREFIX } from '../common/constants.js';
+import { DOCUMENT_PREFIX, NOTIFICATION_EVENT } from '../common/constants.js';
 import { todayIsoDate, nowIsoTimestamp, associationId } from '../common/utils.js';
 import {
     applyInventoryMovement,
@@ -9,9 +9,11 @@ import {
     createInventoryItem,
     getGoodsReceiptWithDetails,
     syncPurchaseOrderReceiptStatus,
-    incrementPurchaseOrderItemReceived
+    incrementPurchaseOrderItemReceived,
+    dbRun
 } from '../common/warehouse-service-helpers.js';
 import { normalizeUserId } from '../common/procurement-service-helpers.js';
+import { emitBusinessNotification } from '../common/notification-service-helpers.js';
 
 const { SELECT, INSERT, UPDATE, DELETE } = cds.ql;
 
@@ -26,6 +28,23 @@ function procurementEntities() {
         PurchaseOrders: svc?.entities?.PurchaseOrders ?? null,
         PurchaseOrderItems: svc?.entities?.PurchaseOrderItems ?? null
     };
+}
+
+function platformNotifications() {
+    return cds.services.PlatformService?.entities?.Notifications ?? null;
+}
+
+// ---------------------------------------------------------------------------
+// Notification auto-emission wrapper for the warehouse domain. Joins the
+// new Notification row to the originating tx so emission is atomic with
+// the business action (AD-21). Silently skips when the PlatformService
+// is unavailable so the warehouse flow stays robust even when
+// notifications are quenched.
+// ---------------------------------------------------------------------------
+async function emitWarehouseNotification(tx, event, payload) {
+    const Notifications = platformNotifications();
+    if (!Notifications) return null;
+    return emitBusinessNotification(tx, event, payload, { Notifications });
 }
 
 // ---------------------------------------------------------------------------
@@ -94,6 +113,29 @@ export default cds.service.impl(function () {
     });
 
     // ============================================================
+    // Warehouse - after-CREATE: emit WarehouseEvent notification
+    // ============================================================
+    // The ticket lists "Warehouse Events" among the auto-emission
+    // categories. The natural warehouse-level event is the creation of
+    // a new warehouse. We notify the actor so the audit trail is
+    // self-contained, mirroring the inventory-event recipient policy.
+    // ------------------------------------------------------------
+    this.after('CREATE', Warehouses, async (results, req) => {
+        const actorID = normalizeUserId(req?.user?.id);
+        const warehouseID = results?.ID ?? req?.data?.ID ?? null;
+        if (!actorID || !warehouseID) return;
+        const tx = cds.transaction(req);
+        await emitWarehouseNotification(tx, NOTIFICATION_EVENT.WAREHOUSE_EVENT, {
+            documentNumber: req.data.warehouseCode,
+            actor: actorID,
+            recipientID: actorID,
+            referenceEntity: 'Warehouse',
+            referenceID: warehouseID,
+            reason: `Warehouse ${req.data.warehouseCode} created`
+        });
+    });
+
+    // ============================================================
     // Goods Receipt - before-CREATE validation
     // ============================================================
     this.before('CREATE', GoodsReceipts, async (req) => {
@@ -119,7 +161,15 @@ export default cds.service.impl(function () {
             return req.reject(500, 'Procurement service is not available.');
         }
 
-        const po = await tx.run(
+        // PurchaseOrders is a ProcurementService entity that is NOT
+        // projected into WarehouseService; routing the SELECT through
+        // the shared `cds.db` facade (wrapped by `dbRun` for the
+        // @cap-js/sqlite nested-tx deadlock workaround; see
+        // warehouse-service-helpers.js header) lets the WarehouseService
+        // tx resolve it without raising
+        // "Target ProcurementService.PurchaseOrders cannot be resolved
+        //  for service WarehouseService".
+        const po = await dbRun(
             SELECT.one
                 .from(PurchaseOrders)
                 .columns('ID', 'status')
@@ -209,7 +259,10 @@ export default cds.service.impl(function () {
         const { PurchaseOrderItems } = procurementEntities();
         if (!PurchaseOrderItems) return req.reject(500, 'Procurement service is not available.');
 
-        const poItem = await tx.run(
+        // PurchaseOrderItems is a ProcurementService entity not projected
+        // into WarehouseService -> route through the shared `cds.db`
+        // facade via `dbRun` (see helpers header for rationale).
+        const poItem = await dbRun(
             SELECT.one
                 .from(PurchaseOrderItems)
                 .columns('ID', 'quantity', 'receivedQuantity')
@@ -339,6 +392,19 @@ export default cds.service.impl(function () {
                 .where({ ID: goodsReceiptID })
         );
 
+        // Auto-emit GR posted notification. The recipient is the actor who
+        // performed the posting (they hold the authoritative audit trace).
+        if (userId) {
+            await emitWarehouseNotification(tx, NOTIFICATION_EVENT.GOODS_RECEIPT_POSTED, {
+                documentNumber: gr.goodsReceiptNumber,
+                actor: userId,
+                recipientID: userId,
+                referenceEntity: 'GoodsReceipt',
+                referenceID: goodsReceiptID,
+                parentDocument: gr.purchaseOrder_ID
+            });
+        }
+
         return true;
 
     });
@@ -410,6 +476,18 @@ export default cds.service.impl(function () {
                 .where({ ID: goodsReceiptID })
         );
 
+        // Auto-emit GR cancelled notification.
+        if (userId) {
+            await emitWarehouseNotification(tx, NOTIFICATION_EVENT.GOODS_RECEIPT_CANCELLED, {
+                documentNumber: gr.goodsReceiptNumber,
+                actor: userId,
+                recipientID: userId,
+                referenceEntity: 'GoodsReceipt',
+                referenceID: goodsReceiptID,
+                reason: String(reason).slice(0, 500)
+            });
+        }
+
         return true;
 
     });
@@ -471,6 +549,19 @@ export default cds.service.impl(function () {
             performedBy_ID: normalizeUserId(req?.user?.id)
         }, _helperEntities);
 
+        // Auto-emit inventory adjustment notification to the actor.
+        const adjActorID = normalizeUserId(req?.user?.id);
+        if (adjActorID) {
+            await emitWarehouseNotification(tx, NOTIFICATION_EVENT.INVENTORY_ADJUSTMENT, {
+                documentNumber: item.itemCode,
+                actor: adjActorID,
+                recipientID: adjActorID,
+                referenceEntity: 'InventoryItem',
+                referenceID: inventoryItemID,
+                quantity: String(newQuantity)
+            });
+        }
+
         return true;
     });
 
@@ -505,6 +596,19 @@ export default cds.service.impl(function () {
             remarks: remarks || 'Stock reservation',
             performedBy_ID: normalizeUserId(req?.user?.id)
         }, _helperEntities);
+
+        // Auto-emit inventory reservation notification to the actor.
+        const resvActorID = normalizeUserId(req?.user?.id);
+        if (resvActorID) {
+            await emitWarehouseNotification(tx, NOTIFICATION_EVENT.INVENTORY_RESERVATION, {
+                documentNumber: item.itemCode,
+                actor: resvActorID,
+                recipientID: resvActorID,
+                referenceEntity: 'InventoryItem',
+                referenceID: inventoryItemID,
+                quantity: String(quantity)
+            });
+        }
 
         return true;
     });
@@ -568,6 +672,19 @@ export default cds.service.impl(function () {
             remarks: remarks || 'Markdamaged stock',
             performedBy_ID: normalizeUserId(req?.user?.id)
         }, _helperEntities);
+
+        // Auto-emit inventory damage notification to the actor.
+        const dmgActorID = normalizeUserId(req?.user?.id);
+        if (dmgActorID) {
+            await emitWarehouseNotification(tx, NOTIFICATION_EVENT.INVENTORY_DAMAGE, {
+                documentNumber: item.itemCode,
+                actor: dmgActorID,
+                recipientID: dmgActorID,
+                referenceEntity: 'InventoryItem',
+                referenceID: inventoryItemID,
+                quantity: String(quantity)
+            });
+        }
 
         return true;
     });
@@ -650,6 +767,18 @@ export default cds.service.impl(function () {
             remarks: `Transfer from ${srcItem.warehouse_ID}: ${remarks || ''}`,
             performedBy_ID: userId
         }, _helperEntities);
+
+        // Auto-emit inventory transfer notification to the actor.
+        if (userId) {
+            await emitWarehouseNotification(tx, NOTIFICATION_EVENT.INVENTORY_TRANSFER, {
+                documentNumber: srcItem.itemCode,
+                actor: userId,
+                recipientID: userId,
+                referenceEntity: 'InventoryItem',
+                referenceID: inventoryItemID,
+                quantity: String(quantity)
+            });
+        }
 
         return true;
     });

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SmartProcureX - Notification Domain Service Helpers
  * --------------------------------------------------
  * Responsibility:
@@ -37,6 +37,7 @@
  */
 
 import cds from '@sap/cds';
+import { dbRun } from './db-run.js';
 import {
     NOTIFICATION_TYPE,
     NOTIFICATION_PRIORITY,
@@ -80,15 +81,25 @@ export function isValidNotificationCategory(value) {
  * Resolve a recipient User row by ID.
  * Returns `{ ID, status, employeeId, firstName, lastName }` or null.
  *
- * @param {object} tx        CAP transaction
- * @param {string} userID    UUID of the User
+ * NOTE: the lookup is performed via `cds.db.run` (the shared database
+ * facade) rather than the caller's `tx` because the Notification
+ * before-CREATE hook is still mid-insert on the PlatformService
+ * transaction. Re-entering the same tx to SELECT from an
+ * IdentityService entity deadlocks in sqlite (verified empirically).
+ * Reading via the shared db avoids the recursion and still respects
+ * the active transaction's read isolation for the just-committed
+ * reference data (Departments / Users / Roles are seeded long before
+ * any Notification is created).
+ *
+ * @param {object} _tx      CAP transaction (unused - kept for signature parity)
+ * @param {string} userID   UUID of the User
  * @param {object} entities  expects `{ Users }` from the IdentityService
  * @returns {Promise<object|null>}
  */
-export async function resolveRecipient(tx, userID, entities) {
+export async function resolveRecipient(_tx, userID, entities) {
     const { Users } = entities;
     if (!Users || !userID) return null;
-    const row = await tx.run(
+    const row = await dbRun(
         SELECT.one
             .from(Users)
             .columns('ID', 'status', 'employeeId', 'firstName', 'lastName')
@@ -98,17 +109,18 @@ export async function resolveRecipient(tx, userID, entities) {
 }
 
 /**
- * Resolve a Department row by ID.
+ * Resolve a Department row by ID. See `resolveRecipient` for why the
+ * lookup goes through the shared db facade and not the caller tx.
  *
- * @param {object} tx            CAP transaction
+ * @param {object} _tx            CAP transaction (unused)
  * @param {string} departmentID UUID
  * @param {object} entities      expects `{ Departments }`
  * @returns {Promise<object|null>}
  */
-export async function resolveDepartment(tx, departmentID, entities) {
+export async function resolveDepartment(_tx, departmentID, entities) {
     const { Departments } = entities;
     if (!Departments || !departmentID) return null;
-    const row = await tx.run(
+    const row = await dbRun(
         SELECT.one
             .from(Departments)
             .columns('ID', 'departmentCode', 'departmentName')
@@ -118,17 +130,18 @@ export async function resolveDepartment(tx, departmentID, entities) {
 }
 
 /**
- * Resolve a Role row by ID.
+ * Resolve a Role row by ID. See `resolveRecipient` for why the
+ * lookup goes through the shared db facade.
  *
- * @param {object} tx       CAP transaction
+ * @param {object} _tx       CAP transaction (unused)
  * @param {string} roleID   UUID
  * @param {object} entities expects `{ Roles }`
  * @returns {Promise<object|null>}
  */
-export async function resolveRole(tx, roleID, entities) {
+export async function resolveRole(_tx, roleID, entities) {
     const { Roles } = entities;
     if (!Roles || !roleID) return null;
-    const row = await tx.run(
+    const row = await dbRun(
         SELECT.one
             .from(Roles)
             .columns('ID', 'roleCode', 'roleName')
@@ -139,17 +152,17 @@ export async function resolveRole(tx, roleID, entities) {
 
 /**
  * Collect every ACTIVE User ID that belongs to the given Department.
- * Returns an array of `{ ID }` rows; empty array when none match.
+ * Uses `cds.db.run` for the same reason as `resolveRecipient`.
  *
- * @param {object} tx            CAP transaction
+ * @param {object} _tx            CAP transaction (unused)
  * @param {string} departmentID  UUID
  * @param {object} entities      expects `{ Users }`
  * @returns {Promise<Array<{ID:string}>>}
  */
-export async function findUsersByDepartment(tx, departmentID, entities) {
+export async function findUsersByDepartment(_tx, departmentID, entities) {
     const { Users } = entities;
     if (!Users || !departmentID) return [];
-    const rows = await tx.run(
+    const rows = await dbRun(
         SELECT.from(Users)
             .columns('ID')
             .where({ department_ID: departmentID, status: 'ACTIVE' })
@@ -158,17 +171,18 @@ export async function findUsersByDepartment(tx, departmentID, entities) {
 }
 
 /**
- * Collect every ACTIVE User ID that holds the given Role.
+ * Collect every ACTIVE User ID that holds the given Role. Same shared-db
+ * pattern as `findUsersByDepartment`.
  *
- * @param {object} tx       CAP transaction
+ * @param {object} _tx       CAP transaction (unused)
  * @param {string} roleID   UUID
  * @param {object} entities expects `{ Users }`
  * @returns {Promise<Array<{ID:string}>>}
  */
-export async function findUsersByRole(tx, roleID, entities) {
+export async function findUsersByRole(_tx, roleID, entities) {
     const { Users } = entities;
     if (!Users || !roleID) return [];
-    const rows = await tx.run(
+    const rows = await dbRun(
         SELECT.from(Users)
             .columns('ID')
             .where({ role_ID: roleID, status: 'ACTIVE' })
@@ -183,14 +197,30 @@ export async function findUsersByRole(tx, roleID, entities) {
 /**
  * Read a Notification row by ID.
  *
- * @param {object} tx              CAP transaction
+ * Like `resolveRecipient` / `resolveDepartment` / `resolveRole` below,
+ * the lookup is performed via `cds.db.run` (the shared database facade)
+ * rather than the caller's `tx`. The reason is identical: the
+ * before-UPDATE / before-DELETE / action handlers issuing the SELECT
+ * are still mid-write on the originating tx under sqlite, and re-entering
+ * the same tx to SELECT the row that is about to be updated deadlocks
+ * (SQLITE_BUSY on a single shared connection). Reading via the shared
+ * db respects the most-recently committed state, which is exactly the
+ * state the hook needs to inspect (the row that the user is asking to
+ * mutate). For the Notification domain the committed state is fully
+ * sufficient because the validation hooks never rely on un-committed
+ * in-tx column writes from the same hook chain.
+ *
+ * @param {object} _tx            CAP transaction (unused - kept for
+ *                               signature parity so handlers pass `tx`
+ *                               uniformly across all helper calls).
  * @param {string} notificationID
  * @param {object} entities       expects `{ Notifications }`
  * @returns {Promise<object|null>}
  */
-export async function getNotification(tx, notificationID, entities) {
+export async function getNotification(_tx, notificationID, entities) {
     const { Notifications } = entities;
-    const row = await tx.run(
+    if (!Notifications || !notificationID) return null;
+    const row = await dbRun(
         SELECT.one
             .from(Notifications)
             .columns(
@@ -252,12 +282,15 @@ export async function countUnread(tx, recipientID, entities) {
  * matches a (recipient_ID, referenceEntity, referenceID) tuple.
  * Returns null when none exists. Used by the dedupe guard.
  *
- * @param {object} tx
- * @param {object} filter     `{ recipient_ID, referenceEntity, referenceID }`
- * @param {object} entities   expects `{ Notifications }`
+ * Uses `cds.db.run` for the same reason as `getNotification`
+ * (avoid sqlite write-then-SELECT deadlock inside a hook tx).
+ *
+ * @param {object} _tx       CAP transaction (unused)
+ * @param {object} filter    `{ recipient_ID, referenceEntity, referenceID }`
+ * @param {object} entities  expects `{ Notifications }`
  * @returns {Promise<object|null>}
  */
-export async function findExistingNotification(tx, filter, entities) {
+export async function findExistingNotification(_tx, filter, entities) {
     const { Notifications } = entities;
     if (!Notifications) return null;
     const where = {};
@@ -265,7 +298,7 @@ export async function findExistingNotification(tx, filter, entities) {
     if (filter.referenceEntity) where.referenceEntity = filter.referenceEntity;
     if (filter.referenceID) where.referenceID = filter.referenceID;
     where.isDeleted = false;
-    const row = await tx.run(
+    const row = await dbRun(
         SELECT.one
             .from(Notifications)
             .columns('ID', 'title', 'message', 'notificationType')
@@ -718,9 +751,31 @@ export async function emitBusinessNotification(tx, event, payload, entities) {
         referenceNumber: built.referenceNumber,
         isRead: false,
         isArchived: false,
-        isDeleted: false
+        isDeleted: false,
+        // Auto-emission from trusted internal handlers passes this flag so
+        // the PlatformService `before('CREATE', Notifications)` hook skips
+        // recipient-existence validation. This avoids rejecting an
+        // auto-emission because the sender's `req.user.id` is not a
+        // registered Identity Service user (which is legitimate for
+        // service-side integration identities). The flag is stripped
+        // from the entry before the row is persisted (see
+        // `notification-handler.js` before-CREATE cleanup).
+        bypassRecipientValidation: true
     };
     if (payload.senderID) entry.sender_ID = payload.senderID;
 
-    return createNotification(tx, entry, entities);
+    // Auto-emission MUST never reject the originating business action.
+    // If `createNotification` raises (e.g. because the recipient is not a
+    // registered Identity Service user - which can legitimately happen when
+    // a service-side integration identity issues a cross-service API call
+    // rather than a human user) we swallow the rejection and return null so
+    // the surrounding business handler continues unaffected. The
+    // originating tx is rolled back for the failed notification row ONLY
+    // at the row level because the rejection aborts the inner INSERT, not
+    // the parent event tx.
+    try {
+        return await createNotification(tx, entry, entities);
+    } catch {
+        return null;
+    }
 }

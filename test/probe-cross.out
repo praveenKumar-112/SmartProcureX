@@ -1,0 +1,5 @@
+  > init from db\data\smartprocurex.common-NumberRanges.csv 
+/> successfully deployed to in-memory database. 
+
+Attempting WarehouseService tx.run(SELECT.from(PurchaseOrders))...
+  ERR: no-code Target ProcurementService.PurchaseOrders cannot be resolved for service WarehouseService

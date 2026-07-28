@@ -55,11 +55,33 @@ function supplierSuppliers() {
 }
 
 // ---------------------------------------------------------------------------
+// Same-service entity resolvers for the module-scope auto-emission
+// helpers below. Mirrors the lazy `cds.services.<Service>.entities.<X>`
+// accessor pattern already used above for sibling services
+// (`identityUsers`, `platformSettings`, `platformNotifications`,
+// `supplierSuppliers`). These are required because `PurchaseRequests`
+// and `PurchaseOrders` are destructured from `this.entities` INSIDE the
+// `cds.service.impl(...)` closure (line ~100) and are thus out-of-scope
+// for any module-scope helper. The lazy lookup is boot-safe because
+// `cds.services.ProcurementService` is instantiated by `cds.serve('all')`
+// before any request dispatch begins (CODING_STANDARDS §8 / §11).
+// ---------------------------------------------------------------------------
+function procurementPurchaseRequests() {
+    return cds.services.ProcurementService?.entities?.PurchaseRequests ?? null;
+}
+
+function procurementPurchaseOrders() {
+    return cds.services.ProcurementService?.entities?.PurchaseOrders ?? null;
+}
+
+// ---------------------------------------------------------------------------
 // Auto-emission helper: fetch the PurchaseRequest header fields the
 // notification template needs (requestNumber + requestedBy_ID). Cached
 // in a scalar so the same tx can re-use the lookup.
 // ---------------------------------------------------------------------------
 async function fetchPRForNotification(tx, purchaseRequestID) {
+    const PurchaseRequests = procurementPurchaseRequests();
+    if (!PurchaseRequests || !purchaseRequestID) return null;
     const row = await tx.run(
         SELECT.one
             .from(PurchaseRequests)
@@ -70,6 +92,8 @@ async function fetchPRForNotification(tx, purchaseRequestID) {
 }
 
 async function fetchPOForNotification(tx, purchaseOrderID) {
+    const PurchaseOrders = procurementPurchaseOrders();
+    if (!PurchaseOrders || !purchaseOrderID) return null;
     const row = await tx.run(
         SELECT.one
             .from(PurchaseOrders)
@@ -1154,6 +1178,21 @@ export default cds.service.impl(function () {
         // Mark the PR as ConvertedToPO atomically.
         await markPurchaseRequestConverted(tx, purchaseRequestID, _helperEntities);
 
+        // Auto-emit PO created notification to the PR requester (the natural
+        // audience of the conversion event). Recipient resolution hops via
+        // the originating PR so a single user identity receives the signal.
+        const prForPO = await fetchPRForNotification(tx, purchaseRequestID);
+        if (prForPO?.requestedBy_ID) {
+            await emitProcurementNotification(tx, NOTIFICATION_EVENT.PURCHASE_ORDER_CREATED, {
+                documentNumber: poNumber,
+                actor: normalizeUserId(req?.user?.id) ?? 'system',
+                recipientID: prForPO.requestedBy_ID,
+                referenceEntity: 'PurchaseOrder',
+                referenceID: newPO.ID,
+                parentDocument: prForPO.requestNumber
+            });
+        }
+
         return newPO.ID;
 
     });
@@ -1215,6 +1254,21 @@ export default cds.service.impl(function () {
                 sentAt: nowIsoTimestamp()
             }
         );
+
+        // Auto-emit PO sent notification to the PR requester (when linked).
+        const sentPO = await fetchPOForNotification(tx, purchaseOrderID);
+        if (sentPO?.purchaseRequest_ID) {
+            const prForSent = await fetchPRForNotification(tx, sentPO.purchaseRequest_ID);
+            if (prForSent?.requestedBy_ID) {
+                await emitProcurementNotification(tx, NOTIFICATION_EVENT.PURCHASE_ORDER_SENT, {
+                    documentNumber: sentPO.poNumber,
+                    actor: sentByID,
+                    recipientID: prForSent.requestedBy_ID,
+                    referenceEntity: 'PurchaseOrder',
+                    referenceID: purchaseOrderID
+                });
+            }
+        }
 
         return true;
 
@@ -1280,6 +1334,22 @@ export default cds.service.impl(function () {
                 cancelledAt: nowIsoTimestamp()
             }
         );
+
+        // Auto-emit PO cancelled notification to the PR requester (when linked).
+        const cancelledPO = await fetchPOForNotification(tx, purchaseOrderID);
+        if (cancelledPO?.purchaseRequest_ID) {
+            const prForCancel = await fetchPRForNotification(tx, cancelledPO.purchaseRequest_ID);
+            if (prForCancel?.requestedBy_ID) {
+                await emitProcurementNotification(tx, NOTIFICATION_EVENT.PURCHASE_ORDER_CANCELLED, {
+                    documentNumber: cancelledPO.poNumber,
+                    actor: cancelledByID,
+                    recipientID: prForCancel.requestedBy_ID,
+                    referenceEntity: 'PurchaseOrder',
+                    referenceID: purchaseOrderID,
+                    reason: String(reason).slice(0, 500)
+                });
+            }
+        }
 
         return true;
 

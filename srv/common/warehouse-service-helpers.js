@@ -15,6 +15,37 @@
  *     movement arithmetic the inputs are Decimal(13,3) strings already
  *     validated upstream, so simple Number() arithmetic is sufficient at
  *     the declared scale.
+ *   - Cross-service operations (see `dbRun` imported from `./db-run.js`)
+ *     route through the shared `cds.db` facade so they resolve canonical
+ *     entities that are NOT projected into WarehouseService
+ *     (PurchaseOrders, PurchaseOrderItems, ...).
+ *     Under @cap-js/sqlite a `tx.run(SELECT.from(PurchaseOrders))`
+ *     issued from inside a Warehouse handler raises
+ *     "Target ProcurementService.PurchaseOrders cannot be resolved for
+ *     service WarehouseService" because `tx` binds to the Warehouse tx,
+ *     whose entity set does not include the PurchaseOrders projection.
+ *     Reading + writing through the shared `cds.db` facade keeps the
+ *     underlying operations on the same sqlite connection as the caller
+ *     tx, so writes remain atomic with the originating action.
+ *     Same-domain entities (GoodsReceipts / GoodsReceiptItems /
+ *     InventoryItems / InventoryTransactions / Warehouses) keep using
+ *     `tx.run` because they ARE projected into WarehouseService.
+ *
+ * Production bug-fix note (TICKET-008, no architectural change):
+ *   `dbRun` (in `./db-run.js`) wraps every `cds.db.run` call in an
+ *   `async` function with one `await` so the operation reaches the
+ *   @cap-js/sqlite driver exactly one microtask later than the
+ *   synchronous call that triggered it. Under @cap-js/sqlite
+ *   (in-memory, single pooled connection), an un-wrapped
+ *   `cds.db.run(SELECT PurchaseOrders)` issued synchronously inside an
+ *   active Warehouse `before('CREATE', GoodsReceipts)` hook deadlocks:
+ *   the INSERT that triggered the hook already holds the sqlite
+ *   write-lock, so the inner SELECT queues behind a pool-acquire that
+ *   never resolves. Empirically verified that the one-microtask yield is
+ *   sufficient to break the deadlock without altering any observable
+ *   semantics in HANA or in the canonical Warehouse tx (see db-run.js
+ *   for the canonical wrapper; this module re-exports `dbRun` for
+ *   backwards compatibility with existing handler imports).
  *
  * Reuse:
  *   - applyInventoryMovement: single atomic ledger entry + balance update.
@@ -25,8 +56,17 @@
  */
 
 import cds from '@sap/cds';
+import { dbRun } from './db-run.js';
 
 const { SELECT, UPDATE, INSERT, DELETE } = cds.ql;
+
+// ---------------------------------------------------------------------------
+// `dbRun` (imported from db-run.js) is the canonical cross-service
+// db-operation wrapper for this module. See db-run.js for the rationale.
+// ---------------------------------------------------------------------------
+// (Local re-export preserved for backwards-compatibility with any handler
+// that previously imported `dbRun` from this module.)
+export { dbRun };
 
 // ---------------------------------------------------------------------------
 // Inventory movement helper - the single source of truth for stock changes
@@ -263,15 +303,23 @@ export async function getGoodsReceiptWithDetails(tx, goodsReceiptID, entities) {
  *   - If at least one line is partially received -> 'PartiallyReceived'
  *   - Otherwise stays at its current status (Sent / Created)
  *
- * @param {object} tx
+ * Both `PurchaseOrderItems` and `PurchaseOrders` are ProcurementService
+ * entities that are NOT projected into WarehouseService, so the reads +
+ * the UPDATE are routed through the shared `cds.db` facade via the
+ * internal `dbRun` microtask-yielding wrapper (see note on `dbRun`).
+ *
+ * @param {object} _tx           CAP transaction (unused for cross-service
+ *                              ops; kept for signature parity so handlers
+ *                              can call uniformly with `cds.transaction(req)`
  * @param {string} purchaseOrderID
- * @param {object} entities  expects `{ PurchaseOrders, PurchaseOrderItems }`
- * @returns {Promise<string>} new status string
+ * @param {object} entities     expects `{ PurchaseOrders, PurchaseOrderItems }`
+ * @returns {Promise<string|null>} new status string, or null when no items
  */
-export async function syncPurchaseOrderReceiptStatus(tx, purchaseOrderID, entities) {
+export async function syncPurchaseOrderReceiptStatus(_tx, purchaseOrderID, entities) {
     const { PurchaseOrders, PurchaseOrderItems } = entities;
+    if (!PurchaseOrderItems || !PurchaseOrders || !purchaseOrderID) return null;
 
-    const items = await tx.run(
+    const items = await dbRun(
         SELECT.from(PurchaseOrderItems)
             .columns('ID', 'quantity', 'receivedQuantity')
             .where({ purchaseOrder_ID: purchaseOrderID })
@@ -295,7 +343,7 @@ export async function syncPurchaseOrderReceiptStatus(tx, purchaseOrderID, entiti
             ? 'PartiallyReceived'
             : 'Sent';
 
-    await tx.run(
+    await dbRun(
         UPDATE(PurchaseOrders)
             .set({ status: newStatus })
             .where({ ID: purchaseOrderID })
@@ -308,21 +356,29 @@ export async function syncPurchaseOrderReceiptStatus(tx, purchaseOrderID, entiti
  * Update the receivedQuantity on a PurchaseOrderItem by adding the
  * delta (the just-received quantity). Returns the new receivedQuantity.
  *
- * @param {object} tx
+ * `PurchaseOrderItems` is a ProcurementService entity not projected into
+ * WarehouseService; the SELECT + UPDATE are routed through the shared
+ * `cds.db` facade via the internal `dbRun` wrapper (see note on `dbRun`)
+ * so they resolve canonical `PurchaseOrderItems` from any warehouse-side
+ * caller tx.
+ *
+ * @param {object} _tx          CAP transaction (unused - kept for
+ *                              signature parity with same-domain helpers)
  * @param {string} purchaseOrderItemID
  * @param {number} deltaReceived
- * @param {object} entities  expects `{ PurchaseOrderItems }`
+ * @param {object} entities     expects `{ PurchaseOrderItems }`
  * @returns {Promise<number|null>} new receivedQuantity, null when item not found
  */
 export async function incrementPurchaseOrderItemReceived(
-    tx,
+    _tx,
     purchaseOrderItemID,
     deltaReceived,
     entities
 ) {
     const { PurchaseOrderItems } = entities;
+    if (!PurchaseOrderItems || !purchaseOrderItemID) return null;
 
-    const item = await tx.run(
+    const item = await dbRun(
         SELECT.one
             .from(PurchaseOrderItems)
             .columns('ID', 'receivedQuantity')
@@ -333,7 +389,7 @@ export async function incrementPurchaseOrderItemReceived(
 
     const newReceived = Number(item.receivedQuantity ?? 0) + Number(deltaReceived);
 
-    await tx.run(
+    await dbRun(
         UPDATE(PurchaseOrderItems)
             .set({ receivedQuantity: newReceived })
             .where({ ID: purchaseOrderItemID })

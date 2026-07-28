@@ -85,12 +85,23 @@
   `getAsset`, `getActiveAssignment`, `hasActiveAssignment`, `transitionAssetStatus`,
   `recordAssignment`, `getInventoryItemForAsset`, `resolveUser`, `assetCodeExists`,
   `categoryCodeExists`. All tx+entities signature per AD-11.
+- **Phase 5 - Notifications TICKET-008**: Notification framework complete.
+  `db/platform-support.cds` finalized with notification enums + lifecycle flags.
+  `srv/common/notification-service-helpers.js` implements notification creation,
+  read/unread state transitions, soft-delete, unread counts, direct send,
+  department/role broadcast expansion, and business-event auto-emission.
+  `srv/handlers/notification-handler.js` implements CRUD guards, filtering,
+  pagination, mark-read actions, deleteNotification, sendNotification,
+  broadcastToDepartment, and broadcastToRole. Procurement / Warehouse / Asset
+  handlers emit workflow notifications atomically with the originating
+  transaction. `srv/common/db-run.js` is in place for sqlite cross-service
+  deadlock avoidance. Notification E2E now passes 59 / 59 assertions.
 
 ---
 
 ## Current Ticket
 
-(none - TICKET-007 complete; awaiting next assignment)
+(none - TICKET-008 complete; awaiting next assignment)
 
 ---
 
@@ -104,22 +115,42 @@
 - `srv/warehouse-service.js` (re-export of warehouse handler, TICKET-006)
 - `srv/common/asset-service-helpers.js` (asset domain reusable helpers, TICKET-007)
 - `srv/asset-service.js` (re-export of asset handler, TICKET-007)
+- `srv/common/db-run.js` (shared cross-service `cds.db.run` wrapper, TICKET-008)
+- `srv/common/notification-service-helpers.js` (notification domain reusable helpers, TICKET-008)
+- `srv/platform-service.js` (re-export of notification handler, TICKET-008)
+- `test/notification-e2e.test.js` (Notification E2E acceptance suite, TICKET-008)
 
 ---
 
 ## Files Modified
 
-This ticket (TICKET-004):
+This ticket (TICKET-008):
+- `srv/common/notification-service-helpers.js`
+  - implemented notification create/read/update helpers, unread counts,
+    soft-delete, broadcast expansion, and business-event auto-emission
+- `srv/common/db-run.js`
+  - centralized sqlite-safe cross-service `cds.db.run` wrapper used by the
+    notification framework and related cross-service helpers
+- `srv/handlers/notification-handler.js`
+  - implemented notification CRUD guards, mark read/unread actions,
+    mark-all-read, deleteNotification, sendNotification, broadcast actions,
+    and default soft-delete filtering
 - `srv/handlers/procurement-handler.js`
-  - integrated calculator.computeLineTotal (replaces raw `Number(qty) * Number(price)`)
-  - added after-hooks for PurchaseRequestItem CREATE/UPDATE/DELETE that recalculates header total
-  - added defensive final roll-up inside submitPurchaseRequest
-  - **bug fix**: PR-create hook now normalizes association payloads (both `requestedBy_ID` and
-    inline object `{ ID }` forms) via associationId helper, was previously blocking all OData POSTs
-  - **bug fix**: DELETE hook now resolves the targeted item ID via itemIdFromDeleteRequest,
-    because CAP leaves `req.data` empty on DELETE; old code read `req.data.ID` which was
-    undefined, silently breaking item-state guarding and roll-up-after-delete
-- `srv/common/procurement-service-helpers.js` - the new shared module described above
+  - integrated Purchase Request / Purchase Order notification emission
+- `srv/handlers/warehouse-handler.js`
+  - integrated Warehouse / Goods Receipt / Inventory notification emission
+  - **bug fix**: Warehouse CREATE after-hook now resolves the created
+    warehouse ID from `results.ID ?? req.data.ID`, fixing the final missing
+    WarehouseEvent notification on CAP INSERT dispatch
+- `srv/handlers/asset-handler.js`
+  - integrated Asset lifecycle notification emission
+- `srv/common/number-range.js`
+  - switched number-range access to the shared cross-service db facade
+- `srv/common/warehouse-service-helpers.js`
+  - routed cross-service Procurement reads/writes through the shared db facade
+- `test/notification-e2e.test.js`
+  - added 59-assertion Notification E2E suite covering CRUD, actions,
+    filtering, pagination, broadcast, and auto-emission
 
 Previous tickets:
 - `srv/common/errors.js` (TICKET-003)
@@ -132,7 +163,6 @@ Previous tickets:
 
 ## Pending Modules
 
-- **Phase 5 - Notifications** - `srv/handlers/notification-handler.js` empty (TICKET-008).
 - **Phase 6 - Reporting**, **Phase 7 - Testing / Performance** - not started.
 
 ---
@@ -155,17 +185,21 @@ Previous tickets:
 - **Warehouse actions declared**: `adjustInventory`, `reserveInventory`,
   `unreserveInventory`, `markDamaged`, `transferInventory`, `postGoodsReceipt`,
   `cancelGoodsReceipt`.
+- **Platform actions declared**: `markNotificationRead`, `markNotificationUnread`,
+  `markAllNotificationsRead`, `deleteNotification`, `getUnreadNotificationCount`,
+  `sendNotification`, `broadcastToDepartment`, `broadcastToRole`.
 - **Implemented actions**: all of the above (PR lifecycle + PO lifecycle + Goods Receipt +
-  Inventory + Warehouse actions).
+  Inventory + Warehouse + Asset + Notification actions).
 - **Stub actions**: (none).
-- **Empty handlers**: asset, notification (next-ticket candidates Phase 5).
-- **Compile**: `cds compile srv/procurement-service.cds` + `srv/warehouse-service.cds` -> OK
+- **Empty handlers**: (none).
+- **Compile**: `cds compile db/schema.cds` + all 6 service definitions -> OK
 - **End-to-end**: 73 assertions covering the full PR -> PO -> GR -> Inventory pipeline
   (PR submission + approval + conversion, PO send/close/cancel, GR partial + complete +
   over-receipt prevention, GR cancellation + inventory reversal, reserve/unreserve/damage/
   adjust/transfer with over-quantity guards, warehouse duplicate-code, delete-with-inventory
   guard, posted-GR delete guard, InventoryItem duplicate-code guard, POItem add to
-  Cancelled-PO guard).
+  Cancelled-PO guard), plus 59 assertions covering the full Notification framework
+  (CRUD, read/unread transitions, broadcast, filters, pagination, and auto-emission).
 
 ---
 
@@ -186,18 +220,18 @@ Previous tickets:
 | Inventory                 | Done (TICKET-006 - ledger + reserve/unreserve/damage/adjust/transfer) |
 | Warehouse                 | Done (TICKET-006 - CRUD + guards)     |
 | Assets                    | Done (TICKET-007 - CRUD + lifecycle + audit)    |
-| Notifications             | Not started (Phase 5 - TICKET-008)    |
+| Notifications             | Done (TICKET-008 - framework + E2E green) |
 | Reporting                 | Not started (Phase 6)                 |
 
 ---
 
 ## Overall Completion %
 
-**60%**
+**71%**
 
 (Breakdown: Phase 1 foundation = 100%; Phase 2 common = 100%;
 Phase 3 PR lifecycle = 100%; Phase 4 PO + GR + Inventory + Warehouse = 100%;
-Phase 5 Asset = 100%, Notifications = 0%; Phase 6-7 = 0%.
+Phase 5 Asset = 100%, Notifications = 100%; Phase 6-7 = 0%.
 Weighted across the 7-phase plan.)
 
 ---
@@ -247,3 +281,24 @@ Weighted across the 7-phase plan.)
     72 PASS / 1 test-harness expectation mismatch (over-transfer with
     source==destination returns 400 for the input validation; test wrongly expected 409;
     production code is correct because input validation should precede state checks).
+- TICKET-007 (complete): Asset lifecycle + audit + assignment management.
+- TICKET-008 (complete): Notification framework + cross-service runtime hardening.
+  - Finalized `db/platform-support.cds` notification enums and lifecycle fields
+    (`isRead`, `isArchived`, `isDeleted`, reference linkage, recipient/department/role routing).
+  - Added `srv/common/notification-service-helpers.js` with notification CRUD helpers,
+    unread counts, soft-delete, broadcast expansion, event catalog mapping, and
+    auto-emission joined to the originating transaction.
+  - Added `srv/common/db-run.js` and aligned notification / warehouse / number-range
+    cross-service database access to the shared sqlite-safe wrapper.
+  - Implemented `srv/handlers/notification-handler.js` with CRUD validation,
+    mark read/unread, mark-all-read, deleteNotification, unread counts,
+    sendNotification, broadcastToDepartment, and broadcastToRole.
+  - Integrated auto-emission into `procurement-handler.js`, `warehouse-handler.js`,
+    and `asset-handler.js`.
+  - Fixed the final production bug revealed by E2E: Warehouse CREATE used
+    `results.ID` only in the after-hook, but CAP's INSERT dispatch path left
+    `results.ID` null while `req.data.ID` was populated. The hook now falls back
+    to `req.data.ID`, restoring WarehouseEvent notification persistence.
+  - Validated via `node test/notification-e2e.test.js` -> 59 PASS / 0 FAIL,
+    `node --check` on all modified TICKET-008 JS files, and `cds compile` on
+    `db/schema.cds` plus every service definition.

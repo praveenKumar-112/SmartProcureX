@@ -40,25 +40,54 @@ SmartProcureX/
 │   ├── warehouse-service.cds
 │   ├── warehouse-service.js
 │   ├── asset-service.cds
-│   ├── asset-service.js         (future)
+│   ├── asset-service.js
 │   ├── procurement-service.cds
 │   ├── procurement-service.js
 │   ├── platform-service.cds
-│   ├── platform-service.js      (future)
+│   ├── platform-service.js
 │   ├── common/
-│   │   ├── constants.js
-│   │   ├── errors.js
-│   │   ├── validation.js
-│   │   ├── utils.js
+│   │   ├── asset-service-helpers.js
 │   │   ├── calculator.js
+│   │   ├── constants.js
+│   │   ├── db-run.js
+│   │   ├── errors.js
+│   │   ├── notification-service-helpers.js
 │   │   ├── number-range.js
 │   │   ├── procurement-service-helpers.js
+│   │   ├── utils.js
+│   │   ├── validation.js
 │   │   └── warehouse-service-helpers.js
 │   └── handlers/
-│       ├── procurement-handler.js
-│       ├── warehouse-handler.js
 │       ├── asset-handler.js
-│       └── notification-handler.js
+│       ├── notification-handler.js
+│       ├── procurement-handler.js
+│       └── warehouse-handler.js
+│
+├── test/
+│   ├── notif.err
+│   ├── notif.out
+│   ├── notification-e2e.test.js
+│   ├── probe-cross.err
+│   ├── probe-cross.mjs
+│   ├── probe-cross.out
+│   ├── probe-prtp.out
+│   ├── probe.mjs
+│   ├── probe2.mjs
+│   ├── probe2.out
+│   ├── probe3.mjs
+│   ├── probe3.out
+│   ├── probe4.mjs
+│   ├── probe4.out
+│   ├── probe5.mjs
+│   ├── probe5.out
+│   ├── probe5b.mjs
+│   ├── probe5c.mjs
+│   ├── probe5d.mjs
+│   ├── probe5e.mjs
+│   ├── probe5f.mjs
+│   ├── probe5g.mjs
+│   ├── probe5h.mjs
+│   └── probe5i.mjs
 │
 └── docs/
     ├── API_STRATEGY.md
