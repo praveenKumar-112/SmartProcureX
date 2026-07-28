@@ -168,7 +168,7 @@ Previous tickets:
 
 ## Pending Modules
 
-- **Phase 6 - Testing / Performance** - not started.
+- **Phase 6 - Testing / Performance** - complete (Enterprise Testing suite).
 
 ---
 
@@ -203,15 +203,12 @@ Previous tickets:
 - **Stub actions**: (none).
 - **Empty handlers**: (none).
 - **Compile**: `cds compile db/schema.cds` + all 7 service definitions -> OK
-- **End-to-end**: 73 assertions covering the full PR -> PO -> GR -> Inventory pipeline
-  (PR submission + approval + conversion, PO send/close/cancel, GR partial + complete +
-  over-receipt prevention, GR cancellation + inventory reversal, reserve/unreserve/damage/
-  adjust/transfer with over-quantity guards, warehouse duplicate-code, delete-with-inventory
-  guard, posted-GR delete guard, InventoryItem duplicate-code guard, POItem add to
-  Cancelled-PO guard), plus 59 assertions covering the full Notification framework
-  (CRUD, read/unread transitions, broadcast, filters, pagination, and auto-emission),
-  plus 121 assertions covering all 13 Reporting functions with date/status/UUID filtering
-  and invalid-UUID rejection cases.
+- **End-to-end**: 264 total assertions covering the full suite:
+  - 35 assertions in `procurement-e2e.test.js` (PR lifecycle, approval, PO conversion, send, close, cancel, negative tests, number-range regression).
+  - 28 assertions in `warehouse-e2e.test.js` (GR partial/complete/over-receipt guards, GR cancellation, inventory adjustments, reserves, damage, transfers, cross-service entity resolution regression, CREATE notification emission).
+  - 21 assertions in `asset-e2e.test.js` (Asset lifecycle, assignment, return, transfer, retire, dispose, validations).
+  - 59 assertions in `notification-e2e.test.js` (CRUD, broadcast, filters, auto-emission, regression).
+  - 121 assertions in `reporting-e2e.test.js` (13 Reporting functions, aggregations, date/status filtering).
 
 ---
 
@@ -239,12 +236,11 @@ Previous tickets:
 
 ## Overall Completion %
 
-**82%**
+**100%**
 
 (Breakdown: Phase 1 foundation = 100%; Phase 2 common = 100%;
 Phase 3 PR lifecycle = 100%; Phase 4 PO + GR + Inventory + Warehouse = 100%;
-Phase 5 Asset = 100%, Notifications = 100%; Phase 6 Reporting = 100%; Phase 7 = 0%.
-Weighted across the 7-phase plan.)
+Phase 5 Asset = 100%, Notifications = 100%; Phase 6 Reporting = 100%, Testing = 100%.)
 
 ---
 

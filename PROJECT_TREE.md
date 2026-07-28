@@ -68,8 +68,11 @@ SmartProcureX/
 │       └── warehouse-handler.js
 │
 ├── test/
+│   ├── asset-e2e.test.js
 │   ├── notification-e2e.test.js
+│   ├── procurement-e2e.test.js
 │   ├── reporting-e2e.test.js
+│   ├── warehouse-e2e.test.js
 │   ├── probe-cross.err
 │   ├── probe-cross.mjs
 │   ├── probe-cross.out
