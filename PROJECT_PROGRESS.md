@@ -101,7 +101,7 @@
 
 ## Current Ticket
 
-(none - TICKET-008 complete; awaiting next assignment)
+(none - TICKET-009 complete; awaiting next assignment)
 
 ---
 
@@ -119,6 +119,11 @@
 - `srv/common/notification-service-helpers.js` (notification domain reusable helpers, TICKET-008)
 - `srv/platform-service.js` (re-export of notification handler, TICKET-008)
 - `test/notification-e2e.test.js` (Notification E2E acceptance suite, TICKET-008)
+- `srv/reporting-service.cds` (ReportingService OData V4 interface, TICKET-009)
+- `srv/reporting-service.js` (ReportingService entry point re-export, TICKET-009)
+- `srv/handlers/reporting-handler.js` (all 13 reporting function handlers, TICKET-009)
+- `srv/common/reporting-service-helpers.js` (cross-domain aggregation helpers, TICKET-009)
+- `test/reporting-e2e.test.js` (Reporting E2E acceptance suite, 121 assertions, TICKET-009)
 
 ---
 
@@ -163,7 +168,7 @@ Previous tickets:
 
 ## Pending Modules
 
-- **Phase 6 - Reporting**, **Phase 7 - Testing / Performance** - not started.
+- **Phase 6 - Testing / Performance** - not started.
 
 ---
 
@@ -178,7 +183,7 @@ Previous tickets:
 
 ## Service Status
 
-- **Defined services**: 6 (Identity, Supplier, Warehouse, Asset, Procurement, Platform).
+- **Defined services**: 7 (Identity, Supplier, Warehouse, Asset, Procurement, Platform, Reporting).
 - **Procurement actions declared**: `submitPurchaseRequest`, `approvePurchaseRequest`,
   `rejectPurchaseRequest`, `cancelPurchaseRequest`, `convertToPurchaseOrder`,
   `sendPurchaseOrder`, `cancelPurchaseOrder`, `closePurchaseOrder`.
@@ -188,18 +193,25 @@ Previous tickets:
 - **Platform actions declared**: `markNotificationRead`, `markNotificationUnread`,
   `markAllNotificationsRead`, `deleteNotification`, `getUnreadNotificationCount`,
   `sendNotification`, `broadcastToDepartment`, `broadcastToRole`.
+- **Reporting functions declared**: `getDashboardSummary`, `getPurchaseRequestSummary`,
+  `getDepartmentSpendAnalysis`, `getApprovalPerformance`, `getPurchaseOrderSummary`,
+  `getSupplierSpendAnalysis`, `getGoodsReceiptSummary`, `getWarehouseInventorySummary`,
+  `getInventoryMovementReport`, `getAssetUtilizationReport`, `getAssetLifecycleReport`,
+  `getNotificationStatistics`, `getAuditSummary`.
 - **Implemented actions**: all of the above (PR lifecycle + PO lifecycle + Goods Receipt +
-  Inventory + Warehouse + Asset + Notification actions).
+  Inventory + Warehouse + Asset + Notification actions + all 13 Reporting functions).
 - **Stub actions**: (none).
 - **Empty handlers**: (none).
-- **Compile**: `cds compile db/schema.cds` + all 6 service definitions -> OK
+- **Compile**: `cds compile db/schema.cds` + all 7 service definitions -> OK
 - **End-to-end**: 73 assertions covering the full PR -> PO -> GR -> Inventory pipeline
   (PR submission + approval + conversion, PO send/close/cancel, GR partial + complete +
   over-receipt prevention, GR cancellation + inventory reversal, reserve/unreserve/damage/
   adjust/transfer with over-quantity guards, warehouse duplicate-code, delete-with-inventory
   guard, posted-GR delete guard, InventoryItem duplicate-code guard, POItem add to
   Cancelled-PO guard), plus 59 assertions covering the full Notification framework
-  (CRUD, read/unread transitions, broadcast, filters, pagination, and auto-emission).
+  (CRUD, read/unread transitions, broadcast, filters, pagination, and auto-emission),
+  plus 121 assertions covering all 13 Reporting functions with date/status/UUID filtering
+  and invalid-UUID rejection cases.
 
 ---
 
@@ -221,17 +233,17 @@ Previous tickets:
 | Warehouse                 | Done (TICKET-006 - CRUD + guards)     |
 | Assets                    | Done (TICKET-007 - CRUD + lifecycle + audit)    |
 | Notifications             | Done (TICKET-008 - framework + E2E green) |
-| Reporting                 | Not started (Phase 6)                 |
+| Reporting                 | Done (TICKET-009 - 13 functions + E2E green)  |
 
 ---
 
 ## Overall Completion %
 
-**71%**
+**82%**
 
 (Breakdown: Phase 1 foundation = 100%; Phase 2 common = 100%;
 Phase 3 PR lifecycle = 100%; Phase 4 PO + GR + Inventory + Warehouse = 100%;
-Phase 5 Asset = 100%, Notifications = 100%; Phase 6-7 = 0%.
+Phase 5 Asset = 100%, Notifications = 100%; Phase 6 Reporting = 100%; Phase 7 = 0%.
 Weighted across the 7-phase plan.)
 
 ---
@@ -302,3 +314,26 @@ Weighted across the 7-phase plan.)
   - Validated via `node test/notification-e2e.test.js` -> 59 PASS / 0 FAIL,
     `node --check` on all modified TICKET-008 JS files, and `cds compile` on
     `db/schema.cds` plus every service definition.
+- TICKET-009 (complete): Enterprise Reporting Module.
+  - Created `srv/reporting-service.cds` with 13 unbound functions (getDashboardSummary,
+    getPurchaseRequestSummary, getDepartmentSpendAnalysis, getApprovalPerformance,
+    getPurchaseOrderSummary, getSupplierSpendAnalysis, getGoodsReceiptSummary,
+    getWarehouseInventorySummary, getInventoryMovementReport, getAssetUtilizationReport,
+    getAssetLifecycleReport, getNotificationStatistics, getAuditSummary) and 13 custom
+    return types (DashboardSummary, PurchaseRequestStat, DepartmentSpend, ApprovalStat,
+    PurchaseOrderStat, SupplierSpend, GoodsReceiptStat, WarehouseInventoryStat,
+    InventoryMovementStat, AssetUtilizationStat, AssetLifecycleStat, NotificationStat,
+    AuditStat).
+  - Created `srv/common/reporting-service-helpers.js` with 13 pure aggregation functions
+    following the (tx, entities, filters) convention (AD-11). All reads route through
+    `dbRun` (AD-24 - read-only). Monetary aggregation uses `sumAmounts` + `toMonetary`
+    from `calculator.js` (AD-8). Quantity aggregation uses `toQuantity`. Date-range
+    filtering uses ISO-string lexicographic comparison.
+  - Created `srv/handlers/reporting-handler.js` with UUID validation (via `isUuid`) and
+    dispatch to reporting helpers for all 13 functions.
+  - Created `srv/reporting-service.js` (one-liner re-export per CODING_STANDARDS §3).
+  - Created `test/reporting-e2e.test.js` (121-assertion E2E covering all 13 functions,
+    filtered/unfiltered variants, date-range exclusion, and invalid-UUID rejection cases).
+  - Validated: `node --check` on all 4 new JS files (0 errors), `cds compile
+    srv/reporting-service.cds` (clean), `node test/reporting-e2e.test.js` (121/121 PASS),
+    `node test/notification-e2e.test.js` (59/59 PASS - no regression).

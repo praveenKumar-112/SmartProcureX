@@ -45,6 +45,8 @@ SmartProcureX/
 │   ├── procurement-service.js
 │   ├── platform-service.cds
 │   ├── platform-service.js
+│   ├── reporting-service.cds
+│   ├── reporting-service.js
 │   ├── common/
 │   │   ├── asset-service-helpers.js
 │   │   ├── calculator.js
@@ -54,6 +56,7 @@ SmartProcureX/
 │   │   ├── notification-service-helpers.js
 │   │   ├── number-range.js
 │   │   ├── procurement-service-helpers.js
+│   │   ├── reporting-service-helpers.js
 │   │   ├── utils.js
 │   │   ├── validation.js
 │   │   └── warehouse-service-helpers.js
@@ -61,12 +64,12 @@ SmartProcureX/
 │       ├── asset-handler.js
 │       ├── notification-handler.js
 │       ├── procurement-handler.js
+│       ├── reporting-handler.js
 │       └── warehouse-handler.js
 │
 ├── test/
-│   ├── notif.err
-│   ├── notif.out
 │   ├── notification-e2e.test.js
+│   ├── reporting-e2e.test.js
 │   ├── probe-cross.err
 │   ├── probe-cross.mjs
 │   ├── probe-cross.out
