@@ -1,0 +1,94 @@
+<mvc:View
+    controllerName="smartprocurex.controller.CreateRequest"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        title="Create Purchase Request"
+        showNavButton="true"
+        navButtonPress=".onCancel">
+
+        <content>
+
+            <form:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                class="sapUiMediumMarginTopBottom">
+
+                <form:title>
+                    <core:Title text="Request Details" />
+                </form:title>
+
+                <Label text="Requested By" required="true" />
+                <Select
+                    id="selectRequestedBy"
+                    selectedKey="{createModel>/requestedBy_ID}"
+                    items="{usersModel>/value}">
+                    <core:Item key="{usersModel>ID}" text="{usersModel>firstName} {usersModel>lastName}" />
+                </Select>
+
+                <Label text="Department" required="true" />
+                <Select
+                    id="selectDepartment"
+                    selectedKey="{createModel>/department_ID}"
+                    items="{departmentsModel>/value}">
+                    <core:Item key="{departmentsModel>ID}" text="{departmentsModel>departmentName}" />
+                </Select>
+
+                <Label text="Priority" required="true" />
+                <Select
+                    id="selectPriority"
+                    selectedKey="{createModel>/priority}">
+                    <core:Item key="" text="-- Select Priority --" />
+                    <core:Item key="Low" text="Low" />
+                    <core:Item key="Medium" text="Medium" />
+                    <core:Item key="High" text="High" />
+                </Select>
+
+                <Label text="Total Amount" required="true" />
+                <Input
+                    id="inputTotalAmount"
+                    value="{createModel>/totalAmount}"
+                    type="Number"
+                    placeholder="0.00" />
+
+                <Label text="Justification" />
+                <TextArea
+                    id="inputJustification"
+                    value="{createModel>/justification}"
+                    rows="4"
+                    placeholder="Provide justification for this request" />
+
+            </form:SimpleForm>
+
+        </content>
+
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="Save"
+                    type="Emphasized"
+                    icon="sap-icon://save"
+                    press=".onSave" />
+                <Button
+                    text="Cancel"
+                    press=".onCancel" />
+            </Toolbar>
+        </footer>
+
+    </Page>
+
+</mvc:View>

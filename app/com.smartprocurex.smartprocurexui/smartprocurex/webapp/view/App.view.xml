@@ -1,0 +1,11 @@
+<mvc:View
+    controllerName="smartprocurex.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Shell>
+        <App id="app"/>
+    </Shell>
+
+</mvc:View>

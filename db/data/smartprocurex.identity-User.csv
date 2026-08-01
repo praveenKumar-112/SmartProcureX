@@ -1,0 +1,6 @@
+ID,employeeId,firstName,lastName,email,phone,designation,status,department_ID
+bbbb0001-0001-0001-0001-000000000001,EMP001,Praveen,Kumar,praveen.kumar@smartprocurex.com,+91-9876543210,Manager,ACTIVE,aaaa0001-0001-0001-0001-000000000001
+bbbb0001-0001-0001-0001-000000000002,EMP002,Anita,Sharma,anita.sharma@smartprocurex.com,+91-9876543211,Senior Developer,ACTIVE,aaaa0001-0001-0001-0001-000000000001
+bbbb0001-0001-0001-0001-000000000003,EMP003,Rahul,Verma,rahul.verma@smartprocurex.com,+91-9876543212,Finance Lead,ACTIVE,aaaa0001-0001-0001-0001-000000000002
+bbbb0001-0001-0001-0001-000000000004,EMP004,Sneha,Patel,sneha.patel@smartprocurex.com,+91-9876543213,HR Manager,ACTIVE,aaaa0001-0001-0001-0001-000000000003
+bbbb0001-0001-0001-0001-000000000005,EMP005,Amit,Singh,amit.singh@smartprocurex.com,+91-9876543214,Procurement Officer,ACTIVE,aaaa0001-0001-0001-0001-000000000004

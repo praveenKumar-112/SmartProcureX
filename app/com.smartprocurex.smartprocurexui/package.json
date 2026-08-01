@@ -1,0 +1,20 @@
+{
+    "name": "com.smartprocurex.smartprocurexui",
+    "scripts": {
+        "build": "mbt build --mtar com.smartprocurex.smartprocurexui.mtar",
+        "build:workspaces": "npm run build --workspaces --if-present",
+        "deploy": "cf deploy mta_archives/com.smartprocurex.smartprocurexui.mtar --retries 0",
+        "lint": "npm run lint --workspaces --if-present",
+        "ui5lint": "npm run ui5lint --workspaces --if-present",
+        "start:smartprocurex": "npm start --workspace smartprocurex"
+    },
+    "dependencies": {
+        "mbt": "^1"
+    },
+    "workspaces": [
+        "smartprocurex"
+    ],
+    "devDependencies": {
+        "ui5-middleware-simpleproxy": "^3.8.0"
+    }
+}

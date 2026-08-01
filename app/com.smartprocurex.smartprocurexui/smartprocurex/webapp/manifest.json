@@ -1,0 +1,133 @@
+{
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "smartprocurex",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap-ux/fiori-freestyle-writer:basic",
+      "version": "3.0.39"
+    },
+    "dataSources": {
+  "mainService": {
+    "uri": "/odata/v4/procurement/",
+    "type": "OData",
+    "settings": {
+      "odataVersion": "4.0"
+    }
+  }
+}
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.148.1",
+      "libs": {
+  "sap.m": {},
+  "sap.ui.core": {},
+  "sap.ui.table": {},
+  "sap.ui.layout": {}
+}
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupId": "$auto"
+        }
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "smartprocurex.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+  "config": {
+    "routerClass": "sap.m.routing.Router",
+    "controlId": "app",
+    "controlAggregation": "pages",
+    "viewType": "XML",
+    "viewPath": "smartprocurex.view",
+    "async": true
+  },
+  
+    "routes": [
+  {
+    "pattern": "",
+    "name": "RouteMainView",
+    "target": "TargetMainView"
+  },
+  {
+    "pattern": "details/{requestId}",
+    "name": "RouteRequestDetails",
+    "target": "TargetRequestDetails"
+  },
+  {
+    "pattern": "create",
+    "name": "RouteCreateRequest",
+    "target": "TargetCreateRequest"
+  }
+],
+  
+  "targets": {
+  "TargetMainView": {
+    "viewName": "MainView",
+    "viewType": "XML"
+  },
+  "TargetRequestDetails": {
+    "viewName": "RequestDetails",
+    "viewType": "XML"
+  },
+  "TargetCreateRequest": {
+    "viewName": "CreateRequest",
+    "viewType": "XML"
+  }
+}
+},
+    "rootView": {
+      "viewName": "smartprocurex.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

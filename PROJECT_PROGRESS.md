@@ -17,7 +17,7 @@
 - **Phase 1 - Constants**: `srv/common/constants.js` (document prefixes, PR statuses).
 - **Phase 2 - Constants extended**: `SUBMITTED` status added.
 - **Phase 2 - Error library**: `srv/common/errors.js` (HTTP_STATUS + reject factories).
-- **Phase 2 - Validation library**: `srv/common/validation.js` (pure checks + require* rejecters).
+- **Phase 2 - Validation library**: `srv/common/validation.js` (pure checks + require\* rejecters).
 - **Phase 2 - Utilities library**: `srv/common/utils.js` (dates, ids, collections, tryAsync).
 - **Phase 2 - Calculator library**: `srv/common/calculator.js` (decimal-safe monetary math).
 - **Phase 3 - Purchase Request**: Create validation (association payload normalized, number
@@ -54,11 +54,11 @@
   goodsReceiptNumber. GRItem before-CREATE enforces over-receipt prevention
   (cumulative received across all Draft + Posted GRs <= ordered). `postGoodsReceipt`
   atomically applies Inbound `InventoryTransaction` ledger rows + updates InventoryItem balance
-  + increments PurchaseOrderItem receivedQuantity + re-evaluates PO status (Sent /
-  PartiallyReceived / Received). `cancelGoodsReceipt` reverses every prior movement with
-  matching Outbound transactions and decrements POItem receivedQuantity (Cancelled is
-  terminal). DELETE prevention on Posted GRs. Multiple partial receipts against the same PO
-  are supported.
+  - increments PurchaseOrderItem receivedQuantity + re-evaluates PO status (Sent /
+    PartiallyReceived / Received). `cancelGoodsReceipt` reverses every prior movement with
+    matching Outbound transactions and decrements POItem receivedQuantity (Cancelled is
+    terminal). DELETE prevention on Posted GRs. Multiple partial receipts against the same PO
+    are supported.
 - **Phase 4 - Inventory Module TICKET-006**: Inventory ledger via `applyInventoryMovement`
   (Inbound / Outbound / Transfer / Adjustment / Reserved / Unreserved / Damaged). Actions
   `adjustInventory`, `reserveInventory`, `unreserveInventory`, `markDamaged`,
@@ -130,6 +130,7 @@
 ## Files Modified
 
 This ticket (TICKET-008):
+
 - `srv/common/notification-service-helpers.js`
   - implemented notification create/read/update helpers, unread counts,
     soft-delete, broadcast expansion, and business-event auto-emission
@@ -158,6 +159,7 @@ This ticket (TICKET-008):
     filtering, pagination, broadcast, and auto-emission
 
 Previous tickets:
+
 - `srv/common/errors.js` (TICKET-003)
 - `srv/common/validation.js` (TICKET-003)
 - `srv/common/utils.js` (TICKET-003)
@@ -214,23 +216,23 @@ Previous tickets:
 
 ## Business Logic Status
 
-| Domain                    | Status                                |
-|---------------------------|---------------------------------------|
-| Purchase Request Create   | Done (incl. assoc normalization)      |
-| Purchase Request Items    | Done (C/U/D validated, roll-up fires) |
-| PR Submission             | Done                                  |
-| PR Total Roll-up          | Done (TICKET-004)                     |
-| PR Approval               | Done (TICKET-005)                     |
-| PR Approval History       | Done (TICKET-005)                     |
-| PR Cancellation           | Done (TICKET-005)                     |
-| Purchase Order            | Done (TICKET-006 - lifecycle + items + supplier) |
-| Purchase Order Total Roll-up | Done (TICKET-006 - after-hooks)    |
-| Goods Receipt             | Done (TICKET-006 - create/post/cancel/over-receipt/cumulative) |
-| Inventory                 | Done (TICKET-006 - ledger + reserve/unreserve/damage/adjust/transfer) |
-| Warehouse                 | Done (TICKET-006 - CRUD + guards)     |
-| Assets                    | Done (TICKET-007 - CRUD + lifecycle + audit)    |
-| Notifications             | Done (TICKET-008 - framework + E2E green) |
-| Reporting                 | Done (TICKET-009 - 13 functions + E2E green)  |
+| Domain                       | Status                                                                |
+| ---------------------------- | --------------------------------------------------------------------- |
+| Purchase Request Create      | Done (incl. assoc normalization)                                      |
+| Purchase Request Items       | Done (C/U/D validated, roll-up fires)                                 |
+| PR Submission                | Done                                                                  |
+| PR Total Roll-up             | Done (TICKET-004)                                                     |
+| PR Approval                  | Done (TICKET-005)                                                     |
+| PR Approval History          | Done (TICKET-005)                                                     |
+| PR Cancellation              | Done (TICKET-005)                                                     |
+| Purchase Order               | Done (TICKET-006 - lifecycle + items + supplier)                      |
+| Purchase Order Total Roll-up | Done (TICKET-006 - after-hooks)                                       |
+| Goods Receipt                | Done (TICKET-006 - create/post/cancel/over-receipt/cumulative)        |
+| Inventory                    | Done (TICKET-006 - ledger + reserve/unreserve/damage/adjust/transfer) |
+| Warehouse                    | Done (TICKET-006 - CRUD + guards)                                     |
+| Assets                       | Done (TICKET-007 - CRUD + lifecycle + audit)                          |
+| Notifications                | Done (TICKET-008 - framework + E2E green)                             |
+| Reporting                    | Done (TICKET-009 - 13 functions + E2E green)                          |
 
 ---
 
@@ -331,5 +333,5 @@ Phase 5 Asset = 100%, Notifications = 100%; Phase 6 Reporting = 100%, Testing = 
   - Created `test/reporting-e2e.test.js` (121-assertion E2E covering all 13 functions,
     filtered/unfiltered variants, date-range exclusion, and invalid-UUID rejection cases).
   - Validated: `node --check` on all 4 new JS files (0 errors), `cds compile
-    srv/reporting-service.cds` (clean), `node test/reporting-e2e.test.js` (121/121 PASS),
+srv/reporting-service.cds` (clean), `node test/reporting-e2e.test.js` (121/121 PASS),
     `node test/notification-e2e.test.js` (59/59 PASS - no regression).

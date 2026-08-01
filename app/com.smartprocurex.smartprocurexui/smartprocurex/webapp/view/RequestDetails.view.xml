@@ -1,0 +1,68 @@
+<mvc:View
+    controllerName="smartprocurex.controller.RequestDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page
+        title="Purchase Request Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <content>
+
+            <form:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout">
+
+                <Label text="Request Number"/>
+                <Text text="{requestNumber}"/>
+
+                <Label text="Request Date"/>
+                <Text text="{requestDate}"/>
+
+                <Label text="Priority"/>
+                <Text text="{priority}"/>
+
+                <Label text="Amount"/>
+                <Text text="{totalAmount}"/>
+
+                <Label text="Status"/>
+                <Text text="{status}"/>
+
+                <Label text="Justification"/>
+                <Text text="{justification}"/>
+
+            </form:SimpleForm>
+
+            <HBox
+                justifyContent="Center"
+                class="sapUiMediumMarginTop">
+
+                <Button
+                    text="Approve"
+                    type="Accept"
+                    press=".onApprove"
+                    visible="{= ${status} === 'Submitted'}"/>
+
+                <Button
+                    text="Reject"
+                    type="Reject"
+                    press=".onReject"
+                    class="sapUiSmallMarginBegin"
+                    visible="{= ${status} === 'Submitted'}"/>
+
+                    <Button
+    text="Submit"
+    type="Emphasized"
+    press=".onSubmit"
+    visible="{= ${status} === 'Draft'}"
+/>
+
+            </HBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,16 @@
+{
+  "generator-ui5-project": {
+    "namespaceUI5": "com.smartprocurex",
+    "projectName": "smartprocurexui",
+    "uimoduleName": "smartprocurex",
+    "enableFPM": false,
+    "platform": "Static webserver",
+    "ui5Libs": "Content delivery network (OpenUI5)",
+    "newDir": true,
+    "initRepo": false,
+    "projectId": "com.smartprocurex.smartprocurexui",
+    "uimodules": [
+      "smartprocurex"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+specVersion: "4.0"
+metadata:
+  name: smartprocurex
+type: application
+server:
+  customMiddleware:
+
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertErrors: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://sdk.openui5.org
+        backend:
+          - path: /backend
+            url: http://localhost:4004
+
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        flp:
+          theme: sap_horizon
+          path: test/flpSandbox.html
+          intent:
+            object: smartprocurex
+            action: display
+        test:
+          - framework: Qunit
+          - framework: OPA5
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**

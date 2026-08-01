@@ -1,0 +1,127 @@
+<mvc:View
+    controllerName="smartprocurex.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="SmartProcureX Dashboard">
+
+        <content>
+
+            <HBox justifyContent="SpaceAround">
+
+                <GenericTile header="Total PR">
+                    <TileContent>
+                        <NumericContent value="{dashboardModel>/totalPR}"/>
+                    </TileContent>
+                </GenericTile>
+
+                <GenericTile header="Draft">
+                    <TileContent>
+                        <NumericContent value="{dashboardModel>/draft}"/>
+                    </TileContent>
+                </GenericTile>
+
+                <GenericTile header="Submitted">
+                    <TileContent>
+                        <NumericContent value="{dashboardModel>/submitted}"/>
+                    </TileContent>
+                </GenericTile>
+
+                <GenericTile header="Approved">
+                    <TileContent>
+                        <NumericContent value="{dashboardModel>/approved}"/>
+                    </TileContent>
+                </GenericTile>
+
+                <GenericTile header="Rejected">
+                    <TileContent>
+                        <NumericContent value="{dashboardModel>/rejected}"/>
+                    </TileContent>
+                </GenericTile>
+
+            </HBox>
+
+            <Panel
+                class="sapUiMediumMarginTop">
+
+                <headerToolbar>
+
+                    <Toolbar>
+
+                        <Title text="Purchase Requests"/>
+
+                        <ToolbarSpacer/>
+
+                        <Button
+                            text="Create Request"
+                            icon="sap-icon://add"
+                            press=".onCreateRequest"/>
+
+                    </Toolbar>
+
+                </headerToolbar>
+
+                <Table
+                    items="{
+                        path:'/PurchaseRequests'
+                    }">
+
+                    <columns>
+
+    <Column>
+        <Text text="Request Number"/>
+    </Column>
+
+    <Column>
+        <Text text="Priority"/>
+    </Column>
+
+    <Column>
+        <Text text="Amount"/>
+    </Column>
+
+    <Column>
+        <Text text="Status"/>
+    </Column>
+
+</columns>
+
+                    <items>
+
+                        <ColumnListItem
+    type="Navigation"
+    press=".onRequestPress">
+
+                            <cells>
+
+    <Text text="{requestNumber}"/>
+
+    <ObjectStatus
+        text="{priority}"/>
+
+    <ObjectNumber
+        number="{totalAmount}"
+        unit="INR"/>
+
+    <ObjectStatus
+        text="{status}"
+        state="{
+            path:'status',
+            formatter: '.getStatusState'
+        }"/>
+
+</cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </Panel>
+
+        </content>
+
+    </Page>
+
+</mvc:View>
