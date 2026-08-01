@@ -1,0 +1,64 @@
+<mvc:View
+    controllerName="smartprocurex.controller.SupplierList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Suppliers"
+          showNavButton="true"
+          navButtonPress=".onNavBack">
+
+        <content>
+            <Panel class="sapUiMediumMarginTop sapUiMediumMarginBeginEnd">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Supplier Directory"/>
+                        <ToolbarSpacer/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <Table
+                    id="supplierTable"
+                    items="{supplierModel>/Suppliers}"
+                    sticky="ColumnHeaders"
+                    alternateRowColors="true">
+                    <columns>
+                        <Column>
+                            <Text text="Supplier Code"/>
+                        </Column>
+                        <Column>
+                            <Text text="Supplier Name"/>
+                        </Column>
+                        <Column>
+                            <Text text="Email"/>
+                        </Column>
+                        <Column>
+                            <Text text="Phone"/>
+                        </Column>
+                        <Column hAlign="Center">
+                            <Text text="Status"/>
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem
+                            type="Navigation"
+                            press=".onSupplierPress">
+                            <cells>
+                                <Text text="{supplierModel>supplierCode}" class="sapMObjectNumberText"/>
+                                <Text text="{supplierModel>supplierName}"/>
+                                <Text text="{supplierModel>email}"/>
+                                <Text text="{supplierModel>phone}"/>
+                                <ObjectStatus
+                                    text="{supplierModel>status}"
+                                    state="{
+                                        path:'supplierModel>status',
+                                        formatter: '.getSupplierStatusState'
+                                    }"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

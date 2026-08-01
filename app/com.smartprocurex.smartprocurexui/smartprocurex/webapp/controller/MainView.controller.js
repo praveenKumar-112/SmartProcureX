@@ -18,7 +18,10 @@ sap.ui.define([
                 totalPO: 0,
                 poCreated: 0,
                 poSent: 0,
-                poClosed: 0
+                poClosed: 0,
+                totalSuppliers: 0,
+                activeSuppliers: 0,
+                inactiveSuppliers: 0
             });
             this.getView().setModel(oDashboardModel, "dashboardModel");
 
@@ -52,7 +55,10 @@ sap.ui.define([
                     totalPO: 0,
                     poCreated: 0,
                     poSent: 0,
-                    poClosed: 0
+                    poClosed: 0,
+                    totalSuppliers: 0,
+                    activeSuppliers: 0,
+                    inactiveSuppliers: 0
                 };
 
                 aRequests.forEach(function (req) {
@@ -90,6 +96,21 @@ sap.ui.define([
                         case "Closed":
                             oCounts.poClosed++;
                             break;
+                    }
+                });
+
+                // Fetch Suppliers
+                var supplierResponse = await fetch("/odata/v4/supplier/Suppliers");
+                var supplierData = await supplierResponse.json();
+                var aSuppliers = supplierData.value || [];
+
+                oCounts.totalSuppliers = aSuppliers.length;
+
+                aSuppliers.forEach(function (supplier) {
+                    if (supplier.status === "ACTIVE" || supplier.status === "Active") {
+                        oCounts.activeSuppliers++;
+                    } else if (supplier.status === "INACTIVE" || supplier.status === "Inactive") {
+                        oCounts.inactiveSuppliers++;
                     }
                 });
 
@@ -141,6 +162,14 @@ sap.ui.define([
 
         onViewPurchaseOrders: function () {
             this.getOwnerComponent().getRouter().navTo("RoutePurchaseOrderList");
+        },
+
+        onViewSuppliers: function () {
+            this.getOwnerComponent().getRouter().navTo("RouteSupplierList");
+        },
+
+        onCreateSupplier: function () {
+            this.getOwnerComponent().getRouter().navTo("RouteCreateSupplier");
         },
         onRequestPress: function (oEvent) {
 

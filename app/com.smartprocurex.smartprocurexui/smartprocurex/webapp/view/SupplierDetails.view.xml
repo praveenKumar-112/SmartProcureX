@@ -1,0 +1,167 @@
+<mvc:View
+    controllerName="smartprocurex.controller.SupplierDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:grid="sap.ui.layout.cssgrid">
+
+    <Page title="Supplier Details"
+          showNavButton="true"
+          navButtonPress=".onNavBack">
+
+        <headerContent>
+            <Button id="btnEdit" text="Edit" type="Emphasized" press=".onEdit" />
+            <Button id="btnSave" text="Save" type="Accept" press=".onSave" visible="false" />
+            <Button id="btnCancel" text="Cancel" type="Reject" press=".onCancelEdit" visible="false" />
+        </headerContent>
+
+        <content>
+            <!-- Supplier Analytics Section -->
+            <VBox class="sapUiMediumMarginTop sapUiMediumMarginBeginEnd">
+                <Title text="Supplier Performance Analytics" class="sectionTitle" />
+                <ToolbarSeparator class="sapUiSmallMarginBottom" style="width: 100%" />
+
+                <grid:CSSGrid gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))" gridGap="1rem">
+                    <VBox class="kpiCard kpiThemeIndigo">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Total POs" class="kpiTitle" />
+                                <Text text="All-time Orders" class="kpiSubtitle" />
+                                <Text id="txtTotalPOs" text="0" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://sales-order" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="kpiCard kpiThemeGreen">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Total Value" class="kpiTitle" />
+                                <Text text="Lifetime Spend" class="kpiSubtitle" />
+                                <Text id="txtTotalValue" text="₹0.00" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://lead" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="kpiCard kpiThemeTeal">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Active POs" class="kpiTitle" />
+                                <Text text="Created &amp; Sent" class="kpiSubtitle" />
+                                <Text id="txtActivePOs" text="0" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://in-progress" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="kpiCard kpiThemeOrange">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Last Order" class="kpiTitle" />
+                                <Text text="Most recent PO Date" class="kpiSubtitle" />
+                                <Text id="txtLastOrder" text="-" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://history" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+                </grid:CSSGrid>
+            </VBox>
+
+            <!-- General Information Form -->
+            <Panel class="sapUiMediumMarginTop sapUiMediumMarginBeginEnd">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Supplier Information" />
+                    </Toolbar>
+                </headerToolbar>
+
+                <form:SimpleForm
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+                    adjustLabelSpan="false"
+                    columnsXL="2" columnsL="2" columnsM="2">
+
+                    <core:Title text="General Details" />
+                    <Label text="Supplier Code" />
+                    <Text text="{supplierModel>supplierCode}" />
+
+                    <Label text="Supplier Name" />
+                    <Input value="{supplierModel>supplierName}" editable="false" id="inSupplierName" />
+
+                    <Label text="Supplier Type" />
+                    <Input value="{supplierModel>supplierType}" editable="false" id="inSupplierType" />
+
+                    <Label text="Status" />
+                    <Select selectedKey="{supplierModel>status}" editable="false" id="inStatus">
+                        <core:Item key="ACTIVE" text="Active" />
+                        <core:Item key="INACTIVE" text="Inactive" />
+                    </Select>
+
+                    <core:Title text="Contact &amp; Business Info" />
+                    <Label text="Email" />
+                    <Input value="{supplierModel>email}" editable="false" id="inEmail" type="Email" />
+
+                    <Label text="Phone" />
+                    <Input value="{supplierModel>phone}" editable="false" id="inPhone" type="Tel" />
+
+                    <Label text="Website" />
+                    <Input value="{supplierModel>website}" editable="false" id="inWebsite" type="Url" />
+
+                    <Label text="GST Number" />
+                    <Input value="{supplierModel>gstNumber}" editable="false" id="inGstNumber" />
+
+                    <Label text="Tax Number" />
+                    <Input value="{supplierModel>taxNumber}" editable="false" id="inTaxNumber" />
+                </form:SimpleForm>
+            </Panel>
+
+            <!-- Contacts Table (Read-Only) -->
+            <Panel class="sapUiMediumMarginTop sapUiMediumMarginBeginEnd">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Supplier Contacts" />
+                    </Toolbar>
+                </headerToolbar>
+                <Table items="{supplierModel>contacts}">
+                    <columns>
+                        <Column><Text text="Name" /></Column>
+                        <Column><Text text="Designation" /></Column>
+                        <Column><Text text="Email" /></Column>
+                        <Column><Text text="Phone" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{supplierModel>firstName} {supplierModel>lastName}" />
+                                <Text text="{supplierModel>designation}" />
+                                <Text text="{supplierModel>email}" />
+                                <Text text="{supplierModel>phone}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+
+            <!-- Related Purchase Orders (Fetched Dynamically) -->
+            <Panel class="sapUiMediumMarginTop sapUiMediumMarginBeginEnd sapUiMediumMarginBottom">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Recent Purchase Orders" />
+                    </Toolbar>
+                </headerToolbar>
+                
+                <Table id="relatedPOTable">
+                    <columns>
+                        <Column><Text text="PO Number"/></Column>
+                        <Column><Text text="Order Date"/></Column>
+                        <Column hAlign="End"><Text text="Amount"/></Column>
+                        <Column hAlign="Center"><Text text="Status"/></Column>
+                    </columns>
+                </Table>
+            </Panel>
+            
+        </content>
+    </Page>
+</mvc:View>

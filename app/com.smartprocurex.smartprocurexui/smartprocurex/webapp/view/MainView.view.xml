@@ -18,6 +18,16 @@
             <OverflowToolbar class="sapUiMediumMarginBeginEnd sapUiSmallMarginBottom">
                 <ToolbarSpacer />
                 <Button
+                    text="View Suppliers"
+                    icon="sap-icon://supplier"
+                    press=".onViewSuppliers"
+                    type="Default" />
+                <Button
+                    text="Create Supplier"
+                    icon="sap-icon://add-contact"
+                    press=".onCreateSupplier"
+                    type="Default" />
+                <Button
                     text="View Purchase Orders"
                     icon="sap-icon://list"
                     press=".onViewPurchaseOrders"
@@ -204,6 +214,53 @@
                             <core:Icon src="sap-icon://accept" class="kpiIcon" />
                         </HBox>
                     </VBox>
+                </grid:CSSGrid>
+            </VBox>
+
+            <!-- SECTION C: Supplier Overview -->
+            <VBox class="sapUiMediumMarginBeginEnd sapUiMediumMarginBottom">
+                <Title text="Supplier Overview" class="sectionTitle" />
+                <ToolbarSeparator class="sapUiSmallMarginBottom" style="width: 100%" />
+
+                <!-- Supplier KPI Cards Grid -->
+                <grid:CSSGrid gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))" gridGap="1rem">
+                    
+                    <!-- Total Suppliers -->
+                    <VBox class="kpiCard kpiThemeBlue">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Total Suppliers" class="kpiTitle" />
+                                <Text text="Registered Suppliers" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/totalSuppliers}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://supplier" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Active Suppliers -->
+                    <VBox class="kpiCard kpiThemeGreen">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Active" class="kpiTitle" />
+                                <Text text="Active Suppliers" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/activeSuppliers}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://sys-enter-2" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Inactive Suppliers -->
+                    <VBox class="kpiCard kpiThemeRed">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Inactive" class="kpiTitle" />
+                                <Text text="Inactive Suppliers" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/inactiveSuppliers}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://error" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
                 </grid:CSSGrid>
             </VBox>
 

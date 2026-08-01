@@ -21,6 +21,13 @@
     "settings": {
       "odataVersion": "4.0"
     }
+  },
+  "supplierService": {
+    "uri": "/odata/v4/supplier/",
+    "type": "OData",
+    "settings": {
+      "odataVersion": "4.0"
+    }
   }
 }
   },
@@ -58,6 +65,16 @@
     "models": {
       "": {
         "dataSource": "mainService",
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupId": "$auto"
+        }
+      },
+      "supplierModel": {
+        "dataSource": "supplierService",
         "type": "sap.ui.model.odata.v4.ODataModel",
         "settings": {
           "operationMode": "Server",
@@ -115,6 +132,21 @@
     "pattern": "po/{poId}",
     "name": "RoutePurchaseOrderDetails",
     "target": "TargetPurchaseOrderDetails"
+  },
+  {
+    "pattern": "suppliers",
+    "name": "RouteSupplierList",
+    "target": "TargetSupplierList"
+  },
+  {
+    "pattern": "supplier/create",
+    "name": "RouteCreateSupplier",
+    "target": "TargetCreateSupplier"
+  },
+  {
+    "pattern": "supplier/{supplierId}",
+    "name": "RouteSupplierDetails",
+    "target": "TargetSupplierDetails"
   }
 ],
   
@@ -137,6 +169,18 @@
   },
   "TargetPurchaseOrderDetails": {
     "viewName": "PurchaseOrderDetails",
+    "viewType": "XML"
+  },
+  "TargetSupplierList": {
+    "viewName": "SupplierList",
+    "viewType": "XML"
+  },
+  "TargetCreateSupplier": {
+    "viewName": "CreateSupplier",
+    "viewType": "XML"
+  },
+  "TargetSupplierDetails": {
+    "viewName": "SupplierDetails",
     "viewType": "XML"
   }
 }
