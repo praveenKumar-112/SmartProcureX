@@ -1,1 +1,183 @@
-/* Enter your custom styles here */
+/* ==========================================================================
+   Enterprise Procurement Dashboard - Custom Styles
+   ========================================================================== */
+
+/* Main Page Styling */
+.smartProcureXDashboard {
+    background-color: #f4f5f6; /* Soft modern background */
+}
+
+/* --------------------------------------------------------------------------
+   KPI Cards (Modern Fiori Style)
+   -------------------------------------------------------------------------- */
+.kpiCard {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    cursor: default;
+    border-top: 4px solid transparent;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.kpiCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Typography */
+.kpiTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #32363a;
+    margin-bottom: 0.25rem;
+}
+
+.kpiSubtitle {
+    font-size: 0.875rem;
+    color: #6a6d70;
+    margin-bottom: 1rem;
+}
+
+.kpiValue {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1d2d3e;
+    line-height: 1;
+}
+
+.kpiIcon {
+    font-size: 2rem !important;
+    opacity: 0.8;
+}
+
+/* Card Layout Helpers */
+.kpiContentArea {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   KPI Card Themes (Color Coding)
+   -------------------------------------------------------------------------- */
+/* Purchase Requests */
+.kpiThemeBlue {
+    border-top-color: #0a6ed1;
+}
+.kpiThemeBlue .kpiIcon { color: #0a6ed1; }
+
+.kpiThemeOrange {
+    border-top-color: #f27020;
+}
+.kpiThemeOrange .kpiIcon { color: #f27020; }
+
+.kpiThemePurple {
+    border-top-color: #893b8f;
+}
+.kpiThemePurple .kpiIcon { color: #893b8f; }
+
+.kpiThemeGreen {
+    border-top-color: #107e3e;
+}
+.kpiThemeGreen .kpiIcon { color: #107e3e; }
+
+.kpiThemeRed {
+    border-top-color: #bb0000;
+}
+.kpiThemeRed .kpiIcon { color: #bb0000; }
+
+/* Purchase Orders */
+.kpiThemeIndigo {
+    border-top-color: #4b0082;
+}
+.kpiThemeIndigo .kpiIcon { color: #4b0082; }
+
+.kpiThemeCyan {
+    border-top-color: #00bcd4;
+}
+.kpiThemeCyan .kpiIcon { color: #00bcd4; }
+
+.kpiThemeTeal {
+    border-top-color: #009688;
+}
+.kpiThemeTeal .kpiIcon { color: #009688; }
+
+.kpiThemeDarkGreen {
+    border-top-color: #2e7d32;
+}
+.kpiThemeDarkGreen .kpiIcon { color: #2e7d32; }
+
+/* --------------------------------------------------------------------------
+   Status Badges (Pill style)
+   -------------------------------------------------------------------------- */
+.statusBadge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.badgeDraft {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffe0b2;
+}
+
+.badgeSubmitted {
+    background-color: #f3e5f5;
+    color: #4a148c;
+    border: 1px solid #e1bee7;
+}
+
+.badgeApproved {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+}
+
+.badgeRejected {
+    background-color: #ffebee;
+    color: #b71c1c;
+    border: 1px solid #ffcdd2;
+}
+
+.badgeConvertedToPO {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    border: 1px solid #bbdefb;
+}
+
+/* Additional statuses if needed */
+.badgeDefault {
+    background-color: #f5f5f5;
+    color: #424242;
+    border: 1px solid #e0e0e0;
+}
+
+/* --------------------------------------------------------------------------
+   Typography and Spacing overrides
+   -------------------------------------------------------------------------- */
+.dashboardTitle {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #32363a;
+}
+
+.dashboardSubtitle {
+    font-size: 1rem !important;
+    color: #6a6d70 !important;
+    margin-top: 0.25rem;
+}
+
+.sectionTitle {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: #32363a;
+    padding-bottom: 0.5rem;
+}

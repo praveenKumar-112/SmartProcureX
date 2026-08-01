@@ -1,0 +1,4 @@
+ID,supplierCode,supplierName,supplierType,gstNumber,taxNumber,email,phone,website,status
+cccc0001-0001-0001-0001-000000000001,SUP-001,TechNova Solutions,Hardware,GST123456,TAX123,contact@technova.com,+91-1234567890,www.technova.com,ACTIVE
+cccc0001-0001-0001-0001-000000000002,SUP-002,OfficePro Supplies,Stationery,GST654321,TAX654,sales@officepro.com,+91-0987654321,www.officepro.com,ACTIVE
+cccc0001-0001-0001-0001-000000000003,SUP-003,CloudSys Networks,Software,GST987654,TAX987,support@cloudsys.com,+91-1122334455,www.cloudsys.com,ACTIVE

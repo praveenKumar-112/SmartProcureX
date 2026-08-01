@@ -14,7 +14,11 @@ sap.ui.define([
                 draft: 0,
                 submitted: 0,
                 approved: 0,
-                rejected: 0
+                rejected: 0,
+                totalPO: 0,
+                poCreated: 0,
+                poSent: 0,
+                poClosed: 0
             });
             this.getView().setModel(oDashboardModel, "dashboardModel");
 
@@ -44,7 +48,11 @@ sap.ui.define([
                     draft: 0,
                     submitted: 0,
                     approved: 0,
-                    rejected: 0
+                    rejected: 0,
+                    totalPO: 0,
+                    poCreated: 0,
+                    poSent: 0,
+                    poClosed: 0
                 };
 
                 aRequests.forEach(function (req) {
@@ -60,6 +68,27 @@ sap.ui.define([
                             break;
                         case "Rejected":
                             oCounts.rejected++;
+                            break;
+                    }
+                });
+
+                // Fetch Purchase Orders
+                var poResponse = await fetch("/odata/v4/procurement/PurchaseOrders");
+                var poData = await poResponse.json();
+                var aPOs = poData.value || [];
+
+                oCounts.totalPO = aPOs.length;
+                
+                aPOs.forEach(function (po) {
+                    switch (po.status) {
+                        case "Created":
+                            oCounts.poCreated++;
+                            break;
+                        case "Sent":
+                            oCounts.poSent++;
+                            break;
+                        case "Closed":
+                            oCounts.poClosed++;
                             break;
                     }
                 });
@@ -88,8 +117,30 @@ sap.ui.define([
             }
         },
 
+        getBadgeClass: function (sStatus) {
+            let sBaseClass = "statusBadge ";
+            switch (sStatus) {
+                case "Draft":
+                    return sBaseClass + "badgeDraft";
+                case "Submitted":
+                    return sBaseClass + "badgeSubmitted";
+                case "Approved":
+                    return sBaseClass + "badgeApproved";
+                case "Rejected":
+                    return sBaseClass + "badgeRejected";
+                case "ConvertedToPO":
+                    return sBaseClass + "badgeConvertedToPO";
+                default:
+                    return sBaseClass + "badgeDefault";
+            }
+        },
+
         onCreateRequest: function () {
             this.getOwnerComponent().getRouter().navTo("RouteCreateRequest");
+        },
+
+        onViewPurchaseOrders: function () {
+            this.getOwnerComponent().getRouter().navTo("RoutePurchaseOrderList");
         },
         onRequestPress: function (oEvent) {
 

@@ -105,6 +105,16 @@
     "pattern": "create",
     "name": "RouteCreateRequest",
     "target": "TargetCreateRequest"
+  },
+  {
+    "pattern": "pos",
+    "name": "RoutePurchaseOrderList",
+    "target": "TargetPurchaseOrderList"
+  },
+  {
+    "pattern": "po/{poId}",
+    "name": "RoutePurchaseOrderDetails",
+    "target": "TargetPurchaseOrderDetails"
   }
 ],
   
@@ -119,6 +129,14 @@
   },
   "TargetCreateRequest": {
     "viewName": "CreateRequest",
+    "viewType": "XML"
+  },
+  "TargetPurchaseOrderList": {
+    "viewName": "PurchaseOrderList",
+    "viewType": "XML"
+  },
+  "TargetPurchaseOrderDetails": {
+    "viewName": "PurchaseOrderDetails",
     "viewType": "XML"
   }
 }

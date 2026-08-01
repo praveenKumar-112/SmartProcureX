@@ -59,6 +59,20 @@
     visible="{= ${status} === 'Draft'}"
 />
 
+                <Button
+                    text="Convert to PO"
+                    type="Emphasized"
+                    press=".onOpenConvertToPODialog"
+                    class="sapUiSmallMarginBegin"
+                    visible="{= ${status} === 'Approved'}"/>
+
+                <Button
+                    text="View Purchase Order"
+                    type="Information"
+                    press=".onViewPurchaseOrder"
+                    class="sapUiSmallMarginBegin"
+                    visible="{= ${status} === 'ConvertedToPO'}"/>
+
             </HBox>
 
         </content>

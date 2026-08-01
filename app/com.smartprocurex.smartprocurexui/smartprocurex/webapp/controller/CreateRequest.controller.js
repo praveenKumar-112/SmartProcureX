@@ -107,7 +107,15 @@ sap.ui.define([
                 department_ID: oData.department_ID,
                 priority: oData.priority,
                 totalAmount: parseFloat(oData.totalAmount),
-                justification: oData.justification ? oData.justification.trim() : ""
+                justification: oData.justification ? oData.justification.trim() : "",
+                items: [
+                    {
+                        itemName: "Standard Auto-Item",
+                        description: "Auto-generated item for PR amount",
+                        quantity: 1,
+                        unitPrice: parseFloat(oData.totalAmount)
+                    }
+                ]
             };
 
             try {

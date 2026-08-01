@@ -1,127 +1,212 @@
 <mvc:View
     controllerName="smartprocurex.controller.MainView"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:grid="sap.ui.layout.cssgrid">
 
-    <Page title="SmartProcureX Dashboard">
+    <Page showHeader="false" class="smartProcureXDashboard">
 
         <content>
+            <!-- Top Header -->
+            <VBox class="sapUiMediumMargin">
+                <Title text="SmartProcureX" titleStyle="H1" class="dashboardTitle" />
+                <Text text="Enterprise Procurement &amp; Asset Management Platform" class="dashboardSubtitle" />
+            </VBox>
 
-            <HBox justifyContent="SpaceAround">
+            <!-- Actions Toolbar -->
+            <OverflowToolbar class="sapUiMediumMarginBeginEnd sapUiSmallMarginBottom">
+                <ToolbarSpacer />
+                <Button
+                    text="View Purchase Orders"
+                    icon="sap-icon://list"
+                    press=".onViewPurchaseOrders"
+                    type="Default" />
+                <Button
+                    text="Create Request"
+                    icon="sap-icon://add"
+                    press=".onCreateRequest"
+                    type="Emphasized" />
+            </OverflowToolbar>
 
-                <GenericTile header="Total PR">
-                    <TileContent>
-                        <NumericContent value="{dashboardModel>/totalPR}"/>
-                    </TileContent>
-                </GenericTile>
+            <!-- SECTION A: Purchase Request Overview -->
+            <VBox class="sapUiMediumMarginBeginEnd sapUiMediumMarginBottom">
+                <Title text="Purchase Request Overview" class="sectionTitle" />
+                <ToolbarSeparator class="sapUiSmallMarginBottom" style="width: 100%" />
 
-                <GenericTile header="Draft">
-                    <TileContent>
-                        <NumericContent value="{dashboardModel>/draft}"/>
-                    </TileContent>
-                </GenericTile>
+                <!-- PR KPI Cards Grid -->
+                <grid:CSSGrid gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))" gridGap="1rem">
+                    
+                    <!-- Total PR -->
+                    <VBox class="kpiCard kpiThemeBlue">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Total PR" class="kpiTitle" />
+                                <Text text="Total Purchase Requests" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/totalPR}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://request" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
 
-                <GenericTile header="Submitted">
-                    <TileContent>
-                        <NumericContent value="{dashboardModel>/submitted}"/>
-                    </TileContent>
-                </GenericTile>
+                    <!-- Draft PR -->
+                    <VBox class="kpiCard kpiThemeOrange">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Draft" class="kpiTitle" />
+                                <Text text="Waiting for Submission" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/draft}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://edit" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
 
-                <GenericTile header="Approved">
-                    <TileContent>
-                        <NumericContent value="{dashboardModel>/approved}"/>
-                    </TileContent>
-                </GenericTile>
+                    <!-- Submitted PR -->
+                    <VBox class="kpiCard kpiThemePurple">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Submitted" class="kpiTitle" />
+                                <Text text="Pending Approval" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/submitted}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://outbox" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
 
-                <GenericTile header="Rejected">
-                    <TileContent>
-                        <NumericContent value="{dashboardModel>/rejected}"/>
-                    </TileContent>
-                </GenericTile>
+                    <!-- Approved PR -->
+                    <VBox class="kpiCard kpiThemeGreen">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Approved" class="kpiTitle" />
+                                <Text text="Successfully Approved" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/approved}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://approvals" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
 
-            </HBox>
+                    <!-- Rejected PR -->
+                    <VBox class="kpiCard kpiThemeRed">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Rejected" class="kpiTitle" />
+                                <Text text="Rejected Requests" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/rejected}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://decline" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+                </grid:CSSGrid>
 
-            <Panel
-                class="sapUiMediumMarginTop">
-
-                <headerToolbar>
-
-                    <Toolbar>
-
-                        <Title text="Purchase Requests"/>
-
-                        <ToolbarSpacer/>
-
-                        <Button
-                            text="Create Request"
-                            icon="sap-icon://add"
-                            press=".onCreateRequest"/>
-
-                    </Toolbar>
-
-                </headerToolbar>
-
+                <!-- Purchase Requests Table -->
                 <Table
-                    items="{
-                        path:'/PurchaseRequests'
-                    }">
+                    class="sapUiSmallMarginTop"
+                    items="{ path:'/PurchaseRequests' }"
+                    sticky="ColumnHeaders"
+                    alternateRowColors="true"
+                    backgroundDesign="Solid">
+                    
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title text="Recent Requests" level="H2" />
+                        </OverflowToolbar>
+                    </headerToolbar>
 
                     <columns>
-
-    <Column>
-        <Text text="Request Number"/>
-    </Column>
-
-    <Column>
-        <Text text="Priority"/>
-    </Column>
-
-    <Column>
-        <Text text="Amount"/>
-    </Column>
-
-    <Column>
-        <Text text="Status"/>
-    </Column>
-
-</columns>
+                        <Column>
+                            <Text text="Request Number"/>
+                        </Column>
+                        <Column>
+                            <Text text="Priority"/>
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="Amount"/>
+                        </Column>
+                        <Column hAlign="Center">
+                            <Text text="Status"/>
+                        </Column>
+                    </columns>
 
                     <items>
-
                         <ColumnListItem
-    type="Navigation"
-    press=".onRequestPress">
-
+                            type="Navigation"
+                            press=".onRequestPress">
                             <cells>
-
-    <Text text="{requestNumber}"/>
-
-    <ObjectStatus
-        text="{priority}"/>
-
-    <ObjectNumber
-        number="{totalAmount}"
-        unit="INR"/>
-
-    <ObjectStatus
-        text="{status}"
-        state="{
-            path:'status',
-            formatter: '.getStatusState'
-        }"/>
-
-</cells>
-
+                                <Text text="{requestNumber}" class="sapMObjectNumberText" />
+                                <Text text="{priority}"/>
+                                <ObjectNumber
+                                    number="{totalAmount}"
+                                    unit="INR" />
+                                <Text
+                                    text="{status}"
+                                    class="{
+                                        path: 'status',
+                                        formatter: '.getBadgeClass'
+                                    }" />
+                            </cells>
                         </ColumnListItem>
-
                     </items>
-
                 </Table>
+            </VBox>
 
-            </Panel>
+            <!-- SECTION B: Purchase Order Overview -->
+            <VBox class="sapUiMediumMarginBeginEnd sapUiMediumMarginBottom">
+                <Title text="Purchase Order Overview" class="sectionTitle" />
+                <ToolbarSeparator class="sapUiSmallMarginBottom" style="width: 100%" />
+
+                <!-- PO KPI Cards Grid -->
+                <grid:CSSGrid gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))" gridGap="1rem">
+                    
+                    <!-- Total PO -->
+                    <VBox class="kpiCard kpiThemeIndigo">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Total PO" class="kpiTitle" />
+                                <Text text="Total Purchase Orders" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/totalPO}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://sales-order" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Created PO -->
+                    <VBox class="kpiCard kpiThemeCyan">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Created" class="kpiTitle" />
+                                <Text text="Draft Orders" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/poCreated}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://create" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Sent PO -->
+                    <VBox class="kpiCard kpiThemeTeal">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Sent" class="kpiTitle" />
+                                <Text text="Sent to Supplier" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/poSent}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://paper-plane" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Closed PO -->
+                    <VBox class="kpiCard kpiThemeDarkGreen">
+                        <HBox justifyContent="SpaceBetween" alignItems="Center">
+                            <VBox class="kpiContentArea">
+                                <Text text="Closed" class="kpiTitle" />
+                                <Text text="Completed Orders" class="kpiSubtitle" />
+                                <Text text="{dashboardModel>/poClosed}" class="kpiValue" />
+                            </VBox>
+                            <core:Icon src="sap-icon://accept" class="kpiIcon" />
+                        </HBox>
+                    </VBox>
+                </grid:CSSGrid>
+            </VBox>
 
         </content>
-
     </Page>
-
 </mvc:View>
