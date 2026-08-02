@@ -4,7 +4,8 @@
   "type": "module",
   "dependencies": {
     "@cap-js/hana": "^3",
-    "@sap/cds": "^10"
+    "@sap/cds": "^10",
+    "@sap/xssec": "^4.13.3"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^3",
@@ -12,6 +13,13 @@
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "xsuaa"
+      }
+    }
   },
   "private": true
 }

@@ -1,0 +1,67 @@
+<mvc:View
+    controllerName="smartprocurex.controller.PurchaseOrderDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page
+        title="Purchase Order Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <content>
+            <form:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout">
+
+                <Label text="PO Number"/>
+                <Text text="{poNumber}"/>
+
+                <Label text="Order Date"/>
+                <Text text="{orderDate}"/>
+
+                <Label text="Expected Delivery"/>
+                <Text text="{expectedDeliveryDate}"/>
+
+                <Label text="Supplier ID"/>
+                <Text text="{supplier_ID}"/>
+
+                <Label text="Linked Request"/>
+                <Text text="{purchaseRequest/requestNumber}"/>
+
+                <Label text="Total Amount"/>
+                <Text text="{totalAmount}"/>
+
+                <Label text="Status"/>
+                <Text text="{status}"/>
+
+            </form:SimpleForm>
+
+            <HBox
+                justifyContent="Center"
+                class="sapUiMediumMarginTop">
+
+                <Button
+                    text="Send PO"
+                    type="Emphasized"
+                    press=".onSendPO"
+                    visible="{= ${status} === 'Created'}"/>
+
+                <Button
+                    text="Close PO"
+                    type="Accept"
+                    press=".onClosePO"
+                    class="sapUiSmallMarginBegin"
+                    visible="{= ${status} === 'Sent' || ${status} === 'PartiallyReceived'}"/>
+
+                <Button
+                    text="Cancel PO"
+                    type="Reject"
+                    press=".onCancelPO"
+                    class="sapUiSmallMarginBegin"
+                    visible="{= ${status} === 'Created' || ${status} === 'Sent'}"/>
+
+            </HBox>
+        </content>
+    </Page>
+</mvc:View>

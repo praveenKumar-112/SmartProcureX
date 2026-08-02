@@ -1,0 +1,70 @@
+<mvc:View
+    controllerName="smartprocurex.controller.CreateSupplier"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Page title="Create Supplier"
+          showNavButton="true"
+          navButtonPress=".onNavBack">
+        <content>
+            <Panel class="sapUiMediumMarginTop sapUiMediumMarginBeginEnd">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Supplier Information" />
+                    </Toolbar>
+                </headerToolbar>
+                
+                <form:SimpleForm
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+                    columnsXL="2" columnsL="2" columnsM="2"
+                    singleContainerFullSize="false">
+
+                    <core:Title text="General Details" />
+                    <Label text="Supplier Code" required="true" />
+                    <Input id="inSupplierCode" placeholder="Enter Supplier Code (e.g., VEND-001)" />
+                    
+                    <Label text="Supplier Name" required="true" />
+                    <Input id="inSupplierName" placeholder="Enter Company Name" />
+                    
+                    <Label text="Supplier Type" />
+                    <Input id="inSupplierType" placeholder="e.g., Manufacturer, Distributor" />
+                    
+                    <Label text="Status" required="true" />
+                    <Select id="inStatus" selectedKey="ACTIVE">
+                        <core:Item key="ACTIVE" text="Active" />
+                        <core:Item key="INACTIVE" text="Inactive" />
+                    </Select>
+
+                    <core:Title text="Contact &amp; Business Info" />
+                    <Label text="Email" required="true" />
+                    <Input id="inEmail" type="Email" placeholder="contact@supplier.com" />
+                    
+                    <Label text="Phone" required="true" />
+                    <Input id="inPhone" type="Tel" placeholder="+1-800-555-0199" />
+                    
+                    <Label text="Website" />
+                    <Input id="inWebsite" type="Url" placeholder="https://www.supplier.com" />
+                    
+                    <Label text="GST Number" />
+                    <Input id="inGstNumber" placeholder="Enter GSTIN" />
+                    
+                    <Label text="Tax Number" />
+                    <Input id="inTaxNumber" placeholder="Enter Tax ID / PAN" />
+                </form:SimpleForm>
+
+            </Panel>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Save Supplier" type="Emphasized" press=".onSaveSupplier" />
+                <Button text="Cancel" type="Transparent" press=".onNavBack" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

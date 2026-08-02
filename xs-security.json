@@ -1,0 +1,60 @@
+{
+  "xsappname": "smartprocurex",
+  "tenant-mode": "dedicated",
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://*.hana.ondemand.com/**",
+      "https://*.cfapps.us10-003.hana.ondemand.com/**"
+    ]
+  },
+  "scopes": [
+    { "name": "$XSAPPNAME.Requester", "description": "Create and view own requests" },
+    { "name": "$XSAPPNAME.Approver", "description": "Approve or reject requests" },
+    { "name": "$XSAPPNAME.ProcurementManager", "description": "Convert POs, manage suppliers" },
+    { "name": "$XSAPPNAME.Admin", "description": "Full system access" }
+  ],
+  "role-templates": [
+    {
+      "name": "RequesterTemplate",
+      "description": "Requester Access",
+      "scope-references": [ "$XSAPPNAME.Requester" ]
+    },
+    {
+      "name": "ApproverTemplate",
+      "description": "Approver Access",
+      "scope-references": [ "$XSAPPNAME.Approver" ]
+    },
+    {
+      "name": "ManagerTemplate",
+      "description": "Procurement Manager Access",
+      "scope-references": [ "$XSAPPNAME.ProcurementManager" ]
+    },
+    {
+      "name": "AdminTemplate",
+      "description": "Admin Access",
+      "scope-references": [ "$XSAPPNAME.Admin" ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "SmartProcureX_Requester",
+      "description": "SmartProcureX Requester",
+      "role-template-references": [ "$XSAPPNAME.RequesterTemplate" ]
+    },
+    {
+      "name": "SmartProcureX_Approver",
+      "description": "SmartProcureX Approver",
+      "role-template-references": [ "$XSAPPNAME.ApproverTemplate" ]
+    },
+    {
+      "name": "SmartProcureX_Manager",
+      "description": "SmartProcureX Manager",
+      "role-template-references": [ "$XSAPPNAME.ManagerTemplate" ]
+    },
+    {
+      "name": "SmartProcureX_Admin",
+      "description": "SmartProcureX Admin",
+      "role-template-references": [ "$XSAPPNAME.AdminTemplate" ]
+    }
+  ]
+}

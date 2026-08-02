@@ -1,6 +1,10 @@
 {
     "name": "com.smartprocurex.smartprocurexui",
+    "engines": {
+        "node": ">=22.0.0"
+    },
     "scripts": {
+        "start": "DEBUG=approuter:* node node_modules/@sap/approuter/approuter.js",
         "build": "mbt build --mtar com.smartprocurex.smartprocurexui.mtar",
         "build:workspaces": "npm run build --workspaces --if-present",
         "deploy": "cf deploy mta_archives/com.smartprocurex.smartprocurexui.mtar --retries 0",
@@ -9,7 +13,8 @@
         "start:smartprocurex": "npm start --workspace smartprocurex"
     },
     "dependencies": {
-        "mbt": "^1"
+        "mbt": "^1",
+        "@sap/approuter": "^16.0.0"
     },
     "workspaces": [
         "smartprocurex"

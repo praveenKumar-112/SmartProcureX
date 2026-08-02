@@ -18,7 +18,7 @@
  *     unfiltered results; the handler and helpers guard each param.
  */
 
-service ReportingService {
+service ReportingService @(requires: 'authenticated-user') {
 
     // ============================================================
     // Dashboard
@@ -28,7 +28,8 @@ service ReportingService {
      * Top-level KPIs across all SmartProcureX domains in a single
      * call. Suitable for a management dashboard landing page.
      */
-    function getDashboardSummary() returns DashboardSummary;
+    function getDashboardSummary() returns DashboardSummary
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Purchase Request Reports
@@ -43,7 +44,8 @@ service ReportingService {
         toDate       : Date,
         departmentID : UUID,
         status       : String
-    ) returns array of PurchaseRequestStat;
+    ) returns array of PurchaseRequestStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     /**
      * Total spend on Purchase Requests grouped by department.
@@ -53,7 +55,8 @@ service ReportingService {
     function getDepartmentSpendAnalysis(
         fromDate : Date,
         toDate   : Date
-    ) returns array of DepartmentSpend;
+    ) returns array of DepartmentSpend
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Approval Reports
@@ -66,7 +69,8 @@ service ReportingService {
     function getApprovalPerformance(
         fromDate : Date,
         toDate   : Date
-    ) returns array of ApprovalStat;
+    ) returns array of ApprovalStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Purchase Order Reports
@@ -79,7 +83,8 @@ service ReportingService {
         fromDate : Date,
         toDate   : Date,
         status   : String
-    ) returns array of PurchaseOrderStat;
+    ) returns array of PurchaseOrderStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     /**
      * Total spend grouped by supplier across all Purchase Orders,
@@ -88,7 +93,8 @@ service ReportingService {
     function getSupplierSpendAnalysis(
         fromDate : Date,
         toDate   : Date
-    ) returns array of SupplierSpend;
+    ) returns array of SupplierSpend
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Goods Receipt Reports
@@ -102,7 +108,8 @@ service ReportingService {
         fromDate    : Date,
         toDate      : Date,
         warehouseID : UUID
-    ) returns array of GoodsReceiptStat;
+    ) returns array of GoodsReceiptStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Inventory Reports
@@ -114,7 +121,8 @@ service ReportingService {
      */
     function getWarehouseInventorySummary(
         warehouseID : UUID
-    ) returns array of WarehouseInventoryStat;
+    ) returns array of WarehouseInventoryStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     /**
      * Inventory transaction ledger aggregated by transaction type.
@@ -125,7 +133,8 @@ service ReportingService {
         toDate          : DateTime,
         warehouseID     : UUID,
         transactionType : String
-    ) returns array of InventoryMovementStat;
+    ) returns array of InventoryMovementStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Asset Reports
@@ -135,7 +144,8 @@ service ReportingService {
      * Asset count grouped by status with percentage of total fleet.
      * Provides a quick utilization snapshot across the asset register.
      */
-    function getAssetUtilizationReport() returns array of AssetUtilizationStat;
+    function getAssetUtilizationReport() returns array of AssetUtilizationStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     /**
      * Asset count broken down by lifecycle status per asset category.
@@ -143,7 +153,8 @@ service ReportingService {
      */
     function getAssetLifecycleReport(
         categoryID : UUID
-    ) returns array of AssetLifecycleStat;
+    ) returns array of AssetLifecycleStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Notification Statistics
@@ -157,7 +168,8 @@ service ReportingService {
     function getNotificationStatistics(
         fromDate : Date,
         toDate   : Date
-    ) returns array of NotificationStat;
+    ) returns array of NotificationStat
+    @(requires: ['ProcurementManager', 'Admin']);
 
     // ============================================================
     // Audit Summary
@@ -172,7 +184,8 @@ service ReportingService {
         fromDate   : Date,
         toDate     : Date,
         entityName : String
-    ) returns array of AuditStat;
+    ) returns array of AuditStat
+    @(requires: ['ProcurementManager', 'Admin']);
 }
 
 // ============================================================

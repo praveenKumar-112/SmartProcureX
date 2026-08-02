@@ -1,0 +1,2698 @@
+#2026 08 02 07:54:36.654#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#http-nio-0.0.0.0-8080-exec-2#
+[XS2StartProcessListener] Operation ID: 6828ea62-8e47-11f1-a22d-eeee0a847462#
+#2026 08 02 07:54:36.667#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#http-nio-0.0.0.0-8080-exec-2#
+[XS2StartProcessListener] Process environment: {
+  "SKIP_SSL_VALIDATION" : "false",
+  "FLOWABLE_JOB_EXECUTOR_MAX_THREADS" : "32",
+  "VERSION" : "2.50.0",
+  "BASIC_AUTH_ENABLED" : "true",
+  "FLOWABLE_JOB_EXECUTOR_QUEUE_CAPACITY" : "16",
+  "FLOWABLE_JOB_EXECUTOR_CORE_THREADS" : "8"
+}#
+#2026 08 02 07:54:36.667#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#http-nio-0.0.0.0-8080-exec-2#
+[XS2StartProcessListener] Current user: kasireddypraveen2@gmail.com#
+#2026 08 02 07:54:36.667#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#http-nio-0.0.0.0-8080-exec-2#
+[XS2StartProcessListener] Client space: dev#
+#2026 08 02 07:54:36.667#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#http-nio-0.0.0.0-8080-exec-2#
+[XS2StartProcessListener] Client organization: 0d79b96ctrial#
+#2026 08 02 07:54:36.667#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#http-nio-0.0.0.0-8080-exec-2#
+[XS2StartProcessListener] Process variables: {
+  "keepFiles" : false,
+  "skipAppDigestCalculation" : false,
+  "abortOnError" : false,
+  "mtaId" : "SmartProcureX",
+  "noFailOnMissingPermissions" : false,
+  "isSecurityEnabled" : false,
+  "apiRequestPath" : "https://deploy-service.cf.us10-003.hana.ondemand.com/api/v1/spaces/0628b1b5-c14d-4a0a-abf9-843360b5d7c0/operations",
+  "deleteServiceBrokers" : false,
+  "appArchiveId" : "b70ea738-ea26-4a30-bfef-d1af188b5689",
+  "isDisposableUserProvidedServiceEnabled" : false,
+  "deleteServiceKeys" : false,
+  "noRestartSubscribedApps" : false,
+  "noStart" : false,
+  "deleteServices" : false
+}#
+#2026 08 02 07:54:36.696#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9976#
+[ValidateDeployParametersStep] Executing task "validateParametersTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:36.696#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9976#
+[ValidateDeployParametersStep] Validating parameters...#
+#2026 08 02 07:54:36.697#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9976#
+[ValidateDeployParametersStep] Size of mtars is 5,738,407 and size of extension descriptors is 0#
+#2026 08 02 07:54:36.826#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9976#
+[ValidateDeployParametersStep] Archive was not split! Total size in bytes: 5,738,407#
+#2026 08 02 07:54:36.826#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9976#
+[ValidateDeployParametersStep] Deploying in org "0d79b96ctrial" and space "dev"#
+#2026 08 02 07:54:36.829#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9976#
+[ValidateDeployParametersStep] Parameters validated#
+#2026 08 02 07:54:36.829#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9976#
+Step "Validate Parameters" finished#
+#2026 08 02 07:54:36.845#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9977#
+[DeleteRemainingFileParts] Executing task "deleteRemainingFileParts" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:36.846#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9977#
+Step "Delete Remaining File Parts" finished#
+#2026 08 02 07:54:36.861#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] Executing task "processArchiveTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:36.861#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] Processing MTA archive...#
+#2026 08 02 07:54:36.861#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] MTA Archive ID: b70ea738-ea26-4a30-bfef-d1af188b5689#
+#2026 08 02 07:54:37.021#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] MTA Descriptor length: 1,007#
+#2026 08 02 07:54:37.021#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] MTA Archive Modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:37.021#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] MTA Archive Requires: []#
+#2026 08 02 07:54:37.021#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] MTA Archive Resources: [SmartProcureX-uaa]#
+#2026 08 02 07:54:37.027#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+[XS2ProcessMtaArchiveStep] MTA archive processed#
+#2026 08 02 07:54:37.027#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9978#
+Step "Process Archive" finished#
+#2026 08 02 07:54:37.046#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9979#
+[ProcessMtaExtensionDescriptorsStep] Executing task "processExtensionDescriptorsTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.046#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9979#
+[ProcessMtaExtensionDescriptorsStep] Processing MTA extension descriptors...#
+#2026 08 02 07:54:37.046#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9979#
+[ProcessMtaExtensionDescriptorsStep] Provided extension descriptors: [ ]#
+#2026 08 02 07:54:37.046#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9979#
+[ProcessMtaExtensionDescriptorsStep] No extension descriptors in use#
+#2026 08 02 07:54:37.046#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9979#
+[ProcessMtaExtensionDescriptorsStep] MTA extension descriptors processed#
+#2026 08 02 07:54:37.046#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9979#
+Step "Process Extension Descriptors" finished#
+#2026 08 02 07:54:37.063#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9980#
+[XS2DetectMtaSchemaVersionStep] Executing task "detectSchemaVersionTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.063#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9980#
+[XS2DetectMtaSchemaVersionStep] Detecting MTA major schema version...#
+#2026 08 02 07:54:37.064#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9980#
+[XS2DetectMtaSchemaVersionStep] Detected MTA schema version: "3"#
+#2026 08 02 07:54:37.067#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9980#
+Step "Detect Schema Version" finished#
+#2026 08 02 07:54:37.084#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9981#
+[MergeDescriptorsStep] Executing task "mergeDescriptorsTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.084#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9981#
+[MergeDescriptorsStep] Validating and merging descriptors...#
+#2026 08 02 07:54:37.085#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9981#
+[MergeDescriptorsStep] Merged deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "SmartProcureX",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-srv",
+    "type" : "javascript.nodejs",
+    "path" : "SmartProcureX-srv",
+    "properties" : { },
+    "parameters" : {
+      "buildpack" : "nodejs_buildpack",
+      "instances" : 1
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "SmartProcureX-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "memory" : "256M",
+      "buildpack" : "nodejs_buildpack",
+      "no-route" : true,
+      "dependency-type" : "hard",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "type" : "managed-service",
+      "service" : "hana",
+      "service-plan" : "hdi-shared"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-uaa",
+    "type" : "com.sap.xs.uaa",
+    "properties" : { },
+    "parameters" : {
+      "path" : "./xs-security.json",
+      "service-plan" : "application",
+      "type" : "managed-service",
+      "service" : "xsuaa"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "enable-parallel-deployments" : true
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 08 02 07:54:37.086#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9981#
+[MergeDescriptorsStep] Descriptors validated and merged#
+#2026 08 02 07:54:37.086#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9981#
+Step "Merge Descriptors" finished#
+#2026 08 02 07:54:37.103#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Executing task "detectDeployedMtaTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.103#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Detecting deployed MTA...#
+#2026 08 02 07:54:37.104#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Detecting MTA by id SmartProcureX and namespace null#
+#2026 08 02 07:54:37.104#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Getting applications by metadata label selector "mta_id=60d3256ea3ff6d6dd8595a8e3b7c0c22,!mta_namespace"...#
+#2026 08 02 07:54:37.130#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Getting service instances by metadata label selector "mta_id=60d3256ea3ff6d6dd8595a8e3b7c0c22,!mta_namespace"...#
+#2026 08 02 07:54:37.249#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Deployed MTA: {
+  "metadata" : {
+    "id" : "SmartProcureX",
+    "version" : "1.0.0"
+  },
+  "applications" : [ {
+    "name" : "SmartProcureX-srv",
+    "metadata" : {
+      "guid" : "d9622003-7570-45ea-b8be-97c6305e4251",
+      "createdAt" : [ 2026, 8, 1, 14, 48, 23 ],
+      "updatedAt" : [ 2026, 8, 2, 7, 52, 27 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "SmartProcureX",
+        "mta_version" : "1.0.0",
+        "mta_module" : "{\"name\":\"SmartProcureX-srv\"}",
+        "mta_module_provided_dependencies" : "[]",
+        "mta_bound_services" : "[\"SmartProcureX-db\",\"SmartProcureX-uaa\"]"
+      },
+      "labels" : {
+        "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+      }
+    },
+    "state" : "STARTED",
+    "lifecycle" : {
+      "type" : "BUILDPACK",
+      "data" : {
+        "stack" : "cflinuxfs4",
+        "buildpacks" : [ "nodejs_buildpack" ]
+      }
+    },
+    "space" : {
+      "name" : "dev",
+      "metadata" : {
+        "guid" : "0628b1b5-c14d-4a0a-abf9-843360b5d7c0",
+        "createdAt" : [ 2026, 7, 23, 14, 6, 33 ],
+        "updatedAt" : [ 2026, 7, 23, 14, 6, 33 ]
+      },
+      "organization" : {
+        "name" : "0d79b96ctrial",
+        "metadata" : {
+          "guid" : "e8159873-0fc0-4477-a4f9-3c43fdb65fe4",
+          "createdAt" : [ 2026, 7, 23, 14, 6, 33 ],
+          "updatedAt" : [ 2026, 7, 23, 14, 6, 33 ]
+        }
+      }
+    },
+    "moduleName" : "SmartProcureX-srv",
+    "boundMtaServices" : [ "SmartProcureX-db", "SmartProcureX-uaa" ],
+    "providedDependencyNames" : [ ],
+    "productizationState" : "LIVE"
+  }, {
+    "name" : "SmartProcureX-db-deployer",
+    "metadata" : {
+      "guid" : "0811d82a-292b-418f-a9aa-32d7fd5c8825",
+      "createdAt" : [ 2026, 8, 1, 14, 48, 24 ],
+      "updatedAt" : [ 2026, 8, 2, 7, 51, 57 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "SmartProcureX",
+        "mta_version" : "1.0.0",
+        "mta_module" : "{\"name\":\"SmartProcureX-db-deployer\"}",
+        "mta_module_provided_dependencies" : "[]",
+        "mta_bound_services" : "[\"SmartProcureX-db\"]"
+      },
+      "labels" : {
+        "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+      }
+    },
+    "state" : "STOPPED",
+    "lifecycle" : {
+      "type" : "BUILDPACK",
+      "data" : {
+        "stack" : "cflinuxfs4",
+        "buildpacks" : [ "nodejs_buildpack" ]
+      }
+    },
+    "space" : {
+      "name" : "dev",
+      "metadata" : {
+        "guid" : "0628b1b5-c14d-4a0a-abf9-843360b5d7c0",
+        "createdAt" : [ 2026, 7, 23, 14, 6, 33 ],
+        "updatedAt" : [ 2026, 7, 23, 14, 6, 33 ]
+      },
+      "organization" : {
+        "name" : "0d79b96ctrial",
+        "metadata" : {
+          "guid" : "e8159873-0fc0-4477-a4f9-3c43fdb65fe4",
+          "createdAt" : [ 2026, 7, 23, 14, 6, 33 ],
+          "updatedAt" : [ 2026, 7, 23, 14, 6, 33 ]
+        }
+      }
+    },
+    "moduleName" : "SmartProcureX-db-deployer",
+    "boundMtaServices" : [ "SmartProcureX-db" ],
+    "providedDependencyNames" : [ ],
+    "productizationState" : "LIVE"
+  } ],
+  "services" : [ {
+    "name" : "SmartProcureX-db",
+    "metadata" : {
+      "guid" : "9fc87af4-19e1-4db1-8420-e162f36ff23e",
+      "createdAt" : [ 2026, 8, 1, 14, 52, 26 ],
+      "updatedAt" : [ 2026, 8, 1, 14, 52, 26 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "SmartProcureX",
+        "mta_version" : "1.0.0",
+        "mta_resource" : "{\"name\":\"SmartProcureX-db\"}"
+      },
+      "labels" : {
+        "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+      }
+    },
+    "label" : "hana",
+    "plan" : "hdi-shared",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed",
+    "lastOperation" : {
+      "type" : "CREATE",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "SmartProcureX-db"
+  }, {
+    "name" : "SmartProcureX-uaa",
+    "metadata" : {
+      "guid" : "f5ed9421-0b3f-4176-88f9-40b5b6fb832c",
+      "createdAt" : [ 2026, 8, 2, 5, 39, 57 ],
+      "updatedAt" : [ 2026, 8, 2, 5, 39, 58 ]
+    },
+    "v3Metadata" : {
+      "annotations" : {
+        "mta_id" : "SmartProcureX",
+        "mta_version" : "1.0.0",
+        "mta_resource" : "{\"name\":\"SmartProcureX-uaa\"}"
+      },
+      "labels" : {
+        "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+      }
+    },
+    "label" : "xsuaa",
+    "plan" : "application",
+    "credentials" : "********",
+    "tags" : [ ],
+    "type" : "managed",
+    "lastOperation" : {
+      "type" : "UPDATE",
+      "description" : "",
+      "state" : "SUCCEEDED"
+    },
+    "resourceName" : "SmartProcureX-uaa"
+  } ]
+}#
+#2026 08 02 07:54:37.249#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Detected deployed MTA with ID "SmartProcureX" and version "1.0.0"#
+#2026 08 02 07:54:37.252#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Detecting backup mta by id "SmartProcureX" and namespace "null"#
+#2026 08 02 07:54:37.252#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Getting applications by metadata label selector "mta_id=60d3256ea3ff6d6dd8595a8e3b7c0c22,mta_namespace=b698114a0995e936895b9598a6c19a2c"...#
+#2026 08 02 07:54:37.279#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Getting service instances by metadata label selector "mta_id=60d3256ea3ff6d6dd8595a8e3b7c0c22,mta_namespace=b698114a0995e936895b9598a6c19a2c"...#
+#2026 08 02 07:54:37.334#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetectDeployedMtaStep] Deployed MTA service keys: [ ]#
+#2026 08 02 07:54:37.334#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Detect Deployed MTA" finished#
+#2026 08 02 07:54:37.351#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Executing task "collectSystemParametersTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.352#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Collecting system parameters...#
+#2026 08 02 07:54:37.352#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Getting default domain...#
+#2026 08 02 07:54:37.381#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Default domain: cfapps.us10-003.hana.ondemand.com#
+#2026 08 02 07:54:37.382#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Checking for overwriting read-only parameters for mta with id: "SmartProcureX"#
+#2026 08 02 07:54:37.382#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] No read-only parameters are overwritten#
+#2026 08 02 07:54:37.394#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Descriptor with system parameters: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "SmartProcureX",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-srv",
+    "type" : "javascript.nodejs",
+    "path" : "SmartProcureX-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "SmartProcureX-srv",
+      "generated-password" : "********",
+      "default-live-url" : "${protocol}://${default-live-uri}",
+      "default-uri" : "${host}.${domain}",
+      "default-instances" : 1,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "app-name" : "${default-app-name}",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-srv.${domain}",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-srv",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "SmartProcureX-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "SmartProcureX-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "${protocol}://${default-live-uri}",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "instances" : "${default-instances}",
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "app-name" : "${default-app-name}",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.${domain}",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-db-deployer",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "dependency-type" : "hard",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-db",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-db",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-uaa",
+    "type" : "com.sap.xs.uaa",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "path" : "./xs-security.json",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "application",
+      "service" : "xsuaa",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-uaa",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-uaa",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "SmartProcureX",
+    "authorization-url" : "********",
+    "org-guid" : "e8159873-0fc0-4477-a4f9-3c43fdb65fe4",
+    "org" : "0d79b96ctrial",
+    "deploy-target" : "0d79b96ctrial dev",
+    "enable-parallel-deployments" : true,
+    "space" : "dev",
+    "xs-api-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.us10-003.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "0628b1b5-c14d-4a0a-abf9-843360b5d7c0",
+    "user" : "********",
+    "controller-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "timestamp" : "20260802075436"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 08 02 07:54:37.395#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Version rule: SAME_HIGHER#
+#2026 08 02 07:54:37.395#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Detected new MTA version: "1.0.0"#
+#2026 08 02 07:54:37.397#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] Deployed MTA version: "1.0.0"#
+#2026 08 02 07:54:37.400#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] MTA accepted for deployment#
+#2026 08 02 07:54:37.400#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2CollectSystemParametersStep] System parameters collected#
+#2026 08 02 07:54:37.400#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Collect System Parameters" finished#
+#2026 08 02 07:54:37.417#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ProcessDescriptorStep] Executing task "processDescriptorTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.417#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+#2026 08 02 07:54:37.419#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ProcessDescriptorStep] Subscriptions: [ ]#
+#2026 08 02 07:54:37.419#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ProcessDescriptorStep] MTA modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:37.420#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "SmartProcureX",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-srv",
+    "type" : "javascript.nodejs",
+    "path" : "SmartProcureX-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-app-name" : "SmartProcureX-srv",
+      "generated-password" : "********",
+      "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-instances" : 1,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "app-name" : "SmartProcureX-srv",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-srv",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "domain" : "cfapps.us10-003.hana.ondemand.com",
+      "host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "SmartProcureX-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "default-app-name" : "SmartProcureX-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "default-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "app-name" : "SmartProcureX-db-deployer",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-db-deployer",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.us10-003.hana.ondemand.com",
+      "host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "SmartProcureX-db",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-db",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-db",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-uaa",
+    "type" : "com.sap.xs.uaa",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "path" : "./xs-security.json",
+      "service-name" : "SmartProcureX-uaa",
+      "service-plan" : "application",
+      "service" : "xsuaa",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-uaa",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-uaa",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "SmartProcureX",
+    "authorization-url" : "********",
+    "org-guid" : "e8159873-0fc0-4477-a4f9-3c43fdb65fe4",
+    "org" : "0d79b96ctrial",
+    "deploy-target" : "0d79b96ctrial dev",
+    "enable-parallel-deployments" : true,
+    "region-primary-domain" : "us10.hana.ondemand.com",
+    "space" : "dev",
+    "region-domain" : "us10-003.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.us10-003.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "0628b1b5-c14d-4a0a-abf9-843360b5d7c0",
+    "user" : "********",
+    "controller-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "timestamp" : "20260802075436"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 08 02 07:54:37.420#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+#2026 08 02 07:54:37.420#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Process Descriptor Step" finished#
+#2026 08 02 07:54:37.437#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Executing task "buildDeployModelTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.438#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Service keys defined for content deployment grouped by service name: { }#
+#2026 08 02 07:54:37.438#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Building cloud deployment model...#
+#2026 08 02 07:54:37.439#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] MTA archive modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:37.439#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Deployed modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:37.440#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] MTA modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:37.440#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Service keys to create: {
+  "SmartProcureX-uaa" : [ ],
+  "SmartProcureX-db" : [ ]
+}#
+#2026 08 02 07:54:37.440#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Modules to deploy: [{
+  "majorSchemaVersion" : 3,
+  "name" : "SmartProcureX-srv",
+  "type" : "javascript.nodejs",
+  "path" : "SmartProcureX-srv",
+  "properties" : { },
+  "parameters" : {
+    "default-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "default-app-name" : "SmartProcureX-srv",
+    "generated-password" : "********",
+    "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "default-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "default-instances" : 1,
+    "default-live-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+    "instances" : 1,
+    "buildpack" : "nodejs_buildpack",
+    "default-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+    "app-name" : "SmartProcureX-srv",
+    "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "protocol" : "https",
+    "default-live-app-name" : "SmartProcureX-srv",
+    "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "dependency-type" : "soft",
+    "domain" : "cfapps.us10-003.hana.ondemand.com",
+    "host" : "0d79b96ctrial-dev-smartprocurex-srv",
+    "generated-user" : "********"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-uaa",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "srv-api",
+    "isPublic" : false,
+    "properties" : {
+      "srv-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-srv",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+}, {
+  "majorSchemaVersion" : 3,
+  "name" : "SmartProcureX-db-deployer",
+  "type" : "com.sap.xs.hdi",
+  "path" : "SmartProcureX-db-deployer",
+  "properties" : {
+    "EXIT" : 1
+  },
+  "parameters" : {
+    "default-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "default-app-name" : "SmartProcureX-db-deployer",
+    "generated-password" : "********",
+    "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "default-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "memory" : "256M",
+    "default-instances" : 1,
+    "no-route" : true,
+    "default-live-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+    "instances" : 1,
+    "buildpack" : "nodejs_buildpack",
+    "default-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+    "app-name" : "SmartProcureX-db-deployer",
+    "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "protocol" : "https",
+    "default-live-app-name" : "SmartProcureX-db-deployer",
+    "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "dependency-type" : "hard",
+    "domain" : "cfapps.us10-003.hana.ondemand.com",
+    "host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+    "generated-user" : "********",
+    "tasks" : [ {
+      "command" : "npm start",
+      "memory" : "256M",
+      "name" : "deploy"
+    } ],
+    "no-start" : true
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db-deployer",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+}]#
+#2026 08 02 07:54:37.441#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Custom domains: []#
+#2026 08 02 07:54:37.443#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Calculating resource batches...#
+#2026 08 02 07:54:37.443#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Calculating resource batches completed.#
+#2026 08 02 07:54:37.443#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[XS2BuildCloudDeployModelStep] Cloud deployment model built#
+#2026 08 02 07:54:37.443#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Build Deploy Model" finished#
+#2026 08 02 07:54:37.462#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Executing task "buildUndeployModelTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.463#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Building cloud undeployment model...#
+#2026 08 02 07:54:37.464#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Detecting service keys to delete.#
+#2026 08 02 07:54:37.464#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] No deployed service keys detected!#
+#2026 08 02 07:54:37.464#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Detected service keys to delete "[]"#
+#2026 08 02 07:54:37.466#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] MTA modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:37.466#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Modules to undeploy: [ ]#
+#2026 08 02 07:54:37.466#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Modules that won't be changed: [ ]#
+#2026 08 02 07:54:37.467#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Subscriptions to delete: [ ]#
+#2026 08 02 07:54:37.468#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Cloud services to delete: []#
+#2026 08 02 07:54:37.468#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Cloud applications to undeploy: [ ]#
+#2026 08 02 07:54:37.469#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[BuildCloudUndeployModelStep] Cloud undeployment model built#
+#2026 08 02 07:54:37.469#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Build Undeploy Model" finished#
+#2026 08 02 07:54:37.486#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[AddDomainsStep] Executing task "addDomainsTask" of process "6828ea88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.487#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[AddDomainsStep] Custom domains: []#
+#2026 08 02 07:54:37.487#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Add Domains" finished#
+#2026 08 02 07:54:37.553#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ExtractBatchedServicesWithResolvedDynamicParametersStep] Executing task "prepareModulesDeploymentTask" of process "68ac9991-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.553#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ExtractBatchedServicesWithResolvedDynamicParametersStep] Extracting services and resolving dynamic parameters from batch#
+#2026 08 02 07:54:37.554#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[ExtractBatchedServicesWithResolvedDynamicParametersStep] Services to create: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "SmartProcureX-db",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "SmartProcureX",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"SmartProcureX-db\"}"
+    },
+    "labels" : {
+      "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed",
+  "resourceName" : "SmartProcureX-db",
+  "shouldSkipParametersUpdate" : false,
+  "shouldSkipPlanUpdate" : false,
+  "shouldSkipTagsUpdate" : false,
+  "shouldSkipSyslogUrlUpdate" : false
+}, {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "SmartProcureX-uaa",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "SmartProcureX",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"SmartProcureX-uaa\"}"
+    },
+    "labels" : {
+      "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+    }
+  },
+  "label" : "xsuaa",
+  "plan" : "application",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed",
+  "resourceName" : "SmartProcureX-uaa",
+  "shouldSkipParametersUpdate" : false,
+  "shouldSkipPlanUpdate" : false,
+  "shouldSkipTagsUpdate" : false,
+  "shouldSkipSyslogUrlUpdate" : false
+} ]#
+#2026 08 02 07:54:37.555#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Extract Services with Resolved Dynamic parameters from batch" finished#
+#2026 08 02 07:54:37.601#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[CheckServiceOperationStateStep] Executing task "CheckServiceOperationStateTask" of process "68b636bf-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.602#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[CheckServiceOperationStateStep] Getting service instance "SmartProcureX-db"...#
+#2026 08 02 07:54:37.700#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Check for service operations in Progress" finished#
+#2026 08 02 07:54:37.716#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetermineServiceCreateUpdateServiceActionsStep] Executing task "DetermineServiceCreateUpdateActionsTask" of process "68b636bf-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.716#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetermineServiceCreateUpdateServiceActionsStep] Processing service "SmartProcureX-db"...#
+#2026 08 02 07:54:37.719#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetermineServiceCreateUpdateServiceActionsStep] Getting service instance "SmartProcureX-db"...#
+#2026 08 02 07:54:37.815#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetermineServiceCreateUpdateServiceActionsStep] Existing service: {
+  "name" : "SmartProcureX-db",
+  "metadata" : {
+    "guid" : "9fc87af4-19e1-4db1-8420-e162f36ff23e",
+    "createdAt" : [ 2026, 8, 1, 14, 52, 26 ],
+    "updatedAt" : [ 2026, 8, 1, 14, 52, 26 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "SmartProcureX",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"SmartProcureX-db\"}"
+    },
+    "labels" : {
+      "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed",
+  "lastOperation" : {
+    "type" : "CREATE",
+    "state" : "SUCCEEDED"
+  }
+}#
+#2026 08 02 07:54:37.815#Z#WARN#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[DetermineServiceCreateUpdateServiceActionsStep] Service parameters for service "SmartProcureX-db" will not be updated, as the parameters are not defined or empty.#
+#2026 08 02 07:54:37.815#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Determine update actions" finished#
+#2026 08 02 07:54:37.837#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+[CheckForServiceBindingOrKeyOperationStep] Executing task "CheckForServiceBindingOrKeyCreation" of process "68b636bf-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:37.838#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9982#
+Step "Check for service binding or key creation" finished#
+#2026 08 02 07:54:38.987#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[CheckServiceOperationStateStep] Executing task "CheckServiceOperationStateTask" of process "69893d88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:38.988#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[CheckServiceOperationStateStep] Getting service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:54:39.072#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+Step "Check for service operations in Progress" finished#
+#2026 08 02 07:54:39.086#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[DetermineServiceCreateUpdateServiceActionsStep] Executing task "DetermineServiceCreateUpdateActionsTask" of process "69893d88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:39.087#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[DetermineServiceCreateUpdateServiceActionsStep] Processing service "SmartProcureX-uaa"...#
+#2026 08 02 07:54:39.090#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[DetermineServiceCreateUpdateServiceActionsStep] Getting service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:54:39.183#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[DetermineServiceCreateUpdateServiceActionsStep] Setting service "SmartProcureX-uaa" parameters from "xs-security.json"#
+#2026 08 02 07:54:39.217#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[DetermineServiceCreateUpdateServiceActionsStep] Existing service: {
+  "name" : "SmartProcureX-uaa",
+  "metadata" : {
+    "guid" : "f5ed9421-0b3f-4176-88f9-40b5b6fb832c",
+    "createdAt" : [ 2026, 8, 2, 5, 39, 57 ],
+    "updatedAt" : [ 2026, 8, 2, 5, 39, 58 ]
+  },
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "SmartProcureX",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"SmartProcureX-uaa\"}"
+    },
+    "labels" : {
+      "mta_id" : "60d3256ea3ff6d6dd8595a8e3b7c0c22"
+    }
+  },
+  "label" : "xsuaa",
+  "plan" : "application",
+  "credentials" : "********",
+  "tags" : [ ],
+  "type" : "managed",
+  "lastOperation" : {
+    "type" : "UPDATE",
+    "description" : "",
+    "state" : "SUCCEEDED"
+  }
+}#
+#2026 08 02 07:54:39.217#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[DetermineServiceCreateUpdateServiceActionsStep] Service parameters will be updated#
+#2026 08 02 07:54:39.217#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[DetermineServiceCreateUpdateServiceActionsStep] New parameters: {
+  "oauth2-configuration" : "********",
+  "role-collections" : [ {
+    "name" : "SmartProcureX_Requester",
+    "description" : "SmartProcureX Requester",
+    "role-template-references" : [ "$XSAPPNAME.RequesterTemplate" ]
+  }, {
+    "name" : "SmartProcureX_Approver",
+    "description" : "SmartProcureX Approver",
+    "role-template-references" : [ "$XSAPPNAME.ApproverTemplate" ]
+  }, {
+    "name" : "SmartProcureX_Manager",
+    "description" : "SmartProcureX Manager",
+    "role-template-references" : [ "$XSAPPNAME.ManagerTemplate" ]
+  }, {
+    "name" : "SmartProcureX_Admin",
+    "description" : "SmartProcureX Admin",
+    "role-template-references" : [ "$XSAPPNAME.AdminTemplate" ]
+  } ],
+  "role-templates" : [ {
+    "name" : "RequesterTemplate",
+    "description" : "Requester Access",
+    "scope-references" : [ "$XSAPPNAME.Requester" ]
+  }, {
+    "name" : "ApproverTemplate",
+    "description" : "Approver Access",
+    "scope-references" : [ "$XSAPPNAME.Approver" ]
+  }, {
+    "name" : "ManagerTemplate",
+    "description" : "Procurement Manager Access",
+    "scope-references" : [ "$XSAPPNAME.ProcurementManager" ]
+  }, {
+    "name" : "AdminTemplate",
+    "description" : "Admin Access",
+    "scope-references" : [ "$XSAPPNAME.Admin" ]
+  } ],
+  "scopes" : [ {
+    "name" : "$XSAPPNAME.Requester",
+    "description" : "Create and view own requests"
+  }, {
+    "name" : "$XSAPPNAME.Approver",
+    "description" : "Approve or reject requests"
+  }, {
+    "name" : "$XSAPPNAME.ProcurementManager",
+    "description" : "Convert POs, manage suppliers"
+  }, {
+    "name" : "$XSAPPNAME.Admin",
+    "description" : "Full system access"
+  } ],
+  "tenant-mode" : "dedicated",
+  "xsappname" : "smartprocurex"
+}#
+#2026 08 02 07:54:39.217#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+Step "Determine update actions" finished#
+#2026 08 02 07:54:39.238#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[CheckForServiceBindingOrKeyOperationStep] Executing task "CheckForServiceBindingOrKeyCreation" of process "69893d88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:39.239#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+Step "Check for service binding or key creation" finished#
+#2026 08 02 07:54:39.256#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[UpdateServiceParametersStep] Executing task "UpdateServiceParametersTask" of process "69893d88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:39.257#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[UpdateServiceParametersStep] Updating service "SmartProcureX-uaa"...#
+#2026 08 02 07:54:39.260#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[UpdateServiceParametersStep] Updating service parameters for service "SmartProcureX-uaa"...#
+#2026 08 02 07:54:39.359#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[UpdateServiceParametersStep] Service "SmartProcureX-uaa" updated#
+#2026 08 02 07:54:39.359#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+[UpdateServiceParametersStep] Triggered service operations: {
+  "SmartProcureX-uaa" : "UPDATE"
+}#
+#2026 08 02 07:54:39.360#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9983#
+Step "Update parameters" finished#
+#2026 08 02 07:54:47.184#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+[UpdateServiceParametersStep] Executing task "UpdateServiceParametersTask" of process "69893d88-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:47.184#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+[UpdateServiceParametersStep] Polling service operations...#
+#2026 08 02 07:54:47.185#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+[UpdateServiceParametersStep] Getting service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:54:47.279#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+[UpdateServiceParametersStep] Last operation for service "SmartProcureX-uaa": {
+  "type" : "UPDATE",
+  "description" : "",
+  "state" : "SUCCEEDED"
+}#
+#2026 08 02 07:54:47.279#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+[UpdateServiceParametersStep] Service "SmartProcureX-uaa" updated#
+#2026 08 02 07:54:47.280#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+[UpdateServiceParametersStep] 1 of 1 done#
+#2026 08 02 07:54:47.282#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+[UpdateServiceParametersStep] Remaining services to poll: [ ]#
+#2026 08 02 07:54:47.283#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9987#
+Step "Update parameters" finished#
+#2026 08 02 07:54:47.413#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9990#
+[PrepareModulesDeploymentStep] Executing task "prepareModulesDeploymentTask" of process "6e8d1dca-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:47.413#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9990#
+[PrepareModulesDeploymentStep] Preparing modules deployment...#
+#2026 08 02 07:54:47.415#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9990#
+Step "Prepare Modules Deployment" finished#
+#2026 08 02 07:54:47.438#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ComputeNextModulesStep] Executing task "computeNextModulesToDeployInParallel" of process "6e8d1dca-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:47.438#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ComputeNextModulesStep] Computing modules for next parallel iteration...#
+#2026 08 02 07:54:47.439#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ComputeNextModulesStep] Completed modules detected: []#
+#2026 08 02 07:54:47.439#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ComputeNextModulesStep] All modules for deploy detected: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:47.439#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ComputeNextModulesStep] Modules not for deploy detected: []#
+#2026 08 02 07:54:47.440#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ComputeNextModulesStep] Computed modules for next parallel iteration: [ {
+  "majorSchemaVersion" : 3,
+  "name" : "SmartProcureX-srv",
+  "type" : "javascript.nodejs",
+  "path" : "SmartProcureX-srv",
+  "properties" : { },
+  "parameters" : {
+    "app-name" : "SmartProcureX-srv",
+    "buildpack" : "nodejs_buildpack",
+    "default-app-name" : "SmartProcureX-srv",
+    "default-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+    "default-instances" : 1,
+    "default-live-app-name" : "SmartProcureX-srv",
+    "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "default-live-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+    "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "default-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "default-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+    "dependency-type" : "soft",
+    "domain" : "cfapps.us10-003.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "********",
+    "host" : "0d79b96ctrial-dev-smartprocurex-srv",
+    "instances" : 1,
+    "protocol" : "https"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-uaa",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "srv-api",
+    "isPublic" : false,
+    "properties" : {
+      "srv-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-srv",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+}, {
+  "majorSchemaVersion" : 3,
+  "name" : "SmartProcureX-db-deployer",
+  "type" : "com.sap.xs.hdi",
+  "path" : "SmartProcureX-db-deployer",
+  "properties" : {
+    "EXIT" : 1
+  },
+  "parameters" : {
+    "app-name" : "SmartProcureX-db-deployer",
+    "buildpack" : "nodejs_buildpack",
+    "default-app-name" : "SmartProcureX-db-deployer",
+    "default-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+    "default-instances" : 1,
+    "default-live-app-name" : "SmartProcureX-db-deployer",
+    "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "default-live-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+    "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "default-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "default-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+    "dependency-type" : "hard",
+    "domain" : "cfapps.us10-003.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "********",
+    "host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+    "instances" : 1,
+    "memory" : "256M",
+    "no-route" : true,
+    "no-start" : true,
+    "protocol" : "https",
+    "tasks" : [ {
+      "command" : "npm start",
+      "memory" : "256M",
+      "name" : "deploy"
+    } ]
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db-deployer",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "deployedAfter" : [ ],
+  "hooks" : [ ]
+} ]#
+#2026 08 02 07:54:47.440#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+Step "Compute Next Modules To Deploy" finished#
+#2026 08 02 07:54:47.515#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ProcessDescriptorStep] Executing task "reprocessDescriptorTask" of process "6e9bc48c-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:47.515#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+#2026 08 02 07:54:47.517#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ProcessDescriptorStep] Subscriptions: [ ]#
+#2026 08 02 07:54:47.520#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ProcessDescriptorStep] MTA modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:47.521#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "SmartProcureX",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-srv",
+    "type" : "javascript.nodejs",
+    "path" : "SmartProcureX-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-app-name" : "SmartProcureX-srv",
+      "generated-password" : "********",
+      "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-instances" : 1,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "app-name" : "SmartProcureX-srv",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-srv",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "domain" : "cfapps.us10-003.hana.ondemand.com",
+      "host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "SmartProcureX-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "default-app-name" : "SmartProcureX-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "default-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "app-name" : "SmartProcureX-db-deployer",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-db-deployer",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.us10-003.hana.ondemand.com",
+      "host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "SmartProcureX-db",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-db",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-db",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-uaa",
+    "type" : "com.sap.xs.uaa",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "path" : "./xs-security.json",
+      "service-name" : "SmartProcureX-uaa",
+      "service-plan" : "application",
+      "service" : "xsuaa",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-uaa",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-uaa",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "SmartProcureX",
+    "authorization-url" : "********",
+    "org-guid" : "e8159873-0fc0-4477-a4f9-3c43fdb65fe4",
+    "org" : "0d79b96ctrial",
+    "deploy-target" : "0d79b96ctrial dev",
+    "enable-parallel-deployments" : true,
+    "region-primary-domain" : "us10.hana.ondemand.com",
+    "space" : "dev",
+    "region-domain" : "us10-003.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.us10-003.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "0628b1b5-c14d-4a0a-abf9-843360b5d7c0",
+    "user" : "********",
+    "controller-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "timestamp" : "20260802075436"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 08 02 07:54:47.521#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+#2026 08 02 07:54:47.521#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+Step "Re-Process Descriptor Step" finished#
+#2026 08 02 07:54:47.536#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[BuildApplicationDeployModelStep] Executing task "buildApplicationDeployModelTask" of process "6e9bc48c-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:47.537#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[BuildApplicationDeployModelStep] Building cloud deployment model for application "SmartProcureX-srv"...#
+#2026 08 02 07:54:47.539#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[BuildApplicationDeployModelStep] No health-check-type is specified. Setting default type: port#
+#2026 08 02 07:54:47.540#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[BuildApplicationDeployModelStep] Building configuration entries for org 0d79b96ctrial, space dev, spaceId 0628b1b5-c14d-4a0a-abf9-843360b5d7c0 and namespace null!#
+#2026 08 02 07:54:47.540#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[BuildApplicationDeployModelStep] Configuration entries to publish: [ ]#
+#2026 08 02 07:54:47.540#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[BuildApplicationDeployModelStep] Cloud deployment model for application built#
+#2026 08 02 07:54:47.540#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+Step "Build Application Deploy Model" finished#
+#2026 08 02 07:54:47.557#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Executing task "createAppTask" of process "6e9bc48c-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:47.558#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Getting application "SmartProcureX-srv"...#
+#2026 08 02 07:54:47.588#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Updating application "SmartProcureX-srv"...#
+#2026 08 02 07:54:47.591#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Getting process for application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:54:47.627#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Getting routes for application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:54:47.657#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Getting features for application "d9622003-7570-45ea-b8be-97c6305e4251"#
+#2026 08 02 07:54:47.675#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Updating staging of application "SmartProcureX-srv" to: {
+  "buildpacks" : [ "nodejs_buildpack" ],
+  "healthCheckType" : "port",
+  "appFeatures" : { }
+}#
+#2026 08 02 07:54:47.875#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Application "SmartProcureX-srv" updated#
+#2026 08 02 07:54:47.875#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Getting environment of application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:54:47.938#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CreateOrUpdateAppStep] Application "SmartProcureX-srv" updated#
+#2026 08 02 07:54:47.938#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+Step "Create App" finished#
+#2026 08 02 07:54:48.030#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ProcessDescriptorStep] Executing task "reprocessDescriptorTask" of process "6ee9473e-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:48.030#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+#2026 08 02 07:54:48.032#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ProcessDescriptorStep] Subscriptions: [ ]#
+#2026 08 02 07:54:48.035#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ProcessDescriptorStep] MTA modules: [SmartProcureX-db-deployer, SmartProcureX-srv]#
+#2026 08 02 07:54:48.036#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "SmartProcureX",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-srv",
+    "type" : "javascript.nodejs",
+    "path" : "SmartProcureX-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-app-name" : "SmartProcureX-srv",
+      "generated-password" : "********",
+      "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "default-instances" : 1,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "app-name" : "SmartProcureX-srv",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-srv",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "domain" : "cfapps.us10-003.hana.ondemand.com",
+      "host" : "0d79b96ctrial-dev-smartprocurex-srv",
+      "generated-user" : "********"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-uaa",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv-api",
+      "isPublic" : false,
+      "properties" : {
+        "srv-url" : "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db-deployer",
+    "type" : "com.sap.xs.hdi",
+    "path" : "SmartProcureX-db-deployer",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "default-app-name" : "SmartProcureX-db-deployer",
+      "generated-password" : "********",
+      "default-live-url" : "https://0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "default-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "default-live-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "instances" : 1,
+      "buildpack" : "nodejs_buildpack",
+      "default-host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "app-name" : "SmartProcureX-db-deployer",
+      "default-live-uri" : "0d79b96ctrial-dev-smartprocurex-db-deployer.cfapps.us10-003.hana.ondemand.com",
+      "protocol" : "https",
+      "default-live-app-name" : "SmartProcureX-db-deployer",
+      "default-live-domain" : "cfapps.us10-003.hana.ondemand.com",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.us10-003.hana.ondemand.com",
+      "host" : "0d79b96ctrial-dev-smartprocurex-db-deployer",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "SmartProcureX-db-deployer",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-db",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "SmartProcureX-db",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-db",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-db",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_DB"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "SmartProcureX-uaa",
+    "type" : "com.sap.xs.uaa",
+    "properties" : { },
+    "parameters" : {
+      "generated-password" : "********",
+      "path" : "./xs-security.json",
+      "service-name" : "SmartProcureX-uaa",
+      "service-plan" : "application",
+      "service" : "xsuaa",
+      "generated-user" : "********",
+      "default-xsappname" : "SmartProcureX-uaa",
+      "type" : "managed-service",
+      "default-service-name" : "SmartProcureX-uaa",
+      "default-container-name" : "0D79B96CTRIAL_DEV_SMARTPROCUREX_UAA"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ],
+    "processedAfter" : [ ]
+  } ],
+  "parameters" : {
+    "mta-id" : "SmartProcureX",
+    "authorization-url" : "********",
+    "org-guid" : "e8159873-0fc0-4477-a4f9-3c43fdb65fe4",
+    "org" : "0d79b96ctrial",
+    "deploy-target" : "0d79b96ctrial dev",
+    "enable-parallel-deployments" : true,
+    "region-primary-domain" : "us10.hana.ondemand.com",
+    "space" : "dev",
+    "region-domain" : "us10-003.hana.ondemand.com",
+    "xs-api-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.us10-003.hana.ondemand.com",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.us10-003.hana.ondemand.com",
+    "mta-version" : "1.0.0",
+    "xs-auth-url" : "********",
+    "space-guid" : "0628b1b5-c14d-4a0a-abf9-843360b5d7c0",
+    "user" : "********",
+    "controller-url" : "https://api.cf.us10-003.hana.ondemand.com",
+    "timestamp" : "20260802075436"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+#2026 08 02 07:54:48.036#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+#2026 08 02 07:54:48.036#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Re-Process Descriptor Step" finished#
+#2026 08 02 07:54:48.052#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[BuildApplicationDeployModelStep] Executing task "buildApplicationDeployModelTask" of process "6ee9473e-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:48.053#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[BuildApplicationDeployModelStep] Building cloud deployment model for application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:48.056#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[BuildApplicationDeployModelStep] No health-check-type is specified. Setting default type: port#
+#2026 08 02 07:54:48.057#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[BuildApplicationDeployModelStep] Building configuration entries for org 0d79b96ctrial, space dev, spaceId 0628b1b5-c14d-4a0a-abf9-843360b5d7c0 and namespace null!#
+#2026 08 02 07:54:48.057#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[BuildApplicationDeployModelStep] Configuration entries to publish: [ ]#
+#2026 08 02 07:54:48.057#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[BuildApplicationDeployModelStep] Cloud deployment model for application built#
+#2026 08 02 07:54:48.057#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Build Application Deploy Model" finished#
+#2026 08 02 07:54:47.996#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CheckServiceBindingOperationStep] Executing task "checkForServiceBindingOperationInProgress" of process "6ee7e816-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:47.996#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CheckServiceBindingOperationStep] Checking for service binding operation in progress between app "SmartProcureX-srv" and service instance "SmartProcureX-db"#
+#2026 08 02 07:54:47.997#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CheckServiceBindingOperationStep] Getting application guid "SmartProcureX-srv"...#
+#2026 08 02 07:54:48.027#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CheckServiceBindingOperationStep] Getting GUID of required service instance "SmartProcureX-db"...#
+#2026 08 02 07:54:48.054#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CheckServiceBindingOperationStep] Getting binding of service instance "9fc87af4-19e1-4db1-8420-e162f36ff23e" with application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:54:48.091#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[CheckServiceBindingOperationStep] Service binding operation "0b41c6c1-41c0-4316-a449-d500818b2f6d" with type "create" is in state "succeeded"#
+#2026 08 02 07:54:48.091#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+Step "Check For Service Binding Operation In Progress" finished#
+#2026 08 02 07:54:48.083#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1886#
+[CheckServiceBindingOperationStep] Executing task "checkForServiceBindingOperationInProgress" of process "6ef2481c-8e47-11f1-a438-eeee0a897f8c"...#
+#2026 08 02 07:54:48.084#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1886#
+[CheckServiceBindingOperationStep] Checking for service binding operation in progress between app "SmartProcureX-srv" and service instance "SmartProcureX-uaa"#
+#2026 08 02 07:54:48.085#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1886#
+[CheckServiceBindingOperationStep] Getting application guid "SmartProcureX-srv"...#
+#2026 08 02 07:54:48.118#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1886#
+[CheckServiceBindingOperationStep] Getting GUID of required service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:54:48.152#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1886#
+[CheckServiceBindingOperationStep] Getting binding of service instance "f5ed9421-0b3f-4176-88f9-40b5b6fb832c" with application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:54:48.178#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1886#
+[CheckServiceBindingOperationStep] Service binding operation "98dd6914-93c1-4cf5-9f2d-21e8cccd5cc7" with type "create" is in state "succeeded"#
+#2026 08 02 07:54:48.178#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1886#
+Step "Check For Service Binding Operation In Progress" finished#
+#2026 08 02 07:54:48.209#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "6ef2481c-8e47-11f1-a438-eeee0a897f8c"...#
+#2026 08 02 07:54:48.211#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Determine bind/unbind operations of application "SmartProcureX-srv" to service instance "SmartProcureX-uaa"#
+#2026 08 02 07:54:48.211#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Getting application "SmartProcureX-srv"...#
+#2026 08 02 07:54:48.251#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Binding parameters for application "SmartProcureX-srv": { }#
+#2026 08 02 07:54:48.295#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Check should rebind application "SmartProcureX-srv" and service instance "SmartProcureX-uaa"#
+#2026 08 02 07:54:48.295#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Getting GUID of required service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:54:48.323#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Getting binding of service instance "f5ed9421-0b3f-4176-88f9-40b5b6fb832c" with application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:54:48.354#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Getting parameters of service binding "98dd6914-93c1-4cf5-9f2d-21e8cccd5cc7"...#
+#2026 08 02 07:54:48.401#Z#WARN#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Cannot retrieve parameters of binding between application "SmartProcureX-srv" and service instance "SmartProcureX-uaa"#
+#2026 08 02 07:54:48.402#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "SmartProcureX-srv" and service instance "SmartProcureX-uaa": unbind - true bind - true#
+#2026 08 02 07:54:48.402#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1887#
+Step "Determine Application Service Binding Actions" finished#
+#2026 08 02 07:54:48.106#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "6ee7e816-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:48.107#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Determine bind/unbind operations of application "SmartProcureX-srv" to service instance "SmartProcureX-db"#
+#2026 08 02 07:54:48.107#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Getting application "SmartProcureX-srv"...#
+#2026 08 02 07:54:48.140#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Binding parameters for application "SmartProcureX-srv": { }#
+#2026 08 02 07:54:48.185#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Check should rebind application "SmartProcureX-srv" and service instance "SmartProcureX-db"#
+#2026 08 02 07:54:48.185#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Getting GUID of required service instance "SmartProcureX-db"...#
+#2026 08 02 07:54:48.208#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Getting binding of service instance "9fc87af4-19e1-4db1-8420-e162f36ff23e" with application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:54:48.237#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Getting parameters of service binding "0b41c6c1-41c0-4316-a449-d500818b2f6d"...#
+#2026 08 02 07:54:48.428#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Service instance "SmartProcureX-db" will not be rebound to application "SmartProcureX-srv" because the binding parameters are not modified#
+#2026 08 02 07:54:48.431#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "SmartProcureX-srv" and service instance "SmartProcureX-db": unbind - false bind - false#
+#2026 08 02 07:54:48.431#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9991#
+Step "Determine Application Service Binding Actions" finished#
+#2026 08 02 07:54:48.078#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Executing task "createAppTask" of process "6ee9473e-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:48.079#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Getting application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:48.105#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Updating application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:48.108#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Getting process for application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:48.137#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Getting routes for application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:48.170#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Getting features for application "0811d82a-292b-418f-a9aa-32d7fd5c8825"#
+#2026 08 02 07:54:48.192#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Updating staging of application "SmartProcureX-db-deployer" to: {
+  "buildpacks" : [ "nodejs_buildpack" ],
+  "healthCheckType" : "port",
+  "appFeatures" : { }
+}#
+#2026 08 02 07:54:48.384#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Application "SmartProcureX-db-deployer" updated#
+#2026 08 02 07:54:48.384#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Getting environment of application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:48.438#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CreateOrUpdateAppStep] Application "SmartProcureX-db-deployer" updated#
+#2026 08 02 07:54:48.438#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Create App" finished#
+#2026 08 02 07:54:48.487#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CheckServiceBindingOperationStep] Executing task "checkForServiceBindingOperationInProgress" of process "6f337006-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:48.487#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CheckServiceBindingOperationStep] Checking for service binding operation in progress between app "SmartProcureX-db-deployer" and service instance "SmartProcureX-db"#
+#2026 08 02 07:54:48.488#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CheckServiceBindingOperationStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:48.514#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CheckServiceBindingOperationStep] Getting GUID of required service instance "SmartProcureX-db"...#
+#2026 08 02 07:54:48.541#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CheckServiceBindingOperationStep] Getting binding of service instance "9fc87af4-19e1-4db1-8420-e162f36ff23e" with application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:48.578#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[CheckServiceBindingOperationStep] Service binding operation "7f321c65-bc25-4b00-951f-a1213461f0f1" with type "create" is in state "succeeded"#
+#2026 08 02 07:54:48.578#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Check For Service Binding Operation In Progress" finished#
+#2026 08 02 07:54:48.440#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1888#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "6ef2481c-8e47-11f1-a438-eeee0a897f8c"...#
+#2026 08 02 07:54:48.444#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1888#
+[UnbindServiceFromApplicationStep] Unbinding service instance "SmartProcureX-uaa" from application "SmartProcureX-srv"...#
+#2026 08 02 07:54:48.451#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1888#
+[UnbindServiceFromApplicationStep] Unbinding application "SmartProcureX-srv" from service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:54:48.588#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-1888#
+Step "Unbind Service from Application" finished#
+#2026 08 02 07:54:48.594#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Executing task "determineApplicationServiceBindingActionsTask" of process "6f337006-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:48.595#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Determine bind/unbind operations of application "SmartProcureX-db-deployer" to service instance "SmartProcureX-db"#
+#2026 08 02 07:54:48.595#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Getting application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:48.626#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Binding parameters for application "SmartProcureX-db-deployer": { }#
+#2026 08 02 07:54:48.654#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Check should rebind application "SmartProcureX-db-deployer" and service instance "SmartProcureX-db"#
+#2026 08 02 07:54:48.654#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Getting GUID of required service instance "SmartProcureX-db"...#
+#2026 08 02 07:54:48.700#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Getting binding of service instance "9fc87af4-19e1-4db1-8420-e162f36ff23e" with application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:48.729#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Getting parameters of service binding "7f321c65-bc25-4b00-951f-a1213461f0f1"...#
+#2026 08 02 07:54:48.914#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Service instance "SmartProcureX-db" will not be rebound to application "SmartProcureX-db-deployer" because the binding parameters are not modified#
+#2026 08 02 07:54:48.917#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineApplicationServiceBindingActionsStep] Calculated binding operations between application "SmartProcureX-db-deployer" and service instance "SmartProcureX-db": unbind - false bind - false#
+#2026 08 02 07:54:48.917#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Determine Application Service Binding Actions" finished#
+#2026 08 02 07:54:48.984#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineVcapServicesPropertiesChangedStep] Executing task "determineVcapServicesPropertiesChangedTask" of process "6f7e5ad0-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:48.985#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineVcapServicesPropertiesChangedStep] VCAP_SERVICES properties for application "SmartProcureX-db-deployer" changed: false#
+#2026 08 02 07:54:48.985#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Determine vcap services properties changed" finished#
+#2026 08 02 07:54:49.003#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Executing task "uploadAppTask" of process "6f7e5ad0-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:49.004#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 08 02 07:54:49.004#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Uploading application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:49.007#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Getting application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:49.039#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Getting environment of application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:49.073#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Calculating application digest: "SmartProcureX-db-deployer"#
+#2026 08 02 07:54:49.142#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Getting packages for application: "0811d82a-292b-418f-a9aa-32d7fd5c8825"#
+#2026 08 02 07:54:49.190#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Getting the current droplet for application: "0811d82a-292b-418f-a9aa-32d7fd5c8825"#
+#2026 08 02 07:54:49.219#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Getting package by id: "681f094d-9f9d-40de-9e71-5fc1a3bafebd"#
+#2026 08 02 07:54:49.249#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Getting builds for application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:49.352#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Getting the current droplet for application: "0811d82a-292b-418f-a9aa-32d7fd5c8825"#
+#2026 08 02 07:54:49.385#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[UploadAppStep] Content of application "SmartProcureX-db-deployer" is not changed - upload will be skipped.#
+#2026 08 02 07:54:49.388#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Upload App" finished#
+#2026 08 02 07:54:49.406#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ScaleAppStep] Executing task "scaleAppTask" of process "6f7e5ad0-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:49.407#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ScaleAppStep] Scaling application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:49.407#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ScaleAppStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:49.437#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ScaleAppStep] Getting process for application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:49.468#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ScaleAppStep] Application "SmartProcureX-db-deployer" scaled#
+#2026 08 02 07:54:49.468#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Scale App" finished#
+#2026 08 02 07:54:49.482#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineDesiredStateAchievingActionsStep] Executing task "determineDesiredStateAchievingActionsTask" of process "6f7e5ad0-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:49.483#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineDesiredStateAchievingActionsStep] Getting application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:49.524#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineDesiredStateAchievingActionsStep] Getting instances for application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:49.524#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineDesiredStateAchievingActionsStep] Getting environment of application "0811d82a-292b-418f-a9aa-32d7fd5c8825"...#
+#2026 08 02 07:54:49.558#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineDesiredStateAchievingActionsStep] Current state of application SmartProcureX-db-deployer: STOPPED#
+#2026 08 02 07:54:49.558#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineDesiredStateAchievingActionsStep] Desired state of application SmartProcureX-db-deployer: STOPPED#
+#2026 08 02 07:54:49.558#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[DetermineDesiredStateAchievingActionsStep] Actions that should be executed on application SmartProcureX-db-deployer: [STAGE]#
+#2026 08 02 07:54:49.558#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Determine Desired State Achieving Actions" finished#
+#2026 08 02 07:54:49.576#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[StageAppStep] Executing task "stageAppTask" of process "6f7e5ad0-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:49.577#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 08 02 07:54:49.577#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Stage App" finished#
+#2026 08 02 07:54:49.619#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[PrepareToExecuteTasksStep] Executing task "prepareToExecuteTasksTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:49.619#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Prepare To Execute Tasks" finished#
+#2026 08 02 07:54:49.637#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:49.638#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:54:49.639#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ExecuteTaskStep] Executing task "deploy" on application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:49.641#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+[ExecuteTaskStep] Running task on application "SmartProcureX-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 08 02 07:54:49.885#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9989#
+Step "Execute Task" finished#
+#2026 08 02 07:54:57.198#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9996#
+[UnbindServiceFromApplicationStep] Executing task "unbindServiceFromApplicationTask" of process "6ef2481c-8e47-11f1-a438-eeee0a897f8c"...#
+#2026 08 02 07:54:57.199#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9996#
+[UnbindServiceFromApplicationStep] Getting async job "b6e54a63-76d0-4dbb-82a6-356790fcba83"#
+#2026 08 02 07:54:57.231#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9996#
+[UnbindServiceFromApplicationStep] Getting service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:54:57.321#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9996#
+[UnbindServiceFromApplicationStep] Async service binding operation with id "b6e54a63-76d0-4dbb-82a6-356790fcba83" finished#
+#2026 08 02 07:54:57.322#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9996#
+Step "Unbind Service from Application" finished#
+#2026 08 02 07:54:57.202#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9997#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:54:57.203#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9997#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:54:57.204#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9997#
+[ExecuteTaskStep] Getting task "003526b0-1cd7-4129-bb79-39e9a1881645"...#
+#2026 08 02 07:54:57.227#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9997#
+[ExecuteTaskStep] Task execution status: running#
+#2026 08 02 07:54:57.228#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9997#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:54:57.350#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9997#
+Step "Execute Task" finished#
+#2026 08 02 07:54:57.342#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9998#
+[BindServiceToApplicationStep] Executing task "bindServiceToApplicationTask" of process "6ef2481c-8e47-11f1-a438-eeee0a897f8c"...#
+#2026 08 02 07:54:57.343#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9998#
+[BindServiceToApplicationStep] Binding service instance "SmartProcureX-uaa" to application "SmartProcureX-srv"...#
+#2026 08 02 07:54:57.348#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9998#
+[BindServiceToApplicationStep] Binding service instance "SmartProcureX-uaa" to application "SmartProcureX-srv" with parameters: { }#
+#2026 08 02 07:54:57.455#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-9998#
+Step "Bind Service to Application" finished#
+#2026 08 02 07:55:07.215#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10002#
+[BindServiceToApplicationStep] Executing task "bindServiceToApplicationTask" of process "6ef2481c-8e47-11f1-a438-eeee0a897f8c"...#
+#2026 08 02 07:55:07.216#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10002#
+[BindServiceToApplicationStep] Getting async job "d9fc9319-169b-4e5f-b757-c486a40ad6c8"#
+#2026 08 02 07:55:07.240#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10002#
+[BindServiceToApplicationStep] Getting service instance "SmartProcureX-uaa"...#
+#2026 08 02 07:55:07.349#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10002#
+[BindServiceToApplicationStep] Async service binding operation with id "d9fc9319-169b-4e5f-b757-c486a40ad6c8" finished#
+#2026 08 02 07:55:07.349#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10002#
+Step "Bind Service to Application" finished#
+#2026 08 02 07:55:07.226#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:07.228#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:07.230#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+[ExecuteTaskStep] Getting task "003526b0-1cd7-4129-bb79-39e9a1881645"...#
+#2026 08 02 07:55:07.280#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 08 02 07:55:07.281#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:07.380#Z#ERROR#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+[ExecuteTaskStep] Execution of task "deploy" on application "SmartProcureX-db-deployer" failed.#
+#2026 08 02 07:55:07.386#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 08 02 07:55:07.389#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2159#
+Step "Execute Task" finished#
+#2026 08 02 07:55:07.418#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10004#
+[DetermineVcapServicesPropertiesChangedStep] Executing task "determineVcapServicesPropertiesChangedTask" of process "7a7a3f3b-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:07.419#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10004#
+[DetermineVcapServicesPropertiesChangedStep] VCAP_SERVICES properties for application "SmartProcureX-srv" changed: true#
+#2026 08 02 07:55:07.419#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10004#
+Step "Determine vcap services properties changed" finished#
+#2026 08 02 07:55:07.435#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Executing task "uploadAppTask" of process "7a7a3f3b-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:07.435#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Application upload timeout is default one: 3,600 seconds#
+#2026 08 02 07:55:07.435#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Uploading application "SmartProcureX-srv"...#
+#2026 08 02 07:55:07.438#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Getting application "SmartProcureX-srv"...#
+#2026 08 02 07:55:07.473#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Getting environment of application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:55:07.505#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Calculating application digest: "SmartProcureX-srv"#
+#2026 08 02 07:55:07.622#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Getting packages for application: "d9622003-7570-45ea-b8be-97c6305e4251"#
+#2026 08 02 07:55:07.665#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Getting the current droplet for application: "d9622003-7570-45ea-b8be-97c6305e4251"#
+#2026 08 02 07:55:07.699#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Getting package by id: "ff311c70-2349-43e2-a418-2d5eee8d0a70"#
+#2026 08 02 07:55:07.734#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Getting builds for application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:55:07.835#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Getting the current droplet for application: "d9622003-7570-45ea-b8be-97c6305e4251"#
+#2026 08 02 07:55:07.864#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+[UploadAppStep] Content of application "SmartProcureX-srv" is not changed - upload will be skipped.#
+#2026 08 02 07:55:07.867#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10005#
+Step "Upload App" finished#
+#2026 08 02 07:55:07.885#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[ScaleAppStep] Executing task "scaleAppTask" of process "7a7a3f3b-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:07.887#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[ScaleAppStep] Scaling application "SmartProcureX-srv"...#
+#2026 08 02 07:55:07.887#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[ScaleAppStep] Getting application guid "SmartProcureX-srv"...#
+#2026 08 02 07:55:07.918#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[ScaleAppStep] Getting process for application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:55:07.947#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[ScaleAppStep] Application "SmartProcureX-srv" scaled#
+#2026 08 02 07:55:07.947#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+Step "Scale App" finished#
+#2026 08 02 07:55:07.961#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[DetermineDesiredStateAchievingActionsStep] Executing task "determineDesiredStateAchievingActionsTask" of process "7a7a3f3b-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:07.962#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[DetermineDesiredStateAchievingActionsStep] Getting application "SmartProcureX-srv"...#
+#2026 08 02 07:55:07.992#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[DetermineDesiredStateAchievingActionsStep] Getting instances for application "SmartProcureX-srv"...#
+#2026 08 02 07:55:08.042#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[DetermineDesiredStateAchievingActionsStep] Getting environment of application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:55:08.069#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[DetermineDesiredStateAchievingActionsStep] Current state of application SmartProcureX-srv: STARTED#
+#2026 08 02 07:55:08.069#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[DetermineDesiredStateAchievingActionsStep] Desired state of application SmartProcureX-srv: STARTED#
+#2026 08 02 07:55:08.070#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[DetermineDesiredStateAchievingActionsStep] Actions that should be executed on application SmartProcureX-srv: [STOP, STAGE, START]#
+#2026 08 02 07:55:08.070#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+Step "Determine Desired State Achieving Actions" finished#
+#2026 08 02 07:55:08.087#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[StopAppStep] Executing task "stopAppTask" of process "7a7a3f3b-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:08.089#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[StopAppStep] Stopping application "SmartProcureX-srv"...#
+#2026 08 02 07:55:08.091#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[StopAppStep] Stopping application "SmartProcureX-srv"...#
+#2026 08 02 07:55:08.229#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[StopAppStep] Application "SmartProcureX-srv" stopped#
+#2026 08 02 07:55:08.229#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[StopAppStep] Getting environment of application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:55:08.257#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+Step "Stop App" finished#
+#2026 08 02 07:55:08.280#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[StageAppStep] Executing task "stageAppTask" of process "7aff9c0d-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:08.280#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[StageAppStep] Application stage timeout is default one: 3,600 seconds#
+#2026 08 02 07:55:08.281#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+Step "Stage App" finished#
+#2026 08 02 07:55:08.222#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10001#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:08.223#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10001#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:08.224#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10001#
+[ExecuteTaskStep] Executing task "deploy" on application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:08.226#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10001#
+[ExecuteTaskStep] Running task on application "SmartProcureX-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 08 02 07:55:08.466#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10001#
+Step "Execute Task" finished#
+#2026 08 02 07:55:08.298#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[RestartAppStep] Executing task "startAppTask" of process "7aff9c0d-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:08.299#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[RestartAppStep] Application start timeout is default one: 3,600 seconds#
+#2026 08 02 07:55:08.302#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[RestartAppStep] Getting application "SmartProcureX-srv"...#
+#2026 08 02 07:55:08.331#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[RestartAppStep] Starting application "SmartProcureX-srv"...#
+#2026 08 02 07:55:08.334#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+[RestartAppStep] Starting application "SmartProcureX-srv"...#
+#2026 08 02 07:55:08.553#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10006#
+Step "Start App" finished#
+#2026 08 02 07:55:17.220#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10009#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:17.220#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10009#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:17.221#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10009#
+[ExecuteTaskStep] Getting task "25f382d8-5c93-4cca-8084-13cbeb0dd782"...#
+#2026 08 02 07:55:17.254#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10009#
+[ExecuteTaskStep] Task execution status: running#
+#2026 08 02 07:55:17.255#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10009#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:17.301#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10009#
+Step "Execute Task" finished#
+#2026 08 02 07:55:17.235#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Executing task "startAppTask" of process "7b2cc6ab-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:17.236#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Application start timeout is default one: 3,600 seconds#
+#2026 08 02 07:55:17.306#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Checking status of application "SmartProcureX-srv"...#
+#2026 08 02 07:55:17.307#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Getting application "SmartProcureX-srv"...#
+#2026 08 02 07:55:17.352#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Getting instances for application "SmartProcureX-srv"...#
+#2026 08 02 07:55:17.418#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Application "SmartProcureX-srv": 1 of 1 instances running (1 running)#
+#2026 08 02 07:55:17.554#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Getting routes for application "d9622003-7570-45ea-b8be-97c6305e4251"...#
+#2026 08 02 07:55:17.588#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+[RestartAppStep] Application "SmartProcureX-srv" started and available at "0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com"#
+#2026 08 02 07:55:17.593#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2161#
+Step "Start App" finished#
+#2026 08 02 07:55:27.240#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+[RestartAppStep] Executing task "startAppTask" of process "80907971-8e47-11f1-b78d-eeee0a90d8f6"...#
+#2026 08 02 07:55:27.241#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+[RestartAppStep] Application start timeout is default one: 3,600 seconds#
+#2026 08 02 07:55:27.242#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+Step "Start App" finished#
+#2026 08 02 07:55:27.288#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+[PrepareToExecuteTasksStep] Executing task "prepareToExecuteTasksTask" of process "8653b158-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:27.289#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+Step "Prepare To Execute Tasks" finished#
+#2026 08 02 07:55:27.319#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+[PublishConfigurationEntriesStep] Executing task "publishProvidedDependenciesTask" of process "86507ce7-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:27.320#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+[PublishConfigurationEntriesStep] Publishing public provided dependencies for application "SmartProcureX-srv"...#
+#2026 08 02 07:55:27.320#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+[PublishConfigurationEntriesStep] No public provided dependencies for publishing#
+#2026 08 02 07:55:27.320#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+Step "Publish Provided Dependencies" finished#
+#2026 08 02 07:55:27.336#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+[CreateOrUpdateServiceBrokerStep] Executing task "createOrUpdateServiceBrokerTask" of process "86507ce7-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:27.336#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+[CreateOrUpdateServiceBrokerStep] Creating service brokers...#
+#2026 08 02 07:55:27.337#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10018#
+Step "Create Or Update Service Broker " finished#
+#2026 08 02 07:55:27.233#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:27.233#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:27.234#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+[ExecuteTaskStep] Getting task "25f382d8-5c93-4cca-8084-13cbeb0dd782"...#
+#2026 08 02 07:55:27.283#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 08 02 07:55:27.284#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:27.366#Z#ERROR#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+[ExecuteTaskStep] Execution of task "deploy" on application "SmartProcureX-db-deployer" failed.#
+#2026 08 02 07:55:27.369#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 08 02 07:55:27.373#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10014#
+Step "Execute Task" finished#
+#2026 08 02 07:55:29.471#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:29.472#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:29.534#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+[ExecuteTaskStep] Executing task "deploy" on application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:29.537#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+[ExecuteTaskStep] Running task on application "SmartProcureX-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 08 02 07:55:29.826#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10016#
+Step "Execute Task" finished#
+#2026 08 02 07:55:37.248#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10022#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:37.249#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10022#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:37.250#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10022#
+[ExecuteTaskStep] Getting task "00798ee9-859c-41e9-aa02-7684f2ca9c61"...#
+#2026 08 02 07:55:37.279#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10022#
+[ExecuteTaskStep] Task execution status: running#
+#2026 08 02 07:55:37.279#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10022#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:37.360#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10022#
+Step "Execute Task" finished#
+#2026 08 02 07:55:47.250#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:47.251#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:47.251#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+[ExecuteTaskStep] Getting task "00798ee9-859c-41e9-aa02-7684f2ca9c61"...#
+#2026 08 02 07:55:47.281#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 08 02 07:55:47.282#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:47.336#Z#ERROR#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+[ExecuteTaskStep] Execution of task "deploy" on application "SmartProcureX-db-deployer" failed.#
+#2026 08 02 07:55:47.339#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 08 02 07:55:47.342#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10025#
+Step "Execute Task" finished#
+#2026 08 02 07:55:50.707#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10027#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:50.707#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10027#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:50.757#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10027#
+[ExecuteTaskStep] Executing task "deploy" on application "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:50.760#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10027#
+[ExecuteTaskStep] Running task on application "SmartProcureX-db-deployer": {
+  "name" : "deploy",
+  "command" : "npm start",
+  "limits" : {
+    "memory" : 256
+  }
+}#
+#2026 08 02 07:55:51.028#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10027#
+Step "Execute Task" finished#
+#2026 08 02 07:55:57.277#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2163#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:55:57.278#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2163#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:55:57.279#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2163#
+[ExecuteTaskStep] Getting task "22542981-2bcf-4e1d-8b76-1b2da9a31301"...#
+#2026 08 02 07:55:57.313#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2163#
+[ExecuteTaskStep] Task execution status: running#
+#2026 08 02 07:55:57.315#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2163#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:55:57.408#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-2163#
+Step "Execute Task" finished#
+#2026 08 02 07:56:07.271#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+[ExecuteTaskStep] Executing task "executeTaskTask" of process "6fe02a29-8e47-11f1-a22d-eeee0a847462"...#
+#2026 08 02 07:56:07.272#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+[ExecuteTaskStep] Application task execution timeout is default one: 43,200 seconds#
+#2026 08 02 07:56:07.272#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+[ExecuteTaskStep] Getting task "22542981-2bcf-4e1d-8b76-1b2da9a31301"...#
+#2026 08 02 07:56:07.304#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+[ExecuteTaskStep] Task execution status: failed#
+#2026 08 02 07:56:07.305#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+[ExecuteTaskStep] Getting application guid "SmartProcureX-db-deployer"...#
+#2026 08 02 07:56:07.359#Z#ERROR#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+[ExecuteTaskStep] Execution of task "deploy" on application "SmartProcureX-db-deployer" failed.#
+#2026 08 02 07:56:07.362#Z#INFO#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+[ExecuteTaskStep] Download the MTA operation logs for more details.#
+#2026 08 02 07:56:07.365#Z#DEBUG#6828ea62-8e47-11f1-a22d-eeee0a847462.OPERATION#flowable-async-job-executor-thread-10033#
+Step "Execute Task" finished#

@@ -11,8 +11,23 @@ build-parameters:
 
 modules:
   - name: com.smartprocurex.smartprocurexui
-    type: staticfile
-    path: dist
+    type: nodejs
+    path: .
     parameters:
-      disk-quota: 256M
-      memory: 256M
+      disk-quota: 1024M
+      memory: 512M
+    requires:
+      - name: SmartProcureX-uaa
+    properties:
+      destinations: >
+        [
+          {
+            "name": "srv-api",
+            "url": "https://0d79b96ctrial-dev-smartprocurex-srv.cfapps.us10-003.hana.ondemand.com",
+            "forwardAuthToken": true
+          }
+        ]
+
+resources:
+  - name: SmartProcureX-uaa
+    type: org.cloudfoundry.existing-service

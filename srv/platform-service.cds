@@ -1,6 +1,6 @@
 using { smartprocurex.platform as platform } from '../db/platform-support';
 
-service PlatformService {
+service PlatformService @(requires: 'Admin') {
 
     entity Notifications
         as projection on platform.Notification;

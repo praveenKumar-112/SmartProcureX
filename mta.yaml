@@ -25,6 +25,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: SmartProcureX-db
+      - name: SmartProcureX-uaa
 
   - name: SmartProcureX-db-deployer
     type: hdb
@@ -40,3 +41,9 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+  - name: SmartProcureX-uaa
+    type: com.sap.xs.uaa
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application

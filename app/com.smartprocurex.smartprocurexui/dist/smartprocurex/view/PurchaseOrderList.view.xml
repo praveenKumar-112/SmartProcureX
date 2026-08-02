@@ -1,0 +1,65 @@
+<mvc:View
+    controllerName="smartprocurex.controller.PurchaseOrderList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Purchase Orders"
+          showNavButton="true"
+          navButtonPress=".onNavBack">
+
+        <content>
+            <Panel class="sapUiMediumMarginTop">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Purchase Orders"/>
+                        <ToolbarSpacer/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <Table
+                    items="{
+                        path:'/PurchaseOrders'
+                    }">
+                    <columns>
+                        <Column>
+                            <Text text="PO Number"/>
+                        </Column>
+                        <Column>
+                            <Text text="Supplier"/>
+                        </Column>
+                        <Column>
+                            <Text text="Order Date"/>
+                        </Column>
+                        <Column>
+                            <Text text="Amount"/>
+                        </Column>
+                        <Column>
+                            <Text text="Status"/>
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem
+                            type="Navigation"
+                            press=".onPOPress">
+                            <cells>
+                                <Text text="{poNumber}"/>
+                                <Text text="{supplier_ID}"/>
+                                <Text text="{orderDate}"/>
+                                <ObjectNumber
+                                    number="{totalAmount}"
+                                    unit="INR"/>
+                                <ObjectStatus
+                                    text="{status}"
+                                    state="{
+                                        path:'status',
+                                        formatter: '.getPOStatusState'
+                                    }"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
